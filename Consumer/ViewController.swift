@@ -8,10 +8,23 @@
 
 import UIKit
 
+import PokemonKit
+
 class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        PokemonKit.fetchBerryList()
+            .then { berryList in
+                print(berryList)
+            }.error { error in
+                print(error)
+        }
+        
+        PokemonKit.fetchPokemons().then { list in
+            print(list)
+        }
         // Do any additional setup after loading the view, typically from a nib.
     }
 

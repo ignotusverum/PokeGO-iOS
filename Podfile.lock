@@ -3,13 +3,11 @@ PODS:
   - Alamofire (3.4.1)
   - AlamofireImage (2.4.0):
     - Alamofire (~> 3.3)
+  - AlamofireObjectMapper (2.1.2):
+    - Alamofire (~> 3.2)
+    - ObjectMapper (~> 1.0)
   - Analytics (3.2.6)
-  - APAddressBook/Core (0.2.3)
-  - APAddressBook/Swift (0.2.3):
-    - APAddressBook/Core
-  - BKMoneyKit (0.0.7)
   - BuddyBuildSDK (1.0.9)
-  - CardIO (5.3.2)
   - ChameleonFramework/Default (2.1.0)
   - ChameleonFramework/Swift (2.1.0):
     - ChameleonFramework/Default
@@ -20,19 +18,14 @@ PODS:
   - EZSwipeController (0.5)
   - Fabric (1.6.7)
   - IQKeyboardManagerSwift (4.0.4)
-  - Iris (1.1.1)
-  - JDStatusBarNotification (1.5.3)
-  - JSQMessagesViewController (7.3.3):
-    - JSQSystemSoundPlayer (~> 2.0.1)
-  - JSQSystemSoundPlayer (2.0.1)
   - MagicalRecord/Shorthand (2.2)
-  - Masonry (1.0.1)
   - Mixpanel (3.0.0):
     - Mixpanel/Mixpanel (= 3.0.0)
   - Mixpanel/Mixpanel (3.0.0)
   - MotionBlur (0.2.0)
   - netfox (1.7.2)
   - NVActivityIndicatorView (2.9)
+  - ObjectMapper (1.3.0)
   - OMGHTTPURLRQ (3.1.2):
     - OMGHTTPURLRQ/RQ (= 3.1.2)
   - OMGHTTPURLRQ/FormURLEncode (3.1.2)
@@ -40,6 +33,10 @@ PODS:
     - OMGHTTPURLRQ/FormURLEncode
     - OMGHTTPURLRQ/UserAgent
   - OMGHTTPURLRQ/UserAgent (3.1.2)
+  - PokemonKit (1.0.2):
+    - Alamofire (~> 3.0)
+    - AlamofireObjectMapper (~> 2.1)
+    - PromiseKit
   - pop (1.0.9)
   - PromiseKit (3.2.1):
     - PromiseKit/Foundation (= 3.2.1)
@@ -58,24 +55,15 @@ PODS:
     - Analytics (~> 3.0)
     - Mixpanel (~> 3.0)
   - Shimmer (1.0.2)
-  - Stripe (6.0.1):
-    - Stripe/Core (= 6.0.1)
-  - Stripe/Core (6.0.1)
-  - SVProgressHUD (2.0.3)
   - SwiftyBeaver (0.6.3)
   - SwiftyJSON (2.3.2)
-  - TwilioCommon (0.1.10)
-  - TwilioIPMessagingClient (0.13.5)
 
 DEPENDENCIES:
   - AFDateHelper
   - Alamofire (~> 3.0)
   - AlamofireImage (~> 2.0)
   - Analytics
-  - APAddressBook/Swift
-  - BKMoneyKit
   - BuddyBuildSDK
-  - CardIO
   - ChameleonFramework/Swift
   - Crashlytics
   - CSStickyHeaderFlowLayout
@@ -83,41 +71,26 @@ DEPENDENCIES:
   - EZSwipeController
   - Fabric
   - IQKeyboardManagerSwift
-  - Iris
-  - JDStatusBarNotification
-  - JSQMessagesViewController
   - MagicalRecord/Shorthand
-  - Masonry
   - MotionBlur
   - netfox
   - NVActivityIndicatorView
+  - PokemonKit
   - pop (~> 1.0)
   - PromiseKit
   - ReachabilitySwift
   - Segment-Mixpanel
   - Shimmer
-  - Stripe (= 6.0.1)
-  - SVProgressHUD
   - SwiftyBeaver
   - SwiftyJSON
-  - TwilioCommon (from `https://media.twiliocdn.com/sdk/rtc/ios/common/v0.1/TwilioCommon.podspec`)
-  - TwilioIPMessagingClient (from `https://media.twiliocdn.com/sdk/rtc/ios/ip-messaging/v0.13/TwilioIPMessagingClient.podspec`)
-
-EXTERNAL SOURCES:
-  TwilioCommon:
-    :podspec: https://media.twiliocdn.com/sdk/rtc/ios/common/v0.1/TwilioCommon.podspec
-  TwilioIPMessagingClient:
-    :podspec: https://media.twiliocdn.com/sdk/rtc/ios/ip-messaging/v0.13/TwilioIPMessagingClient.podspec
 
 SPEC CHECKSUMS:
   AFDateHelper: aecee6bb264d6531795649f4ebac47783d2bab74
   Alamofire: 01a82e2f6c0f860ade35534c8dd88be61bdef40c
   AlamofireImage: 87408b652e0f5ae5fe364035f15aea8b9b24c77e
+  AlamofireObjectMapper: 82391c31f23e37bdb2660da174bcf81b202da39d
   Analytics: ad1c5bdc169866d72afdbc918084d0695010e35a
-  APAddressBook: 2a91bf05999548bea210ec9d1a68073f4dc8bfce
-  BKMoneyKit: 5cb2e7a073aec2c033d3ec64c9c1154a7826ef0e
   BuddyBuildSDK: 8bf4d6241f64942311a0e12a3b9591bc2cbdab15
-  CardIO: 92c45caef0d986c4a303a7afba0c9b76ff2b1f6e
   ChameleonFramework: d21a3cc247abfe5e37609a283a8238b03575cf64
   Crashlytics: 130ab943f8c78cda7a814b434f270b2e2c8a3cba
   CSStickyHeaderFlowLayout: 5366582779d8b7c9ba9b9cc729c218cc23888776
@@ -125,27 +98,20 @@ SPEC CHECKSUMS:
   EZSwipeController: 01cc43b319e133b6dbfb25bfdc78617a1560e952
   Fabric: caf7580c725e64db144f610ac65cd60956911dc7
   IQKeyboardManagerSwift: e0964d04d6a29b71016fd346dca13ecb80a2823a
-  Iris: 7971fae7932a2c7be34746a9e0eb64b8a63c3ece
-  JDStatusBarNotification: 29413865af11c862c17180610b0f46a21118b412
-  JSQMessagesViewController: 0ee3f80237268192a3e8337fd0d787f1a1bf5a7a
-  JSQSystemSoundPlayer: c5850e77a4363ffd374cd851154b9af93264ed8d
   MagicalRecord: 2dc87179ae7c1f2a274442624ec65a07d4357a6f
-  Masonry: a1a931a0d08870ed8ae415a2ea5ea68ebcac77df
   Mixpanel: ac92056ee35a961362513ba11049e67cffcaa1f1
   MotionBlur: 5dc5583a725f087bdf952278b1c41b7bb7ba5f79
   netfox: ab995a8327995b847a7b7c1d83c574e0d4aacb25
   NVActivityIndicatorView: 0084f6be71bdf4735b5424ebfb530b1e3db3276c
+  ObjectMapper: 4eb08a726e9791a93b2632049951b56a7c17e471
   OMGHTTPURLRQ: 38316b56d88125c600bcdb16df8329147da2b0ee
+  PokemonKit: e334cd270095b63f710df1a48abe813c9a307c23
   pop: f667631a5108a2e60d9e8797c9b32ddaf2080bce
   PromiseKit: ef54f61501541bf18a87b25115c372184d180cea
   ReachabilitySwift: e0f6b6f280effb47731acfaaa2d5ffe223703793
   Segment-Mixpanel: 8e9f449c86d929f0e7abb2e89c760e65f5182d6e
   Shimmer: c5374be1c2b0c9e292fb05b339a513cf291cac86
-  Stripe: 04f215191702c268b89fe0cdf28dc24a9688a71b
-  SVProgressHUD: b0830714205bea1317ea1a2ebc71e5633af334d4
   SwiftyBeaver: c182c001d532111becf2285b8878abf54c7b5621
   SwiftyJSON: 04ccea08915aa0109039157c7974cf0298da292a
-  TwilioCommon: 0c1b601770d3431453a979e8a0794313e99f9317
-  TwilioIPMessagingClient: 97f2f8aa7fdcab675db51a0d77850492a3ba63f1
 
 COCOAPODS: 0.39.0
