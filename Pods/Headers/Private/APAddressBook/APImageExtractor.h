@@ -1,1 +1,0 @@
-../../../APAddressBook/Pod/Core/Private/Extractors/APImageExtractor.h

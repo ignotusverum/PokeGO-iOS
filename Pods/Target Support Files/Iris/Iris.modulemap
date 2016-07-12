@@ -1,6 +1,0 @@
-framework module Iris {
-  umbrella header "Iris-umbrella.h"
-
-  export *
-  module * { export * }
-}
