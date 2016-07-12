@@ -21,10 +21,14 @@ class ViewController: UIViewController {
             }.error { error in
                 print(error)
         }
-        
-        PokemonKit.fetchPokemons().then { list in
-            print(list)
+
+        PokemonKit.fetchPokemon("1").then { result in
+            print(result.name)
         }
+        
+//        PokemonKit.fetchPokemons().then { list in
+//            
+//        }
         // Do any additional setup after loading the view, typically from a nib.
     }
 
