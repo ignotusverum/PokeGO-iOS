@@ -1,0 +1,26 @@
+{
+  "name": "TwilioCommon",
+  "version": "0.1.10",
+  "summary": "Twilio Common",
+  "description": "",
+  "homepage": "http://www.twilio.com/client",
+  "platforms": {
+    "ios": "8.1"
+  },
+  "license": {
+    "type": "Commercial",
+    "text": "Copyright 2011-2015 Twilio. All rights reserved. Use of this software is subject to the terms and conditions of the Twilio Terms of Service located at http://www.twilio.com/legal/tos"
+  },
+  "authors": {
+    "Twilio": "help@twilio.com"
+  },
+  "source": {
+    "http": "https://media.twiliocdn.com/sdk/rtc/ios/common/releases/0.1.10.b34-af6df97/twilio-rtc-common.tar.bz2"
+  },
+  "libraries": "c++",
+  "vendored_frameworks": "TwilioCommon.framework",
+  "requires_arc": true,
+  "xcconfig": {
+    "OTHER_LDFLAGS": "-read_only_relocs suppress"
+  }
+}

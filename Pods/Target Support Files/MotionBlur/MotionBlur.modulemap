@@ -1,0 +1,6 @@
+framework module MotionBlur {
+  umbrella header "MotionBlur-umbrella.h"
+
+  export *
+  module * { export * }
+}
