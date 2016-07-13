@@ -10,6 +10,9 @@
 		B82726281D37017800BD959B /* RCGNetworkingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B82726271D37017800BD959B /* RCGNetworkingManager.swift */; };
 		B827262D1D37043600BD959B /* RCGSynchronizerHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = B827262C1D37043600BD959B /* RCGSynchronizerHandler.swift */; };
 		B827262F1D37045100BD959B /* RCGSynchronizerAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B827262E1D37045100BD959B /* RCGSynchronizerAdapter.swift */; };
+		B82726321D37062A00BD959B /* RCGPokemonAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B82726311D37062A00BD959B /* RCGPokemonAdapter.swift */; };
+		B82726341D37063300BD959B /* RCGMovesAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B82726331D37063300BD959B /* RCGMovesAdapter.swift */; };
+		B82726361D37066500BD959B /* RCGEvolutionAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B82726351D37066500BD959B /* RCGEvolutionAdapter.swift */; };
 		F51DE7E01D359514005E7CF3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F51DE7DF1D359514005E7CF3 /* AppDelegate.swift */; };
 		F51DE7E21D359514005E7CF3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F51DE7E11D359514005E7CF3 /* ViewController.swift */; };
 		F51DE7E51D359514005E7CF3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F51DE7E31D359514005E7CF3 /* Main.storyboard */; };
@@ -25,6 +28,9 @@
 		B82726271D37017800BD959B /* RCGNetworkingManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RCGNetworkingManager.swift; sourceTree = "<group>"; };
 		B827262C1D37043600BD959B /* RCGSynchronizerHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RCGSynchronizerHandler.swift; sourceTree = "<group>"; };
 		B827262E1D37045100BD959B /* RCGSynchronizerAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RCGSynchronizerAdapter.swift; sourceTree = "<group>"; };
+		B82726311D37062A00BD959B /* RCGPokemonAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RCGPokemonAdapter.swift; sourceTree = "<group>"; };
+		B82726331D37063300BD959B /* RCGMovesAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RCGMovesAdapter.swift; sourceTree = "<group>"; };
+		B82726351D37066500BD959B /* RCGEvolutionAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RCGEvolutionAdapter.swift; sourceTree = "<group>"; };
 		F51DE7DC1D359514005E7CF3 /* Consumer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Consumer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F51DE7DF1D359514005E7CF3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F51DE7E11D359514005E7CF3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -83,8 +89,19 @@
 			children = (
 				B827262C1D37043600BD959B /* RCGSynchronizerHandler.swift */,
 				B827262E1D37045100BD959B /* RCGSynchronizerAdapter.swift */,
+				B82726301D3705F100BD959B /* Synchronization Adapters */,
 			);
 			path = Adapters;
+			sourceTree = "<group>";
+		};
+		B82726301D3705F100BD959B /* Synchronization Adapters */ = {
+			isa = PBXGroup;
+			children = (
+				B82726311D37062A00BD959B /* RCGPokemonAdapter.swift */,
+				B82726351D37066500BD959B /* RCGEvolutionAdapter.swift */,
+				B82726331D37063300BD959B /* RCGMovesAdapter.swift */,
+			);
+			path = "Synchronization Adapters";
 			sourceTree = "<group>";
 		};
 		CBBD2125C7AC98949ABE03D6 /* Pods */ = {
@@ -254,9 +271,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				B827262F1D37045100BD959B /* RCGSynchronizerAdapter.swift in Sources */,
+				B82726341D37063300BD959B /* RCGMovesAdapter.swift in Sources */,
 				F51DE7E21D359514005E7CF3 /* ViewController.swift in Sources */,
+				B82726321D37062A00BD959B /* RCGPokemonAdapter.swift in Sources */,
 				B82726281D37017800BD959B /* RCGNetworkingManager.swift in Sources */,
 				F51DE7E01D359514005E7CF3 /* AppDelegate.swift in Sources */,
+				B82726361D37066500BD959B /* RCGEvolutionAdapter.swift in Sources */,
 				B827262D1D37043600BD959B /* RCGSynchronizerHandler.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
