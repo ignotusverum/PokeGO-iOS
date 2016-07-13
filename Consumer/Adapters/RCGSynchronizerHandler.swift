@@ -11,16 +11,18 @@ import UIKit
 import CoreData
 import SVProgressHUD
 
+import MagicalRecord
+
 let RCGSynchronizerHandlerSynchronizedNotificationKey = "RCGSynchronizerHandlerSynchronizedNotificationKey"
 
-class RCGSynchronizerHandler: NSObject {
+class RCGSynchronizerHandler: NSObject, RCGSynchronizerAdapterDelegate {
     // MARK: - Properties
     
     var showProgress = false
     
     var dataAdaptersArray: Array<RCGSynchronizerAdapter>?
     
-    static let sharedSynchronizer = TCGSynchronizerHandler()
+    static let sharedSynchronizer = RCGSynchronizerHandler()
     
     var synchronized: Bool = false
     
