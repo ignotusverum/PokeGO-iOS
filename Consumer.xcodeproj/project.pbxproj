@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		B82726281D37017800BD959B /* RCGNetworkingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B82726271D37017800BD959B /* RCGNetworkingManager.swift */; };
+		B827262D1D37043600BD959B /* RCGSynchronizerHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = B827262C1D37043600BD959B /* RCGSynchronizerHandler.swift */; };
+		B827262F1D37045100BD959B /* RCGSynchronizerAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B827262E1D37045100BD959B /* RCGSynchronizerAdapter.swift */; };
 		F51DE7E01D359514005E7CF3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F51DE7DF1D359514005E7CF3 /* AppDelegate.swift */; };
 		F51DE7E21D359514005E7CF3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F51DE7E11D359514005E7CF3 /* ViewController.swift */; };
 		F51DE7E51D359514005E7CF3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F51DE7E31D359514005E7CF3 /* Main.storyboard */; };
@@ -21,6 +23,8 @@
 		332756B0C2BFDF7765FCDF1A /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		367FEEB8285FC3F6636217F7 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		B82726271D37017800BD959B /* RCGNetworkingManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RCGNetworkingManager.swift; sourceTree = "<group>"; };
+		B827262C1D37043600BD959B /* RCGSynchronizerHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RCGSynchronizerHandler.swift; sourceTree = "<group>"; };
+		B827262E1D37045100BD959B /* RCGSynchronizerAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RCGSynchronizerAdapter.swift; sourceTree = "<group>"; };
 		F51DE7DC1D359514005E7CF3 /* Consumer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Consumer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F51DE7DF1D359514005E7CF3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F51DE7E11D359514005E7CF3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -58,6 +62,31 @@
 			path = Utilities;
 			sourceTree = "<group>";
 		};
+		B82726291D3703C200BD959B /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				F51DE7EB1D359514005E7CF3 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			path = Consumer;
+			sourceTree = "<group>";
+		};
+		B827262A1D3703F000BD959B /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		B827262B1D3703FB00BD959B /* Adapters */ = {
+			isa = PBXGroup;
+			children = (
+				B827262C1D37043600BD959B /* RCGSynchronizerHandler.swift */,
+				B827262E1D37045100BD959B /* RCGSynchronizerAdapter.swift */,
+			);
+			path = Adapters;
+			sourceTree = "<group>";
+		};
 		CBBD2125C7AC98949ABE03D6 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -71,6 +100,7 @@
 			isa = PBXGroup;
 			children = (
 				F51DE7DE1D359514005E7CF3 /* Consumer */,
+				B82726291D3703C200BD959B /* Supporting Files */,
 				F51DE7DD1D359514005E7CF3 /* Products */,
 				CBBD2125C7AC98949ABE03D6 /* Pods */,
 				4390F03CAE6816F97B51B3AA /* Frameworks */,
@@ -88,13 +118,14 @@
 		F51DE7DE1D359514005E7CF3 /* Consumer */ = {
 			isa = PBXGroup;
 			children = (
-				B82726261D37015200BD959B /* Utilities */,
+				B827262B1D3703FB00BD959B /* Adapters */,
+				B827262A1D3703F000BD959B /* Models */,
 				F51DE7DF1D359514005E7CF3 /* AppDelegate.swift */,
 				F51DE7E11D359514005E7CF3 /* ViewController.swift */,
 				F51DE7E31D359514005E7CF3 /* Main.storyboard */,
 				F51DE7E61D359514005E7CF3 /* Assets.xcassets */,
 				F51DE7E81D359514005E7CF3 /* LaunchScreen.storyboard */,
-				F51DE7EB1D359514005E7CF3 /* Info.plist */,
+				B82726261D37015200BD959B /* Utilities */,
 			);
 			path = Consumer;
 			sourceTree = "<group>";
@@ -222,9 +253,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B827262F1D37045100BD959B /* RCGSynchronizerAdapter.swift in Sources */,
 				F51DE7E21D359514005E7CF3 /* ViewController.swift in Sources */,
 				B82726281D37017800BD959B /* RCGNetworkingManager.swift in Sources */,
 				F51DE7E01D359514005E7CF3 /* AppDelegate.swift in Sources */,
+				B827262D1D37043600BD959B /* RCGSynchronizerHandler.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
