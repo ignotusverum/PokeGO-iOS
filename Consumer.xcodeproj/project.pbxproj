@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B82726281D37017800BD959B /* RCGNetworkingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B82726271D37017800BD959B /* RCGNetworkingManager.swift */; };
 		F51DE7E01D359514005E7CF3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F51DE7DF1D359514005E7CF3 /* AppDelegate.swift */; };
 		F51DE7E21D359514005E7CF3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F51DE7E11D359514005E7CF3 /* ViewController.swift */; };
 		F51DE7E51D359514005E7CF3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F51DE7E31D359514005E7CF3 /* Main.storyboard */; };
@@ -19,6 +20,7 @@
 		30A7D946297E4B907005E84F /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		332756B0C2BFDF7765FCDF1A /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		367FEEB8285FC3F6636217F7 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		B82726271D37017800BD959B /* RCGNetworkingManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RCGNetworkingManager.swift; sourceTree = "<group>"; };
 		F51DE7DC1D359514005E7CF3 /* Consumer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Consumer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F51DE7DF1D359514005E7CF3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F51DE7E11D359514005E7CF3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -46,6 +48,14 @@
 				30A7D946297E4B907005E84F /* Pods.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B82726261D37015200BD959B /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				B82726271D37017800BD959B /* RCGNetworkingManager.swift */,
+			);
+			path = Utilities;
 			sourceTree = "<group>";
 		};
 		CBBD2125C7AC98949ABE03D6 /* Pods */ = {
@@ -78,6 +88,7 @@
 		F51DE7DE1D359514005E7CF3 /* Consumer */ = {
 			isa = PBXGroup;
 			children = (
+				B82726261D37015200BD959B /* Utilities */,
 				F51DE7DF1D359514005E7CF3 /* AppDelegate.swift */,
 				F51DE7E11D359514005E7CF3 /* ViewController.swift */,
 				F51DE7E31D359514005E7CF3 /* Main.storyboard */,
@@ -212,6 +223,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F51DE7E21D359514005E7CF3 /* ViewController.swift in Sources */,
+				B82726281D37017800BD959B /* RCGNetworkingManager.swift in Sources */,
 				F51DE7E01D359514005E7CF3 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
