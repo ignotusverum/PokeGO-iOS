@@ -8,6 +8,11 @@
 
 import UIKit
 
+protocol TMSynchronizerAdapterDelegate {
+    
+    func adapterDidSynchronized(adapter: RCGSynchronizerAdapter)
+}
+
 class RCGSynchronizerAdapter: NSObject {
 
 }

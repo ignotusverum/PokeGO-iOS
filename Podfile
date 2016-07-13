@@ -27,6 +27,7 @@ pod 'pop', '~> 1.0' # Custom animations
 pod 'IQKeyboardManagerSwift' # Keyboard accessory
 pod 'NVActivityIndicatorView' #
 pod 'ChameleonFramework/Swift' # Color
+pod 'SVProgressHUD' # Progress Circle
 
 #debugging
 pod 'SwiftyBeaver'
