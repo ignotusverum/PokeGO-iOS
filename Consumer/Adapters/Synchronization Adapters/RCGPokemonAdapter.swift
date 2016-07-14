@@ -8,6 +8,8 @@
 
 import PromiseKit
 
+import SwiftyJSON
+
 import CoreData
 import MagicalRecord
 
@@ -29,12 +31,13 @@ class RCGPokemonAdapter: RCGSynchronizerAdapter {
                 
                     do {
                         // Loopin through json array
-                        for json in resultDict {
+                        for i in 0..<resultDict.count {
                         
-                            // Creating pokemon objects in database
-                            let pokemon = try RCGPokemon.fetchOrInsertWithJSON(json)
+                            var jsonUpdate = resultDict[i]
+                            jsonUpdate["id"] = JSON(i)
                             
-                            print(pokemon?.name)
+                            // Creating pokemon objects in database
+                            let pokemon = try RCGPokemon.fetchOrInsertWithJSON(jsonUpdate)
                             
                             // Safety check if it failes
                             if let pokemon = pokemon {
