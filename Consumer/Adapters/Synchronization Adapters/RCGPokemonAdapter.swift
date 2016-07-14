@@ -8,6 +8,9 @@
 
 import PromiseKit
 
+import CoreData
+import MagicalRecord
+
 class RCGPokemonAdapter: RCGSynchronizerAdapter {
 
     // Fetching pokemons
@@ -24,24 +27,28 @@ class RCGPokemonAdapter: RCGSynchronizerAdapter {
                     
                     // Safety check
                 
-                    // Loopin through json array
-                    for json in resultDict {
-                        do {
+                    do {
+                        // Loopin through json array
+                        for json in resultDict {
+                        
                             // Creating pokemon objects in database
                             let pokemon = try RCGPokemon.fetchOrInsertWithJSON(json)
+                            
+                            print(pokemon?.name)
                             
                             // Safety check if it failes
                             if let pokemon = pokemon {
                                 // Building result array
                                 resultArray.append(pokemon)
                             }
-                            
-                            // Create error handling
+                        }
+                        
+                        // Saving
+                        try NSManagedObjectContext.MR_defaultContext().save()
+                        
                         } catch { }
                         
-                        fulfill(resultArray)
-                    }
-                    
+                    fulfill(resultArray)
                 }
             }
         }

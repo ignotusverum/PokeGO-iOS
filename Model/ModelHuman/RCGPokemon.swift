@@ -35,19 +35,16 @@ public class RCGPokemon: _RCGPokemon {
 
 	    super.setValueWithJSON(json, context: context)
 
-	    if self.modelObjectID != nil {
+        if let _height = json["height"].float {
+            self.height = _height
+        }
 
-		 	if let _height = json["height"].float {
-		 		self.height = _height
-            }
+        if let _name = json["name"].string {
+            self.name = _name
+        }
 
-		 	if let _name = json["name"].string {
-		 		self.name = _name
-            }
-
-		 	if let _weight = json["weight"].float {
-		 		self.weight = _weight
-            }
+        if let _weight = json["weight"].float {
+            self.weight = _weight
         }
     }
 }
