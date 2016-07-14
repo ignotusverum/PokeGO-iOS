@@ -6,6 +6,20 @@
 	objectVersion = 46;
 	objects = {
 
+/* Begin PBXAggregateTarget section */
+		F5A57E341D3838BB005A3543 /* Mogenerator */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = F5A57E351D3838BB005A3543 /* Build configuration list for PBXAggregateTarget "Mogenerator" */;
+			buildPhases = (
+				F5A57E381D3838C0005A3543 /* ShellScript */,
+			);
+			dependencies = (
+			);
+			name = Mogenerator;
+			productName = Mogenerator;
+		};
+/* End PBXAggregateTarget section */
+
 /* Begin PBXBuildFile section */
 		B82726281D37017800BD959B /* RCGNetworkingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B82726271D37017800BD959B /* RCGNetworkingManager.swift */; };
 		B827262D1D37043600BD959B /* RCGSynchronizerHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = B827262C1D37043600BD959B /* RCGSynchronizerHandler.swift */; };
@@ -18,6 +32,12 @@
 		F51DE7E51D359514005E7CF3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F51DE7E31D359514005E7CF3 /* Main.storyboard */; };
 		F51DE7E71D359514005E7CF3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F51DE7E61D359514005E7CF3 /* Assets.xcassets */; };
 		F51DE7EA1D359514005E7CF3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F51DE7E81D359514005E7CF3 /* LaunchScreen.storyboard */; };
+		F5A57E331D3838A6005A3543 /* RCGModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F5A57E311D3838A6005A3543 /* RCGModel.xcdatamodeld */; };
+		F5A57E3A1D383933005A3543 /* TCGMManagedObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5A57E391D383933005A3543 /* TCGMManagedObject.swift */; };
+		F5A57E411D383A45005A3543 /* RCGModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5A57E3C1D383A45005A3543 /* RCGModel.swift */; };
+		F5A57E421D383A45005A3543 /* RCGPokemon.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5A57E3D1D383A45005A3543 /* RCGPokemon.swift */; };
+		F5A57E431D383A45005A3543 /* _RCGModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5A57E3F1D383A45005A3543 /* _RCGModel.swift */; };
+		F5A57E441D383A45005A3543 /* _RCGPokemon.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5A57E401D383A45005A3543 /* _RCGPokemon.swift */; };
 		F97ED36B8F7C0CF9D9B60EDA /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30A7D946297E4B907005E84F /* Pods.framework */; };
 /* End PBXBuildFile section */
 
@@ -38,6 +58,12 @@
 		F51DE7E61D359514005E7CF3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F51DE7E91D359514005E7CF3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F51DE7EB1D359514005E7CF3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F5A57E321D3838A6005A3543 /* RCGModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = RCGModel.xcdatamodel; sourceTree = "<group>"; };
+		F5A57E391D383933005A3543 /* TCGMManagedObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TCGMManagedObject.swift; sourceTree = "<group>"; };
+		F5A57E3C1D383A45005A3543 /* RCGModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RCGModel.swift; sourceTree = "<group>"; };
+		F5A57E3D1D383A45005A3543 /* RCGPokemon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RCGPokemon.swift; sourceTree = "<group>"; };
+		F5A57E3F1D383A45005A3543 /* _RCGModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = _RCGModel.swift; sourceTree = "<group>"; };
+		F5A57E401D383A45005A3543 /* _RCGPokemon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = _RCGPokemon.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,16 +103,10 @@
 			path = Consumer;
 			sourceTree = "<group>";
 		};
-		B827262A1D3703F000BD959B /* Models */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Models;
-			sourceTree = "<group>";
-		};
 		B827262B1D3703FB00BD959B /* Adapters */ = {
 			isa = PBXGroup;
 			children = (
+				F5A57E301D383897005A3543 /* Models */,
 				B827262C1D37043600BD959B /* RCGSynchronizerHandler.swift */,
 				B827262E1D37045100BD959B /* RCGSynchronizerAdapter.swift */,
 				B82726301D3705F100BD959B /* Synchronization Adapters */,
@@ -136,7 +156,6 @@
 			isa = PBXGroup;
 			children = (
 				B827262B1D3703FB00BD959B /* Adapters */,
-				B827262A1D3703F000BD959B /* Models */,
 				F51DE7DF1D359514005E7CF3 /* AppDelegate.swift */,
 				F51DE7E11D359514005E7CF3 /* ViewController.swift */,
 				F51DE7E31D359514005E7CF3 /* Main.storyboard */,
@@ -146,6 +165,37 @@
 			);
 			path = Consumer;
 			sourceTree = "<group>";
+		};
+		F5A57E301D383897005A3543 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				F5A57E3B1D383A45005A3543 /* ModelHuman */,
+				F5A57E3E1D383A45005A3543 /* ModelMachine */,
+				F5A57E391D383933005A3543 /* TCGMManagedObject.swift */,
+				F5A57E311D3838A6005A3543 /* RCGModel.xcdatamodeld */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		F5A57E3B1D383A45005A3543 /* ModelHuman */ = {
+			isa = PBXGroup;
+			children = (
+				F5A57E3C1D383A45005A3543 /* RCGModel.swift */,
+				F5A57E3D1D383A45005A3543 /* RCGPokemon.swift */,
+			);
+			name = ModelHuman;
+			path = Model/ModelHuman;
+			sourceTree = SOURCE_ROOT;
+		};
+		F5A57E3E1D383A45005A3543 /* ModelMachine */ = {
+			isa = PBXGroup;
+			children = (
+				F5A57E3F1D383A45005A3543 /* _RCGModel.swift */,
+				F5A57E401D383A45005A3543 /* _RCGPokemon.swift */,
+			);
+			name = ModelMachine;
+			path = Model/ModelMachine;
+			sourceTree = SOURCE_ROOT;
 		};
 /* End PBXGroup section */
 
@@ -184,6 +234,9 @@
 					F51DE7DB1D359514005E7CF3 = {
 						CreatedOnToolsVersion = 7.3.1;
 					};
+					F5A57E341D3838BB005A3543 = {
+						CreatedOnToolsVersion = 7.3.1;
+					};
 				};
 			};
 			buildConfigurationList = F51DE7D71D359514005E7CF3 /* Build configuration list for PBXProject "Consumer" */;
@@ -200,6 +253,7 @@
 			projectRoot = "";
 			targets = (
 				F51DE7DB1D359514005E7CF3 /* Consumer */,
+				F5A57E341D3838BB005A3543 /* Mogenerator */,
 			);
 		};
 /* End PBXProject section */
@@ -263,6 +317,19 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
+		F5A57E381D3838C0005A3543 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "mogenerator --template-var arc=true -m consumer/Adapters/Models/RCGModel.xcdatamodeld / -M Model/ModelMachine -H Model/ModelHuman --base-class RCGManagedObject --includem Model/ModelIncludes --swift --template-path ModelTemplates";
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -271,13 +338,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				B827262F1D37045100BD959B /* RCGSynchronizerAdapter.swift in Sources */,
+				F5A57E411D383A45005A3543 /* RCGModel.swift in Sources */,
 				B82726341D37063300BD959B /* RCGMovesAdapter.swift in Sources */,
 				F51DE7E21D359514005E7CF3 /* ViewController.swift in Sources */,
 				B82726321D37062A00BD959B /* RCGPokemonAdapter.swift in Sources */,
 				B82726281D37017800BD959B /* RCGNetworkingManager.swift in Sources */,
 				F51DE7E01D359514005E7CF3 /* AppDelegate.swift in Sources */,
+				F5A57E331D3838A6005A3543 /* RCGModel.xcdatamodeld in Sources */,
+				F5A57E431D383A45005A3543 /* _RCGModel.swift in Sources */,
+				F5A57E421D383A45005A3543 /* RCGPokemon.swift in Sources */,
 				B82726361D37066500BD959B /* RCGEvolutionAdapter.swift in Sources */,
 				B827262D1D37043600BD959B /* RCGSynchronizerHandler.swift in Sources */,
+				F5A57E441D383A45005A3543 /* _RCGPokemon.swift in Sources */,
+				F5A57E3A1D383933005A3543 /* TCGMManagedObject.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -410,6 +483,20 @@
 			};
 			name = Release;
 		};
+		F5A57E361D3838BB005A3543 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		F5A57E371D3838BB005A3543 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -431,7 +518,28 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
+		F5A57E351D3838BB005A3543 /* Build configuration list for PBXAggregateTarget "Mogenerator" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F5A57E361D3838BB005A3543 /* Debug */,
+				F5A57E371D3838BB005A3543 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		F5A57E311D3838A6005A3543 /* RCGModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				F5A57E321D3838A6005A3543 /* RCGModel.xcdatamodel */,
+			);
+			currentVersion = F5A57E321D3838A6005A3543 /* RCGModel.xcdatamodel */;
+			path = RCGModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = F51DE7D41D359514005E7CF3 /* Project object */;
 }
