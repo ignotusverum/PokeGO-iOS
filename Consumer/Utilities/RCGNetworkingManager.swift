@@ -129,7 +129,7 @@ class RCGNetworkingManager: NSObject {
     
     func URLStringWithPath(path: String)-> String {
         
-        return hostName
+        return hostName + path
     }
     
     // MARK: - Promises

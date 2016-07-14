@@ -27,7 +27,7 @@
 		B82726321D37062A00BD959B /* RCGPokemonAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B82726311D37062A00BD959B /* RCGPokemonAdapter.swift */; };
 		B82726341D37063300BD959B /* RCGMovesAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B82726331D37063300BD959B /* RCGMovesAdapter.swift */; };
 		B82726361D37066500BD959B /* RCGEvolutionAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B82726351D37066500BD959B /* RCGEvolutionAdapter.swift */; };
-		F51DE7E01D359514005E7CF3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F51DE7DF1D359514005E7CF3 /* AppDelegate.swift */; };
+		F51DE7E01D359514005E7CF3 /* RCGAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F51DE7DF1D359514005E7CF3 /* RCGAppDelegate.swift */; };
 		F51DE7E21D359514005E7CF3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F51DE7E11D359514005E7CF3 /* ViewController.swift */; };
 		F51DE7E51D359514005E7CF3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F51DE7E31D359514005E7CF3 /* Main.storyboard */; };
 		F51DE7E71D359514005E7CF3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F51DE7E61D359514005E7CF3 /* Assets.xcassets */; };
@@ -52,7 +52,7 @@
 		B82726331D37063300BD959B /* RCGMovesAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RCGMovesAdapter.swift; sourceTree = "<group>"; };
 		B82726351D37066500BD959B /* RCGEvolutionAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RCGEvolutionAdapter.swift; sourceTree = "<group>"; };
 		F51DE7DC1D359514005E7CF3 /* Consumer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Consumer.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		F51DE7DF1D359514005E7CF3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		F51DE7DF1D359514005E7CF3 /* RCGAppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RCGAppDelegate.swift; sourceTree = "<group>"; };
 		F51DE7E11D359514005E7CF3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		F51DE7E41D359514005E7CF3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F51DE7E61D359514005E7CF3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -156,7 +156,7 @@
 			isa = PBXGroup;
 			children = (
 				B827262B1D3703FB00BD959B /* Adapters */,
-				F51DE7DF1D359514005E7CF3 /* AppDelegate.swift */,
+				F51DE7DF1D359514005E7CF3 /* RCGAppDelegate.swift */,
 				F51DE7E11D359514005E7CF3 /* ViewController.swift */,
 				F51DE7E31D359514005E7CF3 /* Main.storyboard */,
 				F51DE7E61D359514005E7CF3 /* Assets.xcassets */,
@@ -343,7 +343,7 @@
 				F51DE7E21D359514005E7CF3 /* ViewController.swift in Sources */,
 				B82726321D37062A00BD959B /* RCGPokemonAdapter.swift in Sources */,
 				B82726281D37017800BD959B /* RCGNetworkingManager.swift in Sources */,
-				F51DE7E01D359514005E7CF3 /* AppDelegate.swift in Sources */,
+				F51DE7E01D359514005E7CF3 /* RCGAppDelegate.swift in Sources */,
 				F5A57E331D3838A6005A3543 /* RCGModel.xcdatamodeld in Sources */,
 				F5A57E431D383A45005A3543 /* _RCGModel.swift in Sources */,
 				F5A57E421D383A45005A3543 /* RCGPokemon.swift in Sources */,
@@ -525,6 +525,7 @@
 				F5A57E371D3838BB005A3543 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

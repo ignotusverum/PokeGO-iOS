@@ -20,11 +20,12 @@ class RCGPokemonAdapter: RCGSynchronizerAdapter {
              
                 var resultArray = [RCGPokemon]()
                 
-                // Safety check
-                if let jsonArray = result.array {
+                if let resultDict = result["results"].array {
+                    
+                    // Safety check
                 
                     // Loopin through json array
-                    for json in jsonArray {
+                    for json in resultDict {
                         do {
                             // Creating pokemon objects in database
                             let pokemon = try RCGPokemon.fetchOrInsertWithJSON(json)
@@ -40,6 +41,7 @@ class RCGPokemonAdapter: RCGSynchronizerAdapter {
                         
                         fulfill(resultArray)
                     }
+                    
                 }
             }
         }
