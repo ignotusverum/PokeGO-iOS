@@ -9,6 +9,8 @@
 import CoreData
 import SwiftyJSON
 
+import MagicalRecord
+
 @objc(RCGModel)
 public class RCGModel: _RCGModel {
 
@@ -46,6 +48,11 @@ public class RCGModel: _RCGModel {
         }
         
         return result
+    }
+    
+    class func modelFetchOrInsertDefaultWithJSON(json: JSON) throws-> AnyObject? {
+
+        return try self.modelFetchOrInsertWithJSON(json, context: NSManagedObjectContext.MR_defaultContext())
     }
     
     func setValueWithJSON(json: JSON, context: NSManagedObjectContext) {

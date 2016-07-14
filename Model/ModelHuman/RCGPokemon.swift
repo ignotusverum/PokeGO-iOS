@@ -9,6 +9,8 @@
 import CoreData
 import SwiftyJSON
 
+import MagicalRecord
+
 @objc(RCGPokemon)
 public class RCGPokemon: _RCGPokemon {
 
@@ -18,9 +20,14 @@ public class RCGPokemon: _RCGPokemon {
         return try RCGPokemon.modelFetchWithID(objectID, context:context) as? RCGPokemon
     }
 
-    class func fetchOrInsertWithJSON(json: JSON, context: NSManagedObjectContext) throws -> RCGPokemon? {
+    class func fetchOrInsertWithJSON(json: JSON, context: NSManagedObjectContext = NSManagedObjectContext.MR_defaultContext()) throws -> RCGPokemon? {
 
         return try RCGPokemon.modelFetchOrInsertWithJSON(json, context: context) as? RCGPokemon
+    }
+    
+    class func fetchOrInsertWithJSON(json: JSON) throws -> RCGPokemon? {
+        
+        return try RCGPokemon.modelFetchOrInsertDefaultWithJSON(json) as? RCGPokemon
     }
 
     // MARK: - Parsing JSON
@@ -41,7 +48,6 @@ public class RCGPokemon: _RCGPokemon {
 		 	if let _weight = json["weight"].float {
 		 		self.weight = _weight
             }
-
         }
     }
 }
