@@ -22,41 +22,19 @@ class RCGPokemonAdapter: RCGSynchronizerAdapter {
             let netman = RCGNetworkingManager.sharedManager
             
             netman.GET("/pokemon/\(pokemonID)", parameters: nil).then { result-> Void in
+    
+                var pokemon: RCGPokemon?
                 
-                var resultArray = [RCGPokemon]()
+                do {
+                    // Creating pokemon objects in database
+                    pokemon = try RCGPokemon.fetchOrInsertWithJSON(result)
+                    
+                    // Saving
+                    try NSManagedObjectContext.MR_defaultContext().save()
+                    
+                } catch { }
                 
-                print(result)
-                
-                if let resultDict = result["results"].array {
-                    
-                    print(resultDict)
-                    
-                    // Safety check
-                    
-                    do {
-                        // Loopin through json array
-                        for i in 0..<resultDict.count {
-                            
-                            var jsonUpdate = resultDict[i]
-                            jsonUpdate["id"] = JSON(i)
-                            
-                            // Creating pokemon objects in database
-                            let pokemon = try RCGPokemon.fetchOrInsertWithJSON(jsonUpdate)
-                            
-                            // Safety check if it failes
-                            if let pokemon = pokemon {
-                                // Building result array
-                                resultArray.append(pokemon)
-                            }
-                        }
-                        
-                        // Saving
-                        try NSManagedObjectContext.MR_defaultContext().save()
-                        
-                    } catch { }
-                    
-                    fulfill(nil)
-                }
+                fulfill(pokemon)
             }
         }
     }

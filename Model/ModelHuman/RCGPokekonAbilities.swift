@@ -28,8 +28,8 @@ public class RCGPokekonAbilities: _RCGPokekonAbilities {
 
 	    super.setValueWithJSON(json, context: context)
 
-	    if self.modelObjectID != nil {
-            
+        if let name = json["name"].string {
+            self.name = name
         }
     }
 }
