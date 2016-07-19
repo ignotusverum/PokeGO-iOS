@@ -46,5 +46,26 @@ public class RCGPokemon: _RCGPokemon {
         if let _weight = json["weight"].float {
             self.weight = _weight
         }
+        
+        if let abilitiesJSONArray = json["abilities"].array {
+            for ability in abilitiesJSONArray {
+                
+                if ability["ability"] != nil {
+                    let abilityJSON = ability["ability"]
+                    
+                    do {
+                        
+                        let abilityObject = try RCGPokekonAbilities.fetchOrInsertWithJSON(abilityJSON, context: context)
+                        
+                        if !self.abilities.containsObject(abilityObject!) {
+                            self.addAbilitiesObject(abilityObject!)
+                            abilityObject?.pokemon = self
+                        }
+                    }
+                    catch { }
+                }
+                
+            }
+        }
     }
 }
