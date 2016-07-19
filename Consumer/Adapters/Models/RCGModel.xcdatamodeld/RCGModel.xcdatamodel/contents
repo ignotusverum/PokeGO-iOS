@@ -3,7 +3,7 @@
     <entity name="RCGModel" representedClassName="RCGModel" syncable="YES">
         <attribute name="modelObjectID" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
     </entity>
-    <entity name="RCGPokekonAbilities" representedClassName="RCGPokekonAbilities" parentEntity="RCGPokemon" syncable="YES">
+    <entity name="RCGPokekonAbilities" representedClassName="RCGPokekonAbilities" parentEntity="RCGModel" syncable="YES">
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="pokemon" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="RCGPokemon" inverseName="abilities" inverseEntity="RCGPokemon" syncable="YES"/>
     </entity>
@@ -14,7 +14,7 @@
         <relationship name="abilities" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="RCGPokekonAbilities" inverseName="pokemon" inverseEntity="RCGPokekonAbilities" syncable="YES"/>
         <relationship name="stats" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="RCGPokemonStats" inverseName="pokemon" inverseEntity="RCGPokemonStats" syncable="YES"/>
     </entity>
-    <entity name="RCGPokemonStats" representedClassName="RCGPokemonStats" parentEntity="RCGPokemon" syncable="YES">
+    <entity name="RCGPokemonStats" representedClassName="RCGPokemonStats" parentEntity="RCGModel" syncable="YES">
         <attribute name="baseStat" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
         <attribute name="effort" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>

@@ -30,14 +30,13 @@ public class RCGPokemonStats: _RCGPokemonStats {
 
 	    if self.modelObjectID != nil {
 
-		 	if let _baseStat = json["baseStat"].NSNumber {
+		 	if let _baseStat = json["baseStat"].int {
 		 		self.baseStat = _baseStat
             }
 
-		 	if let _effort = json["effort"].NSNumber {
+		 	if let _effort = json["effort"].int {
 		 		self.effort = _effort
             }
-
         }
     }
 }

@@ -3,12 +3,16 @@
 
 import CoreData
 
+public enum RCGPokekonAbilitiesAttributes: String {
+    case name = "name"
+}
+
 public enum RCGPokekonAbilitiesRelationships: String {
     case pokemon = "pokemon"
 }
 
 @objc public
-class _RCGPokekonAbilities: RCGPokemon {
+class _RCGPokekonAbilities: RCGModel {
 
     // MARK: - Class methods
 
@@ -32,6 +36,11 @@ class _RCGPokekonAbilities: RCGPokemon {
     }
 
     // MARK: - Properties
+
+    @NSManaged public
+    var name: String?
+
+    // func validateName(value: AutoreleasingUnsafeMutablePointer<AnyObject>, error: NSErrorPointer) -> Bool {}
 
     // MARK: - Relationships
 
