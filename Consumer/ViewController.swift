@@ -15,7 +15,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        RCGPokemonAdapter.fetchPokemons().then { result in
+        RCGPokemonAdapter.fetchPokemonWithID(1).then { result in
             print(result)
         }
     }

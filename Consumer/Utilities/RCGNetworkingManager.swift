@@ -205,6 +205,8 @@ class RCGNetworkingManager: NSObject {
         
         let url = self.URLStringWithPath(URLString)
         
+        print(url)
+        
         return Promise { fulfill, reject in
             self.manager.request(method, url, parameters: nil, encoding: .JSON, headers: headers)
                 .validate()
