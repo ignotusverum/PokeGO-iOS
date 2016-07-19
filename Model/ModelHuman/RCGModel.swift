@@ -31,12 +31,27 @@ public class RCGModel: _RCGModel {
         return result
     }
     
+    class func modelFetchWithName(objectName: String, context: NSManagedObjectContext) throws -> AnyObject? {
+        
+        var result: AnyObject?
+        
+        let fetchRequest = NSFetchRequest(entityName: self.entityName())
+        let predicate = NSPredicate(format:"%K == %i", RCGModelAttributes.name.rawValue, objectName)
+        
+        fetchRequest.predicate = predicate
+        
+        let results = try context.executeFetchRequest(fetchRequest)
+        result = results.first
+        
+        return result
+    }
+    
     class func modelFetchOrInsertWithJSON(json: JSON, context: NSManagedObjectContext) throws -> AnyObject? {
         
         var result: AnyObject?
         
         if let modelObjectID = json["id"].int {
-            
+        
             result = try self.modelFetchWithID(modelObjectID, context: context)
             
             if result == nil {
@@ -46,7 +61,17 @@ public class RCGModel: _RCGModel {
             
             (result as? RCGModel)?.setValueWithJSON(json, context: context)
         }
-        
+        else if let modelName = json["name"].string {
+            result = try self.modelFetchWithName(modelName, context: context)
+            
+            if result == nil {
+                
+                result = self.MR_createInContext(context)
+            }
+            
+            (result as? RCGModel)?.setValueWithJSON(json, context: context)
+        }
+    
         return result
     }
     

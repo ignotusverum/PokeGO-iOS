@@ -5,7 +5,6 @@ import CoreData
 
 public enum RCGPokemonAttributes: String {
     case height = "height"
-    case name = "name"
     case weight = "weight"
 }
 
@@ -44,11 +43,6 @@ class _RCGPokemon: RCGModel {
     var height: NSNumber?
 
     // func validateHeight(value: AutoreleasingUnsafeMutablePointer<AnyObject>, error: NSErrorPointer) -> Bool {}
-
-    @NSManaged public
-    var name: String?
-
-    // func validateName(value: AutoreleasingUnsafeMutablePointer<AnyObject>, error: NSErrorPointer) -> Bool {}
 
     @NSManaged public
     var weight: NSNumber?

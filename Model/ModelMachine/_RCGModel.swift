@@ -5,6 +5,7 @@ import CoreData
 
 public enum RCGModelAttributes: String {
     case modelObjectID = "modelObjectID"
+    case name = "name"
 }
 
 @objc public
@@ -37,6 +38,11 @@ class _RCGModel: RCGManagedObject {
     var modelObjectID: NSNumber?
 
     // func validateModelObjectID(value: AutoreleasingUnsafeMutablePointer<AnyObject>, error: NSErrorPointer) -> Bool {}
+
+    @NSManaged public
+    var name: String?
+
+    // func validateName(value: AutoreleasingUnsafeMutablePointer<AnyObject>, error: NSErrorPointer) -> Bool {}
 
     // MARK: - Relationships
 

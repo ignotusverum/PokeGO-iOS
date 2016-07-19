@@ -6,7 +6,6 @@ import CoreData
 public enum RCGPokemonStatsAttributes: String {
     case baseStat = "baseStat"
     case effort = "effort"
-    case name = "name"
 }
 
 public enum RCGPokemonStatsRelationships: String {
@@ -48,11 +47,6 @@ class _RCGPokemonStats: RCGModel {
     var effort: NSNumber?
 
     // func validateEffort(value: AutoreleasingUnsafeMutablePointer<AnyObject>, error: NSErrorPointer) -> Bool {}
-
-    @NSManaged public
-    var name: String?
-
-    // func validateName(value: AutoreleasingUnsafeMutablePointer<AnyObject>, error: NSErrorPointer) -> Bool {}
 
     // MARK: - Relationships
 

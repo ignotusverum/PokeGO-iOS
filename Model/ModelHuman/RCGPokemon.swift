@@ -58,9 +58,11 @@ public class RCGPokemon: _RCGPokemon {
                         
                         let abilityObject = try RCGPokekonAbilities.fetchOrInsertWithJSON(abilityJSON, context: context)
                         
-                        if !self.abilities.containsObject(abilityObject!) {
-                            self.addAbilitiesObject(abilityObject!)
-                            abilityObject?.pokemon = self
+                        if let abilityObject = abilityObject {
+                            if !self.abilities.containsObject(abilityObject) {
+                                self.addAbilitiesObject(abilityObject)
+                                abilityObject.pokemon = self
+                            }
                         }
                     }
                     catch { }
