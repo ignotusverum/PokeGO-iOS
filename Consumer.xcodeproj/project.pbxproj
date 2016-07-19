@@ -35,6 +35,8 @@
 		F5005A6C1D3E958000C03CF2 /* RCGPokemon.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5005A6A1D3E958000C03CF2 /* RCGPokemon.swift */; };
 		F5005A6F1D3E958600C03CF2 /* _RCGModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5005A6D1D3E958600C03CF2 /* _RCGModel.swift */; };
 		F5005A701D3E958600C03CF2 /* _RCGPokemon.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5005A6E1D3E958600C03CF2 /* _RCGPokemon.swift */; };
+		F5005A7E1D3ECD4200C03CF2 /* RCGPokemonMove.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5005A7D1D3ECD4200C03CF2 /* RCGPokemonMove.swift */; };
+		F5005A801D3ECD4900C03CF2 /* _RCGPokemonMove.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5005A7F1D3ECD4900C03CF2 /* _RCGPokemonMove.swift */; };
 		F51DE7E01D359514005E7CF3 /* RCGAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F51DE7DF1D359514005E7CF3 /* RCGAppDelegate.swift */; };
 		F51DE7E21D359514005E7CF3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F51DE7E11D359514005E7CF3 /* ViewController.swift */; };
 		F51DE7E51D359514005E7CF3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F51DE7E31D359514005E7CF3 /* Main.storyboard */; };
@@ -63,6 +65,8 @@
 		F5005A6A1D3E958000C03CF2 /* RCGPokemon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RCGPokemon.swift; sourceTree = "<group>"; };
 		F5005A6D1D3E958600C03CF2 /* _RCGModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = _RCGModel.swift; sourceTree = "<group>"; };
 		F5005A6E1D3E958600C03CF2 /* _RCGPokemon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = _RCGPokemon.swift; sourceTree = "<group>"; };
+		F5005A7D1D3ECD4200C03CF2 /* RCGPokemonMove.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RCGPokemonMove.swift; sourceTree = "<group>"; };
+		F5005A7F1D3ECD4900C03CF2 /* _RCGPokemonMove.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = _RCGPokemonMove.swift; sourceTree = "<group>"; };
 		F51DE7DC1D359514005E7CF3 /* Consumer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Consumer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F51DE7DF1D359514005E7CF3 /* RCGAppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RCGAppDelegate.swift; sourceTree = "<group>"; };
 		F51DE7E11D359514005E7CF3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -148,6 +152,7 @@
 				F5005A6A1D3E958000C03CF2 /* RCGPokemon.swift */,
 				F5005A601D3E954900C03CF2 /* RCGPokekonAbilities.swift */,
 				F5005A611D3E954900C03CF2 /* RCGPokemonStats.swift */,
+				F5005A7D1D3ECD4200C03CF2 /* RCGPokemonMove.swift */,
 			);
 			name = ModelHuman;
 			path = Model/ModelHuman;
@@ -156,6 +161,7 @@
 		F5005A621D3E954900C03CF2 /* ModelMachine */ = {
 			isa = PBXGroup;
 			children = (
+				F5005A7F1D3ECD4900C03CF2 /* _RCGPokemonMove.swift */,
 				F5005A6D1D3E958600C03CF2 /* _RCGModel.swift */,
 				F5005A6E1D3E958600C03CF2 /* _RCGPokemon.swift */,
 				F5005A631D3E954900C03CF2 /* _RCGPokekonAbilities.swift */,
@@ -355,6 +361,7 @@
 				F5005A6B1D3E958000C03CF2 /* RCGModel.swift in Sources */,
 				F51DE7E21D359514005E7CF3 /* ViewController.swift in Sources */,
 				F5005A671D3E954900C03CF2 /* _RCGPokekonAbilities.swift in Sources */,
+				F5005A7E1D3ECD4200C03CF2 /* RCGPokemonMove.swift in Sources */,
 				F5005A6F1D3E958600C03CF2 /* _RCGModel.swift in Sources */,
 				F5005A651D3E954900C03CF2 /* RCGPokekonAbilities.swift in Sources */,
 				F5005A661D3E954900C03CF2 /* RCGPokemonStats.swift in Sources */,
@@ -367,6 +374,7 @@
 				B82726361D37066500BD959B /* RCGEvolutionAdapter.swift in Sources */,
 				B827262D1D37043600BD959B /* RCGSynchronizerHandler.swift in Sources */,
 				F5A57E3A1D383933005A3543 /* TCGMManagedObject.swift in Sources */,
+				F5005A801D3ECD4900C03CF2 /* _RCGPokemonMove.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

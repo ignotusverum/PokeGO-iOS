@@ -67,8 +67,32 @@ public class RCGPokemon: _RCGPokemon {
                     }
                     catch { }
                 }
-                
             }
         }
+    }
+    
+    // MARK: - Utility
+    class func getModelObjectFromJSON(json: JSON, arrayKey: String, objectKey: String)-> RCGModel? {
+        
+        var result: RCGModel?
+        
+        if let abilitiesJSONArray = json["abilities"].array {
+            for ability in abilitiesJSONArray {
+                
+                if ability["ability"] != nil {
+                    let abilityJSON = ability["ability"]
+                    
+                    do {
+                        
+                        let object = try RCGPokekonAbilities.fetchOrInsertWithJSON(abilityJSON, context: NSManagedObjectContext.MR_defaultContext())
+                        
+                        result = object
+                    }
+                    catch { }
+                }
+            }
+        }
+        
+        return result
     }
 }

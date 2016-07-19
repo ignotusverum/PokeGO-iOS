@@ -25,6 +25,9 @@ class RCGPokemonAdapter: RCGSynchronizerAdapter {
     
                 var pokemon: RCGPokemon?
                 
+                print(result)
+                
+                
                 do {
                     // Creating pokemon objects in database
                     pokemon = try RCGPokemon.fetchOrInsertWithJSON(result)
