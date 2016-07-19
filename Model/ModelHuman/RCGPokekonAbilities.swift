@@ -29,6 +29,7 @@ public class RCGPokekonAbilities: _RCGPokekonAbilities {
 	    super.setValueWithJSON(json, context: context)
 
 	    if self.modelObjectID != nil {
+            
         }
     }
 }

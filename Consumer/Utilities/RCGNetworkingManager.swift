@@ -205,8 +205,6 @@ class RCGNetworkingManager: NSObject {
         
         let url = self.URLStringWithPath(URLString)
         
-        print(url)
-        
         return Promise { fulfill, reject in
             self.manager.request(method, url, parameters: nil, encoding: .JSON, headers: headers)
                 .validate()
@@ -222,21 +220,7 @@ class RCGNetworkingManager: NSObject {
                                 return
                             }
                             
-                            var IDDictionary = [String: AnyObject]()
-                            
-                            // Check if response contains object id
-                            let objectID = Int((_jsonDict.first?.0)!)
-                            if objectID != nil {
-                                IDDictionary = ["id": _jsonDict.first!.0]
-                                
-                                IDDictionary += _jsonDict.first!.1[0].dictionaryObject!
-                            }
-                            else {
-                                // Pass whole json object, if there's no id associated with dict (ex: [id: JSON])
-                                fulfill(JSON(_jsonDict))
-                            }
-                            
-                            fulfill(JSON(IDDictionary))
+                            fulfill(JSON(_jsonDict))
                         }
                         
                     case .Failure(let error):
