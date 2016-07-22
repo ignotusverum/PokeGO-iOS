@@ -31,5 +31,11 @@ public class RCGPokekonAbilities: _RCGPokekonAbilities {
         if let name = json["name"].string {
             self.name = name
         }
+        
+        if let urlString = json["url"].string {
+            
+            let result = urlString.sliceFrom("ability/", to: "/")
+            self.modelObjectID = result?.toInt()
+        }
     }
 }

@@ -31,5 +31,11 @@ public class RCGPokemonMove: _RCGPokemonMove {
         if let name = json["name"].string {
             self.name = name
         }
+        
+        if let urlString = json["url"].string {
+            
+            let result = urlString.sliceFrom("move/", to: "/")
+            self.modelObjectID = result?.toInt()
+        }
     }
 }

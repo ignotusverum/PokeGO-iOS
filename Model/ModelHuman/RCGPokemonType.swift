@@ -31,5 +31,11 @@ public class RCGPokemonType: _RCGPokemonType {
         if let name = json["name"].string {
             self.name = name
         }
+        
+        if let urlString = json["url"].string {
+            
+            let result = urlString.sliceFrom("type/", to: "/")
+            self.modelObjectID = result?.toInt()
+        }
     }
 }

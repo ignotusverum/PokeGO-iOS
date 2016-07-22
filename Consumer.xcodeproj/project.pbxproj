@@ -44,6 +44,7 @@
 		F51DE7EA1D359514005E7CF3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F51DE7E81D359514005E7CF3 /* LaunchScreen.storyboard */; };
 		F534DD9E1D428E6D00FC383F /* RCGPokemonType.swift in Sources */ = {isa = PBXBuildFile; fileRef = F534DD9D1D428E6D00FC383F /* RCGPokemonType.swift */; };
 		F534DDA01D428E7200FC383F /* _RCGPokemonType.swift in Sources */ = {isa = PBXBuildFile; fileRef = F534DD9F1D428E7200FC383F /* _RCGPokemonType.swift */; };
+		F534DDA21D428FC400FC383F /* RCGString.swift in Sources */ = {isa = PBXBuildFile; fileRef = F534DDA11D428FC400FC383F /* RCGString.swift */; };
 		F5A57E331D3838A6005A3543 /* RCGModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F5A57E311D3838A6005A3543 /* RCGModel.xcdatamodeld */; };
 		F5A57E3A1D383933005A3543 /* TCGMManagedObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5A57E391D383933005A3543 /* TCGMManagedObject.swift */; };
 		F97ED36B8F7C0CF9D9B60EDA /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30A7D946297E4B907005E84F /* Pods.framework */; };
@@ -78,6 +79,7 @@
 		F51DE7EB1D359514005E7CF3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F534DD9D1D428E6D00FC383F /* RCGPokemonType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RCGPokemonType.swift; sourceTree = "<group>"; };
 		F534DD9F1D428E7200FC383F /* _RCGPokemonType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = _RCGPokemonType.swift; sourceTree = "<group>"; };
+		F534DDA11D428FC400FC383F /* RCGString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RCGString.swift; sourceTree = "<group>"; };
 		F5A57E321D3838A6005A3543 /* RCGModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = RCGModel.xcdatamodel; sourceTree = "<group>"; };
 		F5A57E391D383933005A3543 /* TCGMManagedObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TCGMManagedObject.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -106,6 +108,7 @@
 			isa = PBXGroup;
 			children = (
 				B82726271D37017800BD959B /* RCGNetworkingManager.swift */,
+				F534DDA11D428FC400FC383F /* RCGString.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -364,6 +367,7 @@
 				F5005A6C1D3E958000C03CF2 /* RCGPokemon.swift in Sources */,
 				F534DD9E1D428E6D00FC383F /* RCGPokemonType.swift in Sources */,
 				B827262F1D37045100BD959B /* RCGSynchronizerAdapter.swift in Sources */,
+				F534DDA21D428FC400FC383F /* RCGString.swift in Sources */,
 				B82726341D37063300BD959B /* RCGMovesAdapter.swift in Sources */,
 				F5005A6B1D3E958000C03CF2 /* RCGModel.swift in Sources */,
 				F51DE7E21D359514005E7CF3 /* ViewController.swift in Sources */,
