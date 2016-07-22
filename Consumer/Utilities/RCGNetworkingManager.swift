@@ -183,7 +183,16 @@ class RCGNetworkingManager: NSObject {
     
     private func request(method: Alamofire.Method, _ URLString: String, parameters: [String: AnyObject]?, success: (response: JSON?)-> Void, failure: (error: NSError)-> Void) {
         
-        self.manager.request(method, self.URLStringWithPath(URLString), parameters: parameters, encoding: .JSON, headers: headers)
+        self.request(method, URLString, parameters: parameters, encoding: .JSON, success: { response in
+            success(response: response)
+            }) { error in
+                failure(error: error)
+        }
+    }
+    
+    private func request(method: Alamofire.Method, _ URLString: String, parameters: [String: AnyObject]?, encoding: ParameterEncoding, success: (response: JSON?)-> Void, failure: (error: NSError)-> Void) {
+        
+        self.manager.request(method, self.URLStringWithPath(URLString), parameters: parameters, encoding: encoding, headers: headers)
             .validate()
             .responseJSON { response in
                 
