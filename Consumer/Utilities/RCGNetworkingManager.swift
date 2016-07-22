@@ -89,9 +89,9 @@ class RCGNetworkingManager: NSObject {
     
     // Promise GET Request
     
-    func GET(URLPath: String, parameters: [String: AnyObject]?)-> Promise<JSON> {
+    func GET(URLPath: String, parameters: [String: AnyObject]?, encoding: ParameterEncoding = .JSON)-> Promise<JSON> {
         
-        return self.request(.GET, URLPath, parameters: parameters)
+        return self.request(.GET, URLPath, parameters: parameters, encoding: encoding)
     }
     
     // Promise POST Request
@@ -99,6 +99,11 @@ class RCGNetworkingManager: NSObject {
     func POST(URLPath: String, parameters: [String: AnyObject]?)-> Promise<JSON> {
         
         return self.request(.POST, URLPath, parameters: parameters)
+    }
+    
+    func POST(URLPath: String, parameters: [String: AnyObject]?, encoding: ParameterEncoding)-> Promise<JSON> {
+        
+        return self.request(.POST, URLPath, parameters: parameters, encoding: encoding)
     }
     
     // Promise PATCH Request
@@ -115,11 +120,16 @@ class RCGNetworkingManager: NSObject {
         return self.request(.PUT, URLPath, parameters: parameters)
     }
     
-    // Promise DELETe Request
+    // Promise DELETE Request
     
     func DELETE(URLPath: String, parameters: [String: AnyObject]?)-> Promise<JSON> {
         
         return self.request(.DELETE, URLPath, parameters: parameters)
+    }
+    
+    func DELETE(URLPath: String, parameters: [String: AnyObject]?, encoding: ParameterEncoding)-> Promise<JSON> {
+        
+        return self.request(.DELETE, URLPath, parameters: parameters, encoding: encoding)
     }
     
     func baseUrl() -> String {
@@ -210,12 +220,15 @@ class RCGNetworkingManager: NSObject {
     }
     
     // Promise Requests + static data
-    private func request(method: Alamofire.Method, _ URLString: String, parameters: [String: AnyObject]?)-> Promise<JSON> {
+    
+    private func request(method: Alamofire.Method, _ URLString: String, parameters: [String: AnyObject]?, encoding: ParameterEncoding)-> Promise<JSON> {
         
-        let url = self.URLStringWithPath(URLString)
+//        let url = self.URLStringWithPath(URLString)
+        
+        let url = NSURL(string: URLString)
         
         return Promise { fulfill, reject in
-            self.manager.request(method, url, parameters: nil, encoding: .JSON, headers: headers)
+            self.manager.request(method, url!, parameters: nil, encoding: encoding, headers: headers)
                 .validate()
                 .responseJSON { response in
                     
@@ -238,5 +251,10 @@ class RCGNetworkingManager: NSObject {
                     }
             }
         }
+    }
+    
+    private func request(method: Alamofire.Method, _ URLString: String, parameters: [String: AnyObject]?)-> Promise<JSON> {
+        
+        return self.request(method, URLString, parameters: parameters, encoding: .JSON)
     }
 }

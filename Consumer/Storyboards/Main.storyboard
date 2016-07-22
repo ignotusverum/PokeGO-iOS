@@ -38,6 +38,9 @@
                                     <constraint firstAttribute="height" constant="30" id="kvr-2q-R7m"/>
                                 </constraints>
                                 <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="loginButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="gjp-Gp-fQS"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -56,6 +59,10 @@
                             <constraint firstItem="L1v-4I-tJ1" firstAttribute="trailing" secondItem="Q9j-ay-HVQ" secondAttribute="trailing" id="h5I-v9-Kiu"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="passwordTextField" destination="Q9j-ay-HVQ" id="02K-NT-nhV"/>
+                        <outlet property="userNameTextField" destination="L1v-4I-tJ1" id="1oJ-DX-XDb"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

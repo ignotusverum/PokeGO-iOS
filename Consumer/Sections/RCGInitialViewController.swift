@@ -10,5 +10,13 @@ import UIKit
 
 class RCGInitialViewController: UIViewController {
 
+    @IBOutlet var userNameTextField: UITextField!
     
+    @IBOutlet var passwordTextField: UITextField!
+    
+    @IBAction func loginButtonPressed(sender: UIButton) {
+        RCGLoginManager.promiseLoginWithUserName(self.userNameTextField.text, password: self.passwordTextField.text).then { result-> Void in
+            print(result)
+        }
+    }
 }
