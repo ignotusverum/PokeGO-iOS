@@ -67,9 +67,6 @@ class RCGLoginManager: RCGNetworkingManager {
                 netman.manager.request(.POST, url!, parameters: parameters, encoding: .URL, headers: nil)
                     .validate()
                     .responseJSON { response in
-                
-                        print("----")
-                        print(response.response?.URL?.URLString)
                         
                         guard let response = response.response, let range = response.URL!.URLString.rangeOfString(".*ticket=", options: .RegularExpressionSearch)
                             else {
