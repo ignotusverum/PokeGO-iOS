@@ -56,9 +56,7 @@ class _RCGPokemon: RCGModel {
     var abilities: NSSet
 
     @NSManaged public
-    var moves: RCGPokemonMove?
-
-    // func validateMoves(value: AutoreleasingUnsafeMutablePointer<AnyObject>, error: NSErrorPointer) -> Bool {}
+    var moves: NSSet
 
     @NSManaged public
     var stats: NSSet
@@ -89,6 +87,34 @@ extension _RCGPokemon {
         let mutable = self.abilities.mutableCopy() as! NSMutableSet
         mutable.removeObject(value)
         self.abilities = mutable.copy() as! NSSet
+    }
+
+}
+
+extension _RCGPokemon {
+
+    func addMoves(objects: NSSet) {
+        let mutable = self.moves.mutableCopy() as! NSMutableSet
+        mutable.unionSet(objects as Set<NSObject>)
+        self.moves = mutable.copy() as! NSSet
+    }
+
+    func removeMoves(objects: NSSet) {
+        let mutable = self.moves.mutableCopy() as! NSMutableSet
+        mutable.minusSet(objects as Set<NSObject>)
+        self.moves = mutable.copy() as! NSSet
+    }
+
+    func addMovesObject(value: RCGPokemonMove!) {
+        let mutable = self.moves.mutableCopy() as! NSMutableSet
+        mutable.addObject(value)
+        self.moves = mutable.copy() as! NSSet
+    }
+
+    func removeMovesObject(value: RCGPokemonMove!) {
+        let mutable = self.moves.mutableCopy() as! NSMutableSet
+        mutable.removeObject(value)
+        self.moves = mutable.copy() as! NSSet
     }
 
 }

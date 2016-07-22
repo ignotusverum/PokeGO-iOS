@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="10174" systemVersion="15G31" minimumToolsVersion="Xcode 7.0">
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="10174" systemVersion="15D21" minimumToolsVersion="Xcode 7.0">
     <entity name="RCGModel" representedClassName="RCGModel" syncable="YES">
         <attribute name="modelObjectID" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
@@ -11,7 +11,7 @@
         <attribute name="height" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
         <attribute name="weight" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
         <relationship name="abilities" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="RCGPokekonAbilities" inverseName="pokemon" inverseEntity="RCGPokekonAbilities" syncable="YES"/>
-        <relationship name="moves" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="RCGPokemonMove" inverseName="pokemon" inverseEntity="RCGPokemonMove" syncable="YES"/>
+        <relationship name="moves" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="RCGPokemonMove" inverseName="pokemon" inverseEntity="RCGPokemonMove" syncable="YES"/>
         <relationship name="stats" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="RCGPokemonStats" inverseName="pokemon" inverseEntity="RCGPokemonStats" syncable="YES"/>
     </entity>
     <entity name="RCGPokemonMove" representedClassName="RCGPokemonMove" parentEntity="RCGModel" syncable="YES">
