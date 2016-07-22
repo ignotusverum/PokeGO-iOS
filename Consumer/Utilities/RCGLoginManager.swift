@@ -18,8 +18,6 @@ class RCGLoginManager: RCGNetworkingManager {
     
     class func promiseLoginWithUserName(userName: String?, password: String?)-> Promise<String?> {
         
-        let netman = RCGNetworkingManager.sharedManager
-        
         return Promise { fulfill, reject in
          
             guard let userName = userName, let password = password else {
@@ -31,8 +29,10 @@ class RCGLoginManager: RCGNetworkingManager {
          
             self.firstPhaseUserName(userName, password: password).then { params in
                 return self.secondPhaseWithParameters(params)
+                }.then { params2 in
+                    return self.thirtPhaseWithParameters(params2)
                 }.then { result-> Void in
-                    
+                    print(result)
             }
         }
     }
@@ -57,15 +57,43 @@ class RCGLoginManager: RCGNetworkingManager {
         }
     }
     
-    class func secondPhaseWithParameters(parameters: [String: AnyObject])-> Promise<String?> {
+    class func secondPhaseWithParameters(parameters: [String: AnyObject])-> Promise<[String: AnyObject]> {
+        
+        let netman = RCGNetworkingManager.sharedManager
+        
+        let url = NSURL(string: RCGLoginManager.PTC_LOGIN_URL)
+        
+            return Promise { fulfill, reject in
+                netman.manager.request(.POST, url!, parameters: parameters, encoding: .URL, headers: nil)
+                    .validate()
+                    .responseJSON { response in
+                
+                        print("----")
+                        print(response.response?.URL?.URLString)
+                        
+                        guard let response = response.response, let range = response.URL!.URLString.rangeOfString(".*ticket=", options: .RegularExpressionSearch)
+                            else {
+                                let error = NSError.cancelledError()
+                                reject(error)
+                                return
+                        }
+                        
+                        let ticket = response.URL!.URLString.substringFromIndex(range.endIndex)
+                        
+                            let params = [ "client_id": "mobile-app_pokemon-go", "redirect_uri": "https://www.nianticlabs.com/pokemongo/error", "client_secret": RCGLoginManager.PTC_LOGIN_CLIENT_SECRET, "grant_type": "refresh_token", "code": ticket ]
+                        
+                        fulfill(params)
+                }
+        }
+    }
+    
+    class func thirtPhaseWithParameters(parameters: [String: AnyObject])-> Promise<String> {
         
         let netman = RCGNetworkingManager.sharedManager
         
         return Promise { fulfill, reject in
             
-            netman.POST(RCGLoginManager.PTC_LOGIN_URL, parameters: parameters, encoding: .URL).then { result-> Void in
-             
-                
+            netman.POST(RCGLoginManager.PTC_LOGIN_OAUTH, parameters: parameters, encoding: .URL).then { result-> Void in
                 
                 
             }
