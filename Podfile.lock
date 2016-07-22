@@ -55,6 +55,7 @@ PODS:
     - Analytics (~> 3.0)
     - Mixpanel (~> 3.0)
   - Shimmer (1.0.2)
+  - SVProgressHUD (2.0.3)
   - SwiftyBeaver (0.6.3)
   - SwiftyJSON (2.3.2)
 
@@ -81,6 +82,7 @@ DEPENDENCIES:
   - ReachabilitySwift
   - Segment-Mixpanel
   - Shimmer
+  - SVProgressHUD
   - SwiftyBeaver
   - SwiftyJSON
 
@@ -111,6 +113,7 @@ SPEC CHECKSUMS:
   ReachabilitySwift: e0f6b6f280effb47731acfaaa2d5ffe223703793
   Segment-Mixpanel: 8e9f449c86d929f0e7abb2e89c760e65f5182d6e
   Shimmer: c5374be1c2b0c9e292fb05b339a513cf291cac86
+  SVProgressHUD: b0830714205bea1317ea1a2ebc71e5633af334d4
   SwiftyBeaver: c182c001d532111becf2285b8878abf54c7b5621
   SwiftyJSON: 04ccea08915aa0109039157c7974cf0298da292a
 

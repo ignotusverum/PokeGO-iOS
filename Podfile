@@ -27,6 +27,7 @@ pod 'pop', '~> 1.0' # Custom animations
 pod 'IQKeyboardManagerSwift' # Keyboard accessory
 pod 'NVActivityIndicatorView' #
 pod 'ChameleonFramework/Swift' # Color
+pod 'SVProgressHUD' # Progress Circle
 
 #debugging
 pod 'SwiftyBeaver'
@@ -34,6 +35,7 @@ pod 'SwiftyBeaver'
 # Analytics
 pod 'Analytics'
 pod 'Segment-Mixpanel'
+pod 'Segment-GoogleAnalytics'
 
 pod 'Fabric'
 pod 'Crashlytics'
@@ -54,3 +56,17 @@ inhibit_all_warnings!
 
 #CI
 pod 'BuddyBuildSDK'
+
+# this noops the method at runtime
+Pod::Installer.class_eval { def verify_no_static_framework_transitive_dependencies; end }
+
+post_install do |installer|
+    installer.pods_project.targets.each do |target|
+        target.build_configurations.each do |config|
+            if config.build_settings['PRODUCT_NAME'] == "Segment_GoogleAnalytics"
+                config.build_settings['LIBRARY_SEARCH_PATHS'] = ["$(inherited)", "$(PODS_ROOT)/GoogleAnalytics/Libraries", "$(PODS_ROOT)/GoogleIDFASupport/Libraries"]
+                config.build_settings['OTHER_LDFLAGS'] = %Q{-weak_framework "CoreData" -weak_framework "SystemConfiguration" -l"z" -l"sqlite3" -l"sqlite3.0" -l"GoogleAnalytics"}
+            end
+        end
+    end
+end

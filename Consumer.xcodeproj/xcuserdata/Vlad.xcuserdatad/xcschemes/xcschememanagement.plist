@@ -9,10 +9,20 @@
 			<key>orderHint</key>
 			<integer>0</integer>
 		</dict>
+		<key>Mogenerator.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>28</integer>
+		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
 		<key>F51DE7DB1D359514005E7CF3</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>F5A57E341D3838BB005A3543</key>
 		<dict>
 			<key>primary</key>
 			<true/>

@@ -37,9 +37,9 @@ class RCGNetworkingManager: NSObject {
     
     // GET Request
     
-    func GET(URLPath: String, version: String, parameters: [String: AnyObject]?, success: (response: JSON?)-> Void, failure: (error: NSError)-> Void) {
+    func GET(URLPath: String, parameters: [String: AnyObject]?, success: (response: JSON?)-> Void, failure: (error: NSError)-> Void) {
         
-        self.request(.GET, URLPath, version: version, parameters: parameters, success: { (response) in
+        self.request(.GET, URLPath, parameters: parameters, success: { (response) in
             success(response: response)
         }) { (error) in
             failure(error: error)
@@ -48,9 +48,9 @@ class RCGNetworkingManager: NSObject {
     
     // POST Request
     
-    func POST(URLPath: String, version: String, parameters: [String: AnyObject]?, success: (response: JSON?)-> Void, failure: (error: NSError)-> Void) {
+    func POST(URLPath: String, parameters: [String: AnyObject]?, success: (response: JSON?)-> Void, failure: (error: NSError)-> Void) {
         
-        self.request(.POST, URLPath, version: version, parameters: parameters, success: { (response) in
+        self.request(.POST, URLPath, parameters: parameters, success: { (response) in
             success(response: response)
         }) { (error) in
             failure(error: error)
@@ -59,8 +59,8 @@ class RCGNetworkingManager: NSObject {
     
     // PATCH Request
     
-    func PATCH(URLPath: String, version: String, parameters: [String: AnyObject]?, success: (response: JSON?)-> Void, failure: (error: NSError)-> Void) {
-        self.request(.PATCH, URLPath, version: version, parameters: parameters, success: { (response) in
+    func PATCH(URLPath: String, parameters: [String: AnyObject]?, success: (response: JSON?)-> Void, failure: (error: NSError)-> Void) {
+        self.request(.PATCH, URLPath, parameters: parameters, success: { (response) in
             success(response: response)
         }) { (error) in
             failure(error: error)
@@ -69,8 +69,8 @@ class RCGNetworkingManager: NSObject {
     
     // Put Request
     
-    func PUT(URLPath: String, version: String, parameters: [String: AnyObject]?, success: (response: JSON?)-> Void, failure: (error: NSError)-> Void) {
-        self.request(.PUT, URLPath, version: version, parameters: parameters, success: { (response) in
+    func PUT(URLPath: String, parameters: [String: AnyObject]?, success: (response: JSON?)-> Void, failure: (error: NSError)-> Void) {
+        self.request(.PUT, URLPath, parameters: parameters, success: { (response) in
             success(response: response)
         }) { (error) in
             failure(error: error)
@@ -79,8 +79,8 @@ class RCGNetworkingManager: NSObject {
     
     // Delete Request
     
-    func DELETE(URLPath: String, version: String, parameters: [String: AnyObject]?, success: (response: JSON?)-> Void, failure: (error: NSError)-> Void) {
-        self.request(.DELETE, URLPath, version: version, parameters: parameters, success: { (response) in
+    func DELETE(URLPath: String, parameters: [String: AnyObject]?, success: (response: JSON?)-> Void, failure: (error: NSError)-> Void) {
+        self.request(.DELETE, URLPath, parameters: parameters, success: { (response) in
             success(response: response)
         }) { (error) in
             failure(error: error)
@@ -89,37 +89,37 @@ class RCGNetworkingManager: NSObject {
     
     // Promise GET Request
     
-    func GET(URLPath: String, version: String, parameters: [String: AnyObject]?)-> Promise<JSON> {
+    func GET(URLPath: String, parameters: [String: AnyObject]?)-> Promise<JSON> {
         
-        return self.request(.GET, URLPath, version: version, parameters: parameters)
+        return self.request(.GET, URLPath, parameters: parameters)
     }
     
     // Promise POST Request
     
-    func POST(URLPath: String, version: String, parameters: [String: AnyObject]?)-> Promise<JSON> {
+    func POST(URLPath: String, parameters: [String: AnyObject]?)-> Promise<JSON> {
         
-        return self.request(.POST, URLPath, version: version, parameters: parameters)
+        return self.request(.POST, URLPath, parameters: parameters)
     }
     
     // Promise PATCH Request
     
-    func PATCH(URLPath: String, version: String, parameters: [String: AnyObject]?)-> Promise<JSON> {
+    func PATCH(URLPath: String, parameters: [String: AnyObject]?)-> Promise<JSON> {
         
-        return self.request(.PATCH, URLPath, version: version, parameters: parameters)
+        return self.request(.PATCH, URLPath, parameters: parameters)
     }
     
     // Promise PUT Request
     
-    func PUT(URLPath: String, version: String, parameters: [String: AnyObject]?)-> Promise<JSON> {
+    func PUT(URLPath: String, parameters: [String: AnyObject]?)-> Promise<JSON> {
         
-        return self.request(.PUT, URLPath, version: version, parameters: parameters)
+        return self.request(.PUT, URLPath, parameters: parameters)
     }
     
     // Promise DELETe Request
     
-    func DELETE(URLPath: String, version: String, parameters: [String: AnyObject]?)-> Promise<JSON> {
+    func DELETE(URLPath: String, parameters: [String: AnyObject]?)-> Promise<JSON> {
         
-        return self.request(.DELETE, URLPath, version: version, parameters: parameters)
+        return self.request(.DELETE, URLPath, parameters: parameters)
     }
     
     func baseUrl() -> String {
@@ -127,9 +127,9 @@ class RCGNetworkingManager: NSObject {
         return String(format: "https://%@", hostName)
     }
     
-    func URLStringWithPath(path: String, version: String)-> String {
+    func URLStringWithPath(path: String)-> String {
         
-        return hostName
+        return hostName + path
     }
     
     // MARK: - Promises
@@ -181,9 +181,9 @@ class RCGNetworkingManager: NSObject {
     
     // Utility Methods
     
-    private func request(method: Alamofire.Method, _ URLString: String, version: String, parameters: [String: AnyObject]?, success: (response: JSON?)-> Void, failure: (error: NSError)-> Void) {
+    private func request(method: Alamofire.Method, _ URLString: String, parameters: [String: AnyObject]?, success: (response: JSON?)-> Void, failure: (error: NSError)-> Void) {
         
-        self.manager.request(method, self.URLStringWithPath(URLString, version: version), parameters: parameters, encoding: .JSON, headers: headers)
+        self.manager.request(method, self.URLStringWithPath(URLString), parameters: parameters, encoding: .JSON, headers: headers)
             .validate()
             .responseJSON { response in
                 
@@ -201,9 +201,9 @@ class RCGNetworkingManager: NSObject {
     }
     
     // Promise Requests + static data
-    private func request(method: Alamofire.Method, _ URLString: String, version: String, parameters: [String: AnyObject]?)-> Promise<JSON> {
+    private func request(method: Alamofire.Method, _ URLString: String, parameters: [String: AnyObject]?)-> Promise<JSON> {
         
-        let url = self.URLStringWithPath(URLString, version: version)
+        let url = self.URLStringWithPath(URLString)
         
         return Promise { fulfill, reject in
             self.manager.request(method, url, parameters: nil, encoding: .JSON, headers: headers)
@@ -220,21 +220,7 @@ class RCGNetworkingManager: NSObject {
                                 return
                             }
                             
-                            var IDDictionary = [String: AnyObject]()
-                            
-                            // Check if response contains object id
-                            let objectID = Int((_jsonDict.first?.0)!)
-                            if objectID != nil {
-                                IDDictionary = ["id": _jsonDict.first!.0]
-                                
-                                IDDictionary += _jsonDict.first!.1[0].dictionaryObject!
-                            }
-                            else {
-                                // Pass whole json object, if there's no id associated with dict (ex: [id: JSON])
-                                fulfill(JSON(_jsonDict))
-                            }
-                            
-                            fulfill(JSON(IDDictionary))
+                            fulfill(JSON(_jsonDict))
                         }
                         
                     case .Failure(let error):
