@@ -91,6 +91,27 @@ public class RCGPokemon: _RCGPokemon {
                 }
             }
         }
-
+        
+        if let typesJSONArray = json["types"].array {
+            for type in typesJSONArray {
+                
+                if type["type"] != nil {
+                    let typeJSON = type["type"]
+                    
+                    do {
+                        
+                        let typeObject = try RCGPokemonType.fetchOrInsertWithJSON(typeJSON, context: context)
+                        
+                        if let typeObject = typeObject {
+                            if !self.types.containsObject(typeObject) {
+                                self.addTypesObject(typeObject)
+                                typeObject.addPokemonObject(self)
+                            }
+                        }
+                    }
+                    catch { }
+                }
+            }
+        }
     }
 }

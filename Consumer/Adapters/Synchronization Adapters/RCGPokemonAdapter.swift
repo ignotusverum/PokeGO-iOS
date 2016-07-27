@@ -54,10 +54,11 @@ class RCGPokemonAdapter: RCGSynchronizerAdapter {
                 
                     do {
                         // Loopin through json array
-                        for i in 0..<resultDict.count {
+                        for (i, object) in resultDict.enumerate() {
                         
-                            var jsonUpdate = resultDict[i]
-                            jsonUpdate["id"] = JSON(i)
+                            var jsonUpdate = object
+                            // Start from 1
+                            jsonUpdate["id"] = JSON(i + 1)
                             
                             // Creating pokemon objects in database
                             let pokemon = try RCGPokemon.fetchOrInsertWithJSON(jsonUpdate)

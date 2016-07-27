@@ -1,5 +1,5 @@
 //
-//  RCGPokemonMove.swift
+//  RCGPokemonType.swift
 //  consumer
 //
 //  Created by Vladislav Zagorodnyuk on 2/3/16.
@@ -9,18 +9,18 @@
 import CoreData
 import SwiftyJSON
 
-@objc(RCGPokemonMove)
-public class RCGPokemonMove: _RCGPokemonMove {
+@objc(RCGPokemonType)
+public class RCGPokemonType: _RCGPokemonType {
 
 	// MARK: - Fetching logic
-	class func fetchObjectWithID(objectID: Int, context: NSManagedObjectContext) throws -> RCGPokemonMove? {
+	class func fetchObjectWithID(objectID: Int, context: NSManagedObjectContext) throws -> RCGPokemonType? {
 
-        return try RCGPokemonMove.modelFetchWithID(objectID, context:context) as? RCGPokemonMove
+        return try RCGPokemonType.modelFetchWithID(objectID, context:context) as? RCGPokemonType
     }
 
-    class func fetchOrInsertWithJSON(json: JSON, context: NSManagedObjectContext) throws -> RCGPokemonMove? {
+    class func fetchOrInsertWithJSON(json: JSON, context: NSManagedObjectContext) throws -> RCGPokemonType? {
 
-        return try RCGPokemonMove.modelFetchOrInsertWithJSON(json, context: context) as? RCGPokemonMove
+        return try RCGPokemonType.modelFetchOrInsertWithJSON(json, context: context) as? RCGPokemonType
     }
 
     // MARK: - Parsing JSON
@@ -34,7 +34,7 @@ public class RCGPokemonMove: _RCGPokemonMove {
         
         if let urlString = json["url"].string {
             
-            let result = urlString.sliceFrom("move/", to: "/")
+            let result = urlString.sliceFrom("type/", to: "/")
             self.modelObjectID = result?.toInt()
         }
     }

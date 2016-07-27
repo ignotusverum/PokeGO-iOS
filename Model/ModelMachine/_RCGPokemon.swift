@@ -12,6 +12,7 @@ public enum RCGPokemonRelationships: String {
     case abilities = "abilities"
     case moves = "moves"
     case stats = "stats"
+    case types = "types"
 }
 
 @objc public
@@ -60,6 +61,9 @@ class _RCGPokemon: RCGModel {
 
     @NSManaged public
     var stats: NSSet
+
+    @NSManaged public
+    var types: NSSet
 
 }
 
@@ -143,6 +147,34 @@ extension _RCGPokemon {
         let mutable = self.stats.mutableCopy() as! NSMutableSet
         mutable.removeObject(value)
         self.stats = mutable.copy() as! NSSet
+    }
+
+}
+
+extension _RCGPokemon {
+
+    func addTypes(objects: NSSet) {
+        let mutable = self.types.mutableCopy() as! NSMutableSet
+        mutable.unionSet(objects as Set<NSObject>)
+        self.types = mutable.copy() as! NSSet
+    }
+
+    func removeTypes(objects: NSSet) {
+        let mutable = self.types.mutableCopy() as! NSMutableSet
+        mutable.minusSet(objects as Set<NSObject>)
+        self.types = mutable.copy() as! NSSet
+    }
+
+    func addTypesObject(value: RCGPokemonType!) {
+        let mutable = self.types.mutableCopy() as! NSMutableSet
+        mutable.addObject(value)
+        self.types = mutable.copy() as! NSSet
+    }
+
+    func removeTypesObject(value: RCGPokemonType!) {
+        let mutable = self.types.mutableCopy() as! NSMutableSet
+        mutable.removeObject(value)
+        self.types = mutable.copy() as! NSSet
     }
 
 }
