@@ -28,6 +28,7 @@
 		B82726341D37063300BD959B /* RCGMovesAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B82726331D37063300BD959B /* RCGMovesAdapter.swift */; };
 		B82726361D37066500BD959B /* RCGEvolutionAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B82726351D37066500BD959B /* RCGEvolutionAdapter.swift */; };
 		B8F74E191D4848290064A918 /* RCGMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8F74E181D4848290064A918 /* RCGMapViewController.swift */; };
+		B8F74E1B1D48489A0064A918 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8F74E1A1D48489A0064A918 /* MapKit.framework */; };
 		F5005A651D3E954900C03CF2 /* RCGPokekonAbilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5005A601D3E954900C03CF2 /* RCGPokekonAbilities.swift */; };
 		F5005A661D3E954900C03CF2 /* RCGPokemonStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5005A611D3E954900C03CF2 /* RCGPokemonStats.swift */; };
 		F5005A671D3E954900C03CF2 /* _RCGPokekonAbilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5005A631D3E954900C03CF2 /* _RCGPokekonAbilities.swift */; };
@@ -58,6 +59,7 @@
 		B82726331D37063300BD959B /* RCGMovesAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RCGMovesAdapter.swift; sourceTree = "<group>"; };
 		B82726351D37066500BD959B /* RCGEvolutionAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RCGEvolutionAdapter.swift; sourceTree = "<group>"; };
 		B8F74E181D4848290064A918 /* RCGMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RCGMapViewController.swift; sourceTree = "<group>"; };
+		B8F74E1A1D48489A0064A918 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		F5005A601D3E954900C03CF2 /* RCGPokekonAbilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RCGPokekonAbilities.swift; sourceTree = "<group>"; };
 		F5005A611D3E954900C03CF2 /* RCGPokemonStats.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RCGPokemonStats.swift; sourceTree = "<group>"; };
 		F5005A631D3E954900C03CF2 /* _RCGPokekonAbilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = _RCGPokekonAbilities.swift; sourceTree = "<group>"; };
@@ -83,6 +85,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B8F74E1B1D48489A0064A918 /* MapKit.framework in Frameworks */,
 				F97ED36B8F7C0CF9D9B60EDA /* Pods.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -93,6 +96,7 @@
 		4390F03CAE6816F97B51B3AA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B8F74E1A1D48489A0064A918 /* MapKit.framework */,
 				30A7D946297E4B907005E84F /* Pods.framework */,
 			);
 			name = Frameworks;
