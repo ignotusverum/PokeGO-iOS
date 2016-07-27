@@ -69,30 +69,49 @@ public class RCGPokemon: _RCGPokemon {
                 }
             }
         }
-    }
-    
-    // MARK: - Utility
-    class func getModelObjectFromJSON(json: JSON, arrayKey: String, objectKey: String)-> RCGModel? {
         
-        var result: RCGModel?
-        
-        if let abilitiesJSONArray = json["abilities"].array {
-            for ability in abilitiesJSONArray {
+        if let movesJSONArray = json["moves"].array {
+            for move in movesJSONArray {
                 
-                if ability["ability"] != nil {
-                    let abilityJSON = ability["ability"]
+                if move["move"] != nil {
+                    let moveJSON = move["move"]
                     
                     do {
                         
-                        let object = try RCGPokekonAbilities.fetchOrInsertWithJSON(abilityJSON, context: NSManagedObjectContext.MR_defaultContext())
+                        let moveObject = try RCGPokemonMove.fetchOrInsertWithJSON(moveJSON, context: context)
                         
-                        result = object
+                        if let moveObject = moveObject {
+                            if !self.moves.containsObject(moveObject) {
+                                self.addMovesObject(moveObject)
+                                moveObject.pokemon = self
+                            }
+                        }
                     }
                     catch { }
                 }
             }
         }
         
-        return result
+        if let typesJSONArray = json["types"].array {
+            for type in typesJSONArray {
+                
+                if type["type"] != nil {
+                    let typeJSON = type["type"]
+                    
+                    do {
+                        
+                        let typeObject = try RCGPokemonType.fetchOrInsertWithJSON(typeJSON, context: context)
+                        
+                        if let typeObject = typeObject {
+                            if !self.types.containsObject(typeObject) {
+                                self.addTypesObject(typeObject)
+                                typeObject.addPokemonObject(self)
+                            }
+                        }
+                    }
+                    catch { }
+                }
+            }
+        }
     }
 }

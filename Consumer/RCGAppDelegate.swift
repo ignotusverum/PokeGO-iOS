@@ -45,4 +45,3 @@ class RCGAppDelegate: UIResponder, UIApplicationDelegate {
         return NSBundle.mainBundle().bundleIdentifier!
     }
 }
-

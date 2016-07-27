@@ -12,6 +12,7 @@ public enum RCGPokemonRelationships: String {
     case abilities = "abilities"
     case moves = "moves"
     case stats = "stats"
+    case types = "types"
 }
 
 @objc public
@@ -56,12 +57,13 @@ class _RCGPokemon: RCGModel {
     var abilities: NSSet
 
     @NSManaged public
-    var moves: RCGPokemonMove?
-
-    // func validateMoves(value: AutoreleasingUnsafeMutablePointer<AnyObject>, error: NSErrorPointer) -> Bool {}
+    var moves: NSSet
 
     @NSManaged public
     var stats: NSSet
+
+    @NSManaged public
+    var types: NSSet
 
 }
 
@@ -95,6 +97,34 @@ extension _RCGPokemon {
 
 extension _RCGPokemon {
 
+    func addMoves(objects: NSSet) {
+        let mutable = self.moves.mutableCopy() as! NSMutableSet
+        mutable.unionSet(objects as Set<NSObject>)
+        self.moves = mutable.copy() as! NSSet
+    }
+
+    func removeMoves(objects: NSSet) {
+        let mutable = self.moves.mutableCopy() as! NSMutableSet
+        mutable.minusSet(objects as Set<NSObject>)
+        self.moves = mutable.copy() as! NSSet
+    }
+
+    func addMovesObject(value: RCGPokemonMove!) {
+        let mutable = self.moves.mutableCopy() as! NSMutableSet
+        mutable.addObject(value)
+        self.moves = mutable.copy() as! NSSet
+    }
+
+    func removeMovesObject(value: RCGPokemonMove!) {
+        let mutable = self.moves.mutableCopy() as! NSMutableSet
+        mutable.removeObject(value)
+        self.moves = mutable.copy() as! NSSet
+    }
+
+}
+
+extension _RCGPokemon {
+
     func addStats(objects: NSSet) {
         let mutable = self.stats.mutableCopy() as! NSMutableSet
         mutable.unionSet(objects as Set<NSObject>)
@@ -117,6 +147,34 @@ extension _RCGPokemon {
         let mutable = self.stats.mutableCopy() as! NSMutableSet
         mutable.removeObject(value)
         self.stats = mutable.copy() as! NSSet
+    }
+
+}
+
+extension _RCGPokemon {
+
+    func addTypes(objects: NSSet) {
+        let mutable = self.types.mutableCopy() as! NSMutableSet
+        mutable.unionSet(objects as Set<NSObject>)
+        self.types = mutable.copy() as! NSSet
+    }
+
+    func removeTypes(objects: NSSet) {
+        let mutable = self.types.mutableCopy() as! NSMutableSet
+        mutable.minusSet(objects as Set<NSObject>)
+        self.types = mutable.copy() as! NSSet
+    }
+
+    func addTypesObject(value: RCGPokemonType!) {
+        let mutable = self.types.mutableCopy() as! NSMutableSet
+        mutable.addObject(value)
+        self.types = mutable.copy() as! NSSet
+    }
+
+    func removeTypesObject(value: RCGPokemonType!) {
+        let mutable = self.types.mutableCopy() as! NSMutableSet
+        mutable.removeObject(value)
+        self.types = mutable.copy() as! NSSet
     }
 
 }
