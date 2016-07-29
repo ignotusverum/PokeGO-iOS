@@ -43,5 +43,14 @@ class RCGMapViewController: UIViewController {
     
     var mapLocatoin: [String: AnyObject]?
     
-    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        let urlString = "http://localhost:5000/raw_data?pokemon=true&pokestops=true&gyms=true"
+        
+        let netman = RCGNetworkingManager.sharedManager
+        netman.GET(urlString, parameters: nil).then { result in
+            print(result)
+        }
+    }
 }
