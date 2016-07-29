@@ -63,7 +63,7 @@
 		B82726311D37062A00BD959B /* RCGPokemonAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RCGPokemonAdapter.swift; sourceTree = "<group>"; };
 		B82726331D37063300BD959B /* RCGMovesAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RCGMovesAdapter.swift; sourceTree = "<group>"; };
 		B82726351D37066500BD959B /* RCGEvolutionAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RCGEvolutionAdapter.swift; sourceTree = "<group>"; };
-		B83EB3871D4850180035F89A /* Mogenerator-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Mogenerator-Bridging-Header.h"; sourceTree = "<group>"; };
+		B83EB3871D4850180035F89A /* Mogenerator-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "Mogenerator-Bridging-Header.h"; path = "Sections/Mogenerator-Bridging-Header.h"; sourceTree = "<group>"; };
 		B83EB38A1D4850600035F89A /* RCGInitialViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RCGInitialViewController.swift; sourceTree = "<group>"; };
 		B8F74E181D4848290064A918 /* RCGMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RCGMapViewController.swift; sourceTree = "<group>"; };
 		B8F74E1A1D48489A0064A918 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
@@ -126,6 +126,7 @@
 		B82726291D3703C200BD959B /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				B83EB3871D4850180035F89A /* Mogenerator-Bridging-Header.h */,
 				F51DE7E61D359514005E7CF3 /* Assets.xcassets */,
 				F51DE7EB1D359514005E7CF3 /* Info.plist */,
 			);
@@ -159,7 +160,6 @@
 			children = (
 				B83EB38A1D4850600035F89A /* RCGInitialViewController.swift */,
 				B8F74E171D4846B60064A918 /* Map */,
-				B83EB3871D4850180035F89A /* Mogenerator-Bridging-Header.h */,
 			);
 			path = Sections;
 			sourceTree = "<group>";
