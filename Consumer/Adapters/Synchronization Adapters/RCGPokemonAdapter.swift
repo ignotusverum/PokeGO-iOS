@@ -49,13 +49,13 @@ class RCGPokemonAdapter: RCGSynchronizerAdapter {
                                 if let pokemon = pokemon {
                                     resultArray.append(pokemon)
                                 }
-                                
-                                // Save
-                                try NSManagedObjectContext.MR_defaultContext().save()
-                                
-                                fulfill(resultArray)
                             }
                         }
+                        
+                        // Save
+                        try NSManagedObjectContext.MR_defaultContext().save()
+                        
+                        fulfill(resultArray)
                     }
                 }
             }
