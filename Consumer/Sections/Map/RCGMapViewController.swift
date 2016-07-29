@@ -43,5 +43,11 @@ class RCGMapViewController: UIViewController {
     
     var mapLocatoin: [String: AnyObject]?
     
-    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        RCGPokemonAdapter.fetchPokemonList().then { resultArray in
+            print(resultArray)
+        }
+    }
 }

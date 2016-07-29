@@ -10,6 +10,7 @@ public enum RCGPokemonAttributes: String {
 
 public enum RCGPokemonRelationships: String {
     case abilities = "abilities"
+    case mapDetails = "mapDetails"
     case moves = "moves"
     case stats = "stats"
     case types = "types"
@@ -55,6 +56,11 @@ class _RCGPokemon: RCGModel {
 
     @NSManaged public
     var abilities: NSSet
+
+    @NSManaged public
+    var mapDetails: RCGPokemonMap?
+
+    // func validateMapDetails(value: AutoreleasingUnsafeMutablePointer<AnyObject>, error: NSErrorPointer) -> Bool {}
 
     @NSManaged public
     var moves: NSSet

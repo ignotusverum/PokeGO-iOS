@@ -43,7 +43,7 @@ public class RCGPokemon: _RCGPokemon {
         if let _name = json["name"].string {
             self.name = _name
         }
-
+        
         if let _weight = json["weight"].float {
             self.weight = _weight
         }

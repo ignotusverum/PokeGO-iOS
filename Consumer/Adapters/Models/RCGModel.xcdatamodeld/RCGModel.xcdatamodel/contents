@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="10174" systemVersion="15G31" minimumToolsVersion="Xcode 7.0">
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="10174" systemVersion="15D21" minimumToolsVersion="Xcode 7.0">
     <entity name="RCGModel" representedClassName="RCGModel" syncable="YES">
         <attribute name="modelObjectID" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
@@ -11,9 +11,18 @@
         <attribute name="height" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
         <attribute name="weight" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
         <relationship name="abilities" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="RCGPokekonAbilities" inverseName="pokemon" inverseEntity="RCGPokekonAbilities" syncable="YES"/>
+        <relationship name="mapDetails" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="RCGPokemonMap" inverseName="pokemon" inverseEntity="RCGPokemonMap" syncable="YES"/>
         <relationship name="moves" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="RCGPokemonMove" inverseName="pokemon" inverseEntity="RCGPokemonMove" syncable="YES"/>
         <relationship name="stats" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="RCGPokemonStats" inverseName="pokemon" inverseEntity="RCGPokemonStats" syncable="YES"/>
         <relationship name="types" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="RCGPokemonType" inverseName="pokemon" inverseEntity="RCGPokemonType" syncable="YES"/>
+    </entity>
+    <entity name="RCGPokemonMap" representedClassName="RCGPokemonMap" parentEntity="RCGModel" syncable="YES">
+        <attribute name="disappearTime" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="encounterID" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="latitude" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="longitude" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="spawnpointID" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <relationship name="pokemon" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="RCGPokemon" inverseName="mapDetails" inverseEntity="RCGPokemon" syncable="YES"/>
     </entity>
     <entity name="RCGPokemonMove" representedClassName="RCGPokemonMove" parentEntity="RCGModel" syncable="YES">
         <relationship name="pokemon" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="RCGPokemon" inverseName="moves" inverseEntity="RCGPokemon" syncable="YES"/>
@@ -29,7 +38,8 @@
     <elements>
         <element name="RCGModel" positionX="-54" positionY="18" width="128" height="75"/>
         <element name="RCGPokekonAbilities" positionX="-54" positionY="9" width="128" height="60"/>
-        <element name="RCGPokemon" positionX="-63" positionY="-18" width="128" height="135"/>
+        <element name="RCGPokemon" positionX="-63" positionY="-18" width="128" height="150"/>
+        <element name="RCGPokemonMap" positionX="-54" positionY="36" width="128" height="135"/>
         <element name="RCGPokemonMove" positionX="-36" positionY="54" width="128" height="60"/>
         <element name="RCGPokemonStats" positionX="-45" positionY="27" width="128" height="90"/>
         <element name="RCGPokemonType" positionX="-54" positionY="36" width="128" height="60"/>
