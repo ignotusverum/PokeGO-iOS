@@ -1,4 +1,9 @@
-# PokeGO
-pokemon go database - iOS Client
+# PokeGO (Pokemon GO)
+
+Pokemon Reference Application + Map location
+
+Fetching Pokemons in the local area (can override location);
+
+Fetching Pokemon details.
 
 ---
