@@ -51,7 +51,7 @@
 		F534DDAA1D42912F00FC383F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F534DDA81D42912F00FC383F /* Main.storyboard */; };
 		F534DDAC1D4294EC00FC383F /* RCGLoginManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F534DDAB1D4294EC00FC383F /* RCGLoginManager.swift */; };
 		F5A57E331D3838A6005A3543 /* RCGModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F5A57E311D3838A6005A3543 /* RCGModel.xcdatamodeld */; };
-		F5A57E3A1D383933005A3543 /* TCGMManagedObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5A57E391D383933005A3543 /* TCGMManagedObject.swift */; };
+		F5A57E3A1D383933005A3543 /* RCGMManagedObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5A57E391D383933005A3543 /* RCGMManagedObject.swift */; };
 		F97ED36B8F7C0CF9D9B60EDA /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30A7D946297E4B907005E84F /* Pods.framework */; };
 /* End PBXBuildFile section */
 
@@ -92,7 +92,7 @@
 		F534DDA81D42912F00FC383F /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		F534DDAB1D4294EC00FC383F /* RCGLoginManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RCGLoginManager.swift; sourceTree = "<group>"; };
 		F5A57E321D3838A6005A3543 /* RCGModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = RCGModel.xcdatamodel; sourceTree = "<group>"; };
-		F5A57E391D383933005A3543 /* TCGMManagedObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TCGMManagedObject.swift; sourceTree = "<group>"; };
+		F5A57E391D383933005A3543 /* RCGMManagedObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RCGMManagedObject.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -260,7 +260,7 @@
 			children = (
 				F5005A5F1D3E954900C03CF2 /* ModelHuman */,
 				F5005A621D3E954900C03CF2 /* ModelMachine */,
-				F5A57E391D383933005A3543 /* TCGMManagedObject.swift */,
+				F5A57E391D383933005A3543 /* RCGMManagedObject.swift */,
 				F5A57E311D3838A6005A3543 /* RCGModel.xcdatamodeld */,
 			);
 			path = Models;
@@ -430,7 +430,7 @@
 				B82726361D37066500BD959B /* RCGEvolutionAdapter.swift in Sources */,
 				B83EB38B1D4850600035F89A /* RCGInitialViewController.swift in Sources */,
 				B827262D1D37043600BD959B /* RCGSynchronizerHandler.swift in Sources */,
-				F5A57E3A1D383933005A3543 /* TCGMManagedObject.swift in Sources */,
+				F5A57E3A1D383933005A3543 /* RCGMManagedObject.swift in Sources */,
 				B8F74E191D4848290064A918 /* RCGMapViewController.swift in Sources */,
 				F5005A801D3ECD4900C03CF2 /* _RCGPokemonMove.swift in Sources */,
 			);
