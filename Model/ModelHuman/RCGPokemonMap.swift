@@ -22,6 +22,11 @@ public class RCGPokemonMap: _RCGPokemonMap {
 
         return try RCGPokemonMap.modelFetchOrInsertWithJSON(json, context: context) as? RCGPokemonMap
     }
+    
+    class func fetchOrInsertWithJSON(json: JSON) throws -> RCGPokemonMap? {
+        
+        return try RCGPokemonMap.modelFetchOrInsertDefaultWithJSON(json) as? RCGPokemonMap
+    }
 
     // MARK: - Parsing JSON
     override func setValueWithJSON(json: JSON, context: NSManagedObjectContext) {

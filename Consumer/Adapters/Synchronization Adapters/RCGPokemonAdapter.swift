@@ -16,7 +16,7 @@ import MagicalRecord
 class RCGPokemonAdapter: RCGSynchronizerAdapter {
 
     // Fetch pokemon for map
-    class func fetchPokemonList(pokemonEnabled: Bool = true, gymEnabled: Bool = true, stopEnabled: Bool = true)-> Promise<[RCGPokemon]?> {
+    class func fetchPokemonList(pokemonEnabled: Bool = true, gymEnabled: Bool = true, stopEnabled: Bool = true)-> Promise<[RCGPokemonMap]?> {
         return Promise { fulfill, reject in
             
             let netman = RCGNetworkingManager.sharedManager
@@ -31,7 +31,7 @@ class RCGPokemonAdapter: RCGSynchronizerAdapter {
             
             netman.GET(path, parameters: parameters).then { result-> Void in
                 
-                var resultArray = [RCGPokemon]()
+                var resultArray = [RCGPokemonMap]()
                 
                 // Checking for json in array / keys (pokemon/stops/gyms)
                 if let jsonArray = result.dictionary {
@@ -44,7 +44,7 @@ class RCGPokemonAdapter: RCGSynchronizerAdapter {
                         
                             do {
                                 
-                                let pokemon = try RCGPokemon.fetchOrInsertWithJSON(pokemonJSON)
+                                let pokemon = try RCGPokemonMap.fetchOrInsertWithJSON(pokemonJSON)
                                 
                                 if let pokemon = pokemon {
                                     resultArray.append(pokemon)
