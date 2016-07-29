@@ -15,6 +15,53 @@ import MagicalRecord
 
 class RCGPokemonAdapter: RCGSynchronizerAdapter {
 
+    // Fetch pokemon for map
+    class func fetchPokemonList(pokemonEnabled: Bool = true, gymEnabled: Bool = true, stopEnabled: Bool = true)-> Promise<[RCGPokemon]?> {
+        return Promise { fulfill, reject in
+            
+            let netman = RCGNetworkingManager.sharedManager
+            
+            var parameters = [String: AnyObject]()
+            
+            parameters["gyms"] = gymEnabled
+            parameters["pokestops"] = stopEnabled
+            parameters["pokemon"] = pokemonEnabled
+            
+            let path = "http://localhost:5000/raw_data"
+            
+            netman.GET(path, parameters: parameters).then { result-> Void in
+                
+                var resultArray = [RCGPokemon]()
+                
+                // Checking for json in array / keys (pokemon/stops/gyms)
+                if let jsonArray = result.dictionary {
+                    
+                    // Getting pokemon list
+                    if let pokemonJSONArray = jsonArray["pokemons"]?.array {
+                        
+                        // Getting pokemon JSON
+                        for pokemonJSON in pokemonJSONArray {
+                        
+                            do {
+                                
+                                let pokemon = try RCGPokemon.fetchOrInsertWithJSON(pokemonJSON)
+                                
+                                if let pokemon = pokemon {
+                                    resultArray.append(pokemon)
+                                }
+                                
+                                // Save
+                                try NSManagedObjectContext.MR_defaultContext().save()
+                                
+                                fulfill(resultArray)
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
     // Fetching pokemons
     class func fetchPokemonWithID(pokemonID: Int)-> Promise<RCGPokemon?> {
         return Promise { fulfill, reject in
