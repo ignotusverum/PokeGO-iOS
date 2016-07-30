@@ -35,6 +35,8 @@ class RCGMapFetcher: NSObject {
 
         RCGPokemonAdapter.fetchPokemonLocations().then { resultArray-> Void in
             
+            print(resultArray)
+            
             if let resultPokemons = resultArray {
                 self.delegate?.fetchedPokemons(resultPokemons)
             }
