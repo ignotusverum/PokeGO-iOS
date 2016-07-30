@@ -13,19 +13,17 @@ import CoreLocation
 
 class RCGMapViewController: UIViewController {
 
-    //
-    var region: MKCoordinateRegion?
-    
-    //
-    var radar: CLLocationCoordinate2D?
-    
     // Location Manager - current location
     let locationManager = CLLocationManager()
     
-    //
+    // Current Location Button
     @IBOutlet var locationButton: UIButton!
-    
+
+    // Map View
     @IBOutlet var mapView: MKMapView!
+    
+    // Annotations
+    var pokemonAnnotations = [MKPointAnnotation]()
     
     // MARK: - Controller lifecycle
     override func viewWillAppear(animated: Bool) {
@@ -59,6 +57,26 @@ class RCGMapViewController: UIViewController {
         }
     }
     
+    func addMapAnnotations(pokemons: [RCGPokemonMap]) {
+        
+        for pokemon in pokemons {
+         
+            if let latitude = pokemon.latitude, let longitude = pokemon.longitude {
+                
+                let annotation = MKPointAnnotation()
+                annotation.coordinate = CLLocationCoordinate2DMake(latitude, longitude)
+                
+                // Checking if pin already there
+                if !self.pokemonAnnotations.contains(annotation) {
+                    
+                    self.pokemonAnnotations.append(annotation)
+                    // Update map
+                    self.mapView.addAnnotation(annotation)
+                }
+            }
+        }
+    }
+    
     func startMapFetcher() {
         
         let mapFetcher = RCGMapFetcher.sharedFetcher
@@ -72,8 +90,8 @@ class RCGMapViewController: UIViewController {
 extension RCGMapViewController: RCGMapFetcherDelegate {
     
     func fetchedPokemons(pokemons: [RCGPokemonMap]) {
-        print(pokemons)
         
+        self.addMapAnnotations(pokemons)
     }
 }
 
