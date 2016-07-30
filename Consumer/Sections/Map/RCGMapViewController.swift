@@ -35,14 +35,6 @@ class RCGMapViewController: UIViewController {
         self.startLocationManager()
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-//        RCGPokemonAdapter.fetchPokemonList().then { resultArray in
-//            print(resultArray)
-//        }
-    }
-    
     // MARK: - Utilities
     func startLocationManager() {
         
@@ -57,11 +49,31 @@ class RCGMapViewController: UIViewController {
             self.locationManager.startUpdatingLocation()
             
             self.mapView.showsUserLocation = true
+            
+            // Map fetcher start
+            self.startMapFetcher()
         }
         else {
             // Show empty view with alert
             print("Locatoin sevices disabled")
         }
+    }
+    
+    func startMapFetcher() {
+        
+        let mapFetcher = RCGMapFetcher.sharedFetcher
+        
+        mapFetcher.delegate = self
+        mapFetcher.startFetching()
+    }
+}
+
+// MARK: - Map Fetcher Delegate
+extension RCGMapViewController: RCGMapFetcherDelegate {
+    
+    func fetchedPokemons(pokemons: [RCGPokemonMap]) {
+        print(pokemons)
+        
     }
 }
 

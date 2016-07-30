@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol RCGConsumerConfigDelegate {
+protocol RCGMapFetcherDelegate {
     func fetchedPokemons(pokemons: [RCGPokemonMap])
 }
 
@@ -18,7 +18,7 @@ class RCGMapFetcher: NSObject {
     static let sharedFetcher = RCGMapFetcher()
     
     // Delegate
-    var delegate: RCGConsumerConfigDelegate?
+    var delegate: RCGMapFetcherDelegate?
     
     // Global Timer
     var fetcherTimer:NSTimer?
