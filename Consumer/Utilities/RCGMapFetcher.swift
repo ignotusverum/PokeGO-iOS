@@ -28,7 +28,7 @@ class RCGMapFetcher: NSObject {
         self.fetcherTimer?.invalidate()
         self.fetcherTimer = nil
         
-        self.fetcherTimer = NSTimer(timeInterval: 5.0, target: self, selector: #selector(RCGMapFetcher.fetchData), userInfo: nil, repeats: true)
+        self.fetcherTimer = NSTimer.scheduledTimerWithTimeInterval(5.0, target: self, selector: #selector(RCGMapFetcher.fetchData), userInfo: nil, repeats: true)
     }
     
     func fetchData() {
