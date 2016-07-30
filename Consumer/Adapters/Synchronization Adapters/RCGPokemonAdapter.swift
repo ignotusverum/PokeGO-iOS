@@ -16,7 +16,7 @@ import MagicalRecord
 class RCGPokemonAdapter: RCGSynchronizerAdapter {
 
     // Fetch pokemon for map
-    class func fetchPokemonList(pokemonEnabled: Bool = true, gymEnabled: Bool = true, stopEnabled: Bool = true)-> Promise<[RCGPokemonMap]?> {
+    class func fetchPokemonLocations(pokemonEnabled: Bool = true, gymEnabled: Bool = false, stopEnabled: Bool = false)-> Promise<[RCGPokemonMap]?> {
         return Promise { fulfill, reject in
             
             let netman = RCGNetworkingManager.sharedManager

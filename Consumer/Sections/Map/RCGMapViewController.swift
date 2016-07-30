@@ -9,6 +9,7 @@
 import UIKit
 
 import MapKit
+import CoreLocation
 
 class RCGMapViewController: UIViewController {
 
@@ -18,21 +19,71 @@ class RCGMapViewController: UIViewController {
     //
     var radar: CLLocationCoordinate2D?
     
+    // Location Manager - current location
+    let locationManager = CLLocationManager()
+    
     //
     @IBOutlet var locationButton: UIButton!
     
     @IBOutlet var mapView: MKMapView!
     
-    //
-    var locationManager: CLLocationManager?
-    
-    var mapLocatoin: [String: AnyObject]?
+    // MARK: - Controller lifecycle
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        // Start location manager
+        self.startLocationManager()
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        RCGPokemonAdapter.fetchPokemonList().then { resultArray in
-            print(resultArray)
+//        RCGPokemonAdapter.fetchPokemonList().then { resultArray in
+//            print(resultArray)
+//        }
+    }
+    
+    // MARK: - Utilities
+    func startLocationManager() {
+        
+        // Ask Authorization
+        self.locationManager.requestAlwaysAuthorization()
+        
+        // If enabled
+        if CLLocationManager.locationServicesEnabled() {
+            
+            self.locationManager.delegate = self
+            self.locationManager.desiredAccuracy = kCLLocationAccuracyBest
+            self.locationManager.startUpdatingLocation()
+            
+            self.mapView.showsUserLocation = true
         }
+        else {
+            // Show empty view with alert
+            print("Locatoin sevices disabled")
+        }
+    }
+}
+
+// MARK: - Location Manager Delegate
+extension RCGMapViewController: CLLocationManagerDelegate {
+    
+    func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        
+        let location = locations.last! as CLLocation
+        
+        let center = CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
+        let region = MKCoordinateRegion(center: center, span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
+        
+        self.mapView.setRegion(region, animated: true)
+    }
+}
+
+// MARK: - Map View Delegate
+extension RCGMapViewController: MKMapViewDelegate {
+    
+    func mapView(mapView: MKMapView, didUpdateUserLocation userLocation: MKUserLocation) {
+        let userLocation = MKCoordinateRegionMakeWithDistance(userLocation.coordinate, 800.0, 800.0)
+        self.mapView.setRegion(userLocation, animated: true)
     }
 }
