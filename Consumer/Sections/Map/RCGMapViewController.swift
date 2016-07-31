@@ -15,6 +15,7 @@ class RCGMapViewController: UIViewController {
 
     // Location Manager - current location
     let locationManager = CLLocationManager()
+    var userLocation: CLLocationCoordinate2D?
     
     // Current Location Button
     @IBOutlet var locationButton: UIButton!
@@ -75,6 +76,13 @@ class RCGMapViewController: UIViewController {
                 }
             }
         }
+        
+        if let userLocation = self.userLocation {
+            self.mapView.zoomToFitAnnotations(self.pokemonAnnotations, userLocation: userLocation)
+        }
+        else {
+            
+        }
     }
     
     func startMapFetcher() {
@@ -102,8 +110,12 @@ extension RCGMapViewController: CLLocationManagerDelegate {
         
         let location = locations.last! as CLLocation
         
+        // Set user location
+        
         let center = CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
         let region = MKCoordinateRegion(center: center, span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
+        
+        self.userLocation = center
         
         self.mapView.setRegion(region, animated: true)
     }

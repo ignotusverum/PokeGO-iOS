@@ -10,7 +10,7 @@ import MapKit
 
 extension MKMapView {
 
-    func zoomToFitAnnotations(annotations: [MKPointAnnotation], userLocation: CLLocationCoordinate2D) {
+    func zoomToFitAnnotations(annotations: [MKPointAnnotation], userLocation: CLLocationCoordinate2D?) {
         
         if annotations.count == 0 {
             
@@ -33,14 +33,16 @@ extension MKMapView {
             }
         }
         
-        let aPoint:MKMapPoint = MKMapPointForCoordinate(userLocation)
-        let rect:MKMapRect = MKMapRectMake(aPoint.x, aPoint.y, 0.1, 0.1)
-        
-        if MKMapRectIsNull(zoomRect) {
-            zoomRect = rect
-        }
-        else {
-            zoomRect = MKMapRectUnion(zoomRect, rect)
+        if let userLocation = userLocation {
+            let aPoint:MKMapPoint = MKMapPointForCoordinate(userLocation)
+            let rect:MKMapRect = MKMapRectMake(aPoint.x, aPoint.y, 0.1, 0.1)
+            
+            if MKMapRectIsNull(zoomRect) {
+                zoomRect = rect
+            }
+            else {
+                zoomRect = MKMapRectUnion(zoomRect, rect)
+            }
         }
         
         self.setVisibleMapRect(zoomRect, edgePadding: mapEdgePadding, animated: true)
