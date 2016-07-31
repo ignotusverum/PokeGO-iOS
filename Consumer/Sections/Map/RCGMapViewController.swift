@@ -120,6 +120,16 @@ extension RCGMapViewController: NSFetchedResultsControllerDelegate {
     
     func controller(controller: NSFetchedResultsController, didChangeObject anObject: AnyObject, atIndexPath indexPath: NSIndexPath?, forChangeType type: NSFetchedResultsChangeType, newIndexPath: NSIndexPath?) {
         
+        switch type {
+        case .Delete:
+            print("delete")
+        case .Insert:
+            print("insert")
+        case .Update:
+            print("update")
+        default:
+            break
+        }
     }
     
     func controllerDidChangeContent(controller: NSFetchedResultsController) {
@@ -135,7 +145,6 @@ extension RCGMapViewController: CLLocationManagerDelegate {
         let location = locations.last! as CLLocation
         
         // Set user location
-        
         let center = CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
         let region = MKCoordinateRegion(center: center, span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
         
