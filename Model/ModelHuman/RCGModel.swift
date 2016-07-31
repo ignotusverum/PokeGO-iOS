@@ -46,7 +46,7 @@ public class RCGModel: _RCGModel {
         return result
     }
     
-    class func modelFetchOrInsertWithJSON(json: JSON, objectIDKey: String, context: NSManagedObjectContext) throws -> AnyObject? {
+    class func modelFetchOrInsertWithJSON(json: JSON, objectIDKey: String, context: NSManagedObjectContext = NSManagedObjectContext.MR_defaultContext()) throws -> AnyObject? {
         
         var result: AnyObject?
         
@@ -63,11 +63,6 @@ public class RCGModel: _RCGModel {
         }
         
         return result
-    }
-    
-    class func modelFetchOrInsertDefaultWithJSON(json: JSON, objectIDKey: String) throws-> AnyObject? {
-
-        return try self.modelFetchOrInsertWithJSON(json, objectIDKey: objectIDKey, context: NSManagedObjectContext.MR_defaultContext())
     }
     
     func setValueWithJSON(json: JSON, objectIDKey: String, context: NSManagedObjectContext) {

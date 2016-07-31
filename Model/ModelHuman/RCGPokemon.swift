@@ -43,11 +43,6 @@ public class RCGPokemon: _RCGPokemon {
 
         return try RCGPokemon.modelFetchOrInsertWithJSON(json, objectIDKey: databaseIDKey, context: context) as? RCGPokemon
     }
-    
-    class func fetchOrInsertWithJSON(json: JSON) throws -> RCGPokemon? {
-        
-        return try RCGPokemon.modelFetchOrInsertDefaultWithJSON(json, objectIDKey: databaseIDKey) as? RCGPokemon
-    }
 
     // MARK: - Parsing JSON
     override func setValueWithJSON(json: JSON, objectIDKey: String, context: NSManagedObjectContext) {
