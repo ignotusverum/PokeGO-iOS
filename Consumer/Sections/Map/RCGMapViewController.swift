@@ -43,6 +43,7 @@ class RCGMapViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.mapView.delegate = self
         self.createPokemonFetcher()
     }
     
@@ -136,9 +137,11 @@ extension RCGMapViewController: NSFetchedResultsControllerDelegate {
     
     func controllerDidChangeContent(controller: NSFetchedResultsController) {
 
-        // Cleaning stuff
-        self.mapView.removeAnnotations(self.pokemonRemoveAnnotations)
-        self.mapView.addAnnotations(self.pokemonAddAnnotations)
+        dispatch_async(dispatch_get_main_queue()) {
+            // Cleaning stuff
+            self.mapView.removeAnnotations(self.pokemonRemoveAnnotations)
+            self.mapView.addAnnotations(self.pokemonAddAnnotations)
+        }
     }
 }
 
@@ -176,8 +179,6 @@ extension RCGMapViewController: MKMapViewDelegate {
             let pinIdentifier = "RCGPokemonIdentifier"
             pinView = mapView.dequeueReusableAnnotationViewWithIdentifier(pinIdentifier)
             
-            print("OH HI")
-            print(pinView)
             if pinView == nil {
              
                 pinView = MKAnnotationView(annotation: annotation, reuseIdentifier: pinIdentifier)
@@ -185,7 +186,7 @@ extension RCGMapViewController: MKMapViewDelegate {
                 
                 let pokemonAnnotation = annotation as! RCGPokemonAnnotation
                 
-                pinView?.image = RCGPokemon.imageForID(pokemonAnnotation.pokemonMap!.modelObjectID!.integerValue)
+                pinView?.image = RCGPokemon.imageForID(pokemonAnnotation.pokemonMap!.pokemonID!.integerValue)
             }
         }
         

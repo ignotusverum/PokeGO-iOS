@@ -58,8 +58,6 @@ public class RCGPokemonMap: _RCGPokemonMap {
     var dissapearTime: Int? {
         didSet {
             
-            print(dissapearTime)
-            
             // Safety check
             guard let dissapearTime = dissapearTime else {
                 return
@@ -121,14 +119,15 @@ public class RCGPokemonMap: _RCGPokemonMap {
             self.modelObjectID = modelID
             
             if let _name = json["pokemon_name"].string {
-                
                 self.name = _name
             }
             
+            if let _pokemonID = json["pokemon_id"].int {
+                self.pokemonID = _pokemonID
+            }
+            
             if let _disappearTime = json["disappear_time"].int {
-                
                 self.dissapearTime = _disappearTime
-                print(self.dissapearTime)
             }
             
             if let _encounterID = json["encounter_id"].string {

@@ -67,7 +67,8 @@ class RCGPokemonAdapter: RCGSynchronizerAdapter {
     
     class func removeOldPokemons(pokemons: [RCGPokemonMap]) {
         
-        let spawnPointIDs = pokemons.map { $0.spawnpointID! }
+        // Can contain nils
+        let spawnPointIDs = pokemons.flatMap { $0.spawnpointID }
         
         // Fetching pokemons with spawnPointID that's norfrrfrt in server response
         let preticateForSpawnPoint = NSPredicate(format: "NOT (%K IN %@)", RCGPokemonMapAttributes.spawnpointID.rawValue, spawnPointIDs)

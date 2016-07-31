@@ -23,6 +23,8 @@ class RCGPokemonAnnotation: MKPointAnnotation {
             return
         }
         
+        self.pokemonMap = pokemonMap
+        
         if let location = pokemonMap.location {
             
             self.coordinate = location
