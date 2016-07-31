@@ -76,6 +76,22 @@ public class RCGPokemonMap: _RCGPokemonMap {
     }
     
 	// MARK: - Fetching logic
+    
+    class func modelFetchPokemonMapWithID(objectID: String, context: NSManagedObjectContext) throws -> AnyObject? {
+        
+        var result: AnyObject?
+        
+        let fetchRequest = NSFetchRequest(entityName: self.entityName())
+        let predicate = NSPredicate(format:"%K == %@", RCGPokemonMapAttributes.spawnpointID.rawValue, objectID)
+        
+        fetchRequest.predicate = predicate
+        
+        let results = try context.executeFetchRequest(fetchRequest)
+        result = results.first
+        
+        return result
+    }
+    
     class func fetchObjectWithID(objectID: Int, context: NSManagedObjectContext) throws -> RCGPokemonMap? {
         
         return try RCGPokemonMap.modelFetchWithID(objectID, context:context) as? RCGPokemonMap
@@ -83,7 +99,21 @@ public class RCGPokemonMap: _RCGPokemonMap {
     
     class func fetchOrInsertWithJSON(json: JSON, context: NSManagedObjectContext = NSManagedObjectContext.MR_defaultContext()) throws -> RCGPokemonMap? {
         
-        return try RCGPokemonMap.modelFetchOrInsertWithJSON(json, objectIDKey: databaseIDKey, context: context) as? RCGPokemonMap
+        var result: RCGPokemonMap?
+        
+        if let modelObjectID = json[databaseIDKey].string {
+            
+            result = try self.modelFetchPokemonMapWithID(modelObjectID, context: context) as? RCGPokemonMap
+            
+            if result == nil {
+                
+                result = self.MR_createInContext(context) as? RCGPokemonMap
+            }
+            
+            result?.setValueWithJSON(json, objectIDKey: databaseIDKey, context: context)
+        }
+        
+        return result
     }
     
     // MARK: - Parsing JSON

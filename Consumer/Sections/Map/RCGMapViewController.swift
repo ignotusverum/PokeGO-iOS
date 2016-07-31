@@ -86,35 +86,6 @@ class RCGMapViewController: UIViewController {
         }
     }
     
-    func addMapAnnotations(pokemons: [RCGPokemonMap]) {
-        
-        self.pokemonAddAnnotations = [RCGPokemonAnnotation]()
-        self.pokemonRemoveAnnotations = [RCGPokemonAnnotation]()
-        
-        for pokemon in pokemons {
-            
-            let annotation = RCGPokemonAnnotation(pokemonMap: pokemon)
-            
-            // Checking if pin already there && not dissapeared
-            if !self.pokemonAddAnnotations.contains(annotation) && pokemon.avaliable {
-                
-                self.pokemonAddAnnotations.append(annotation)
-            }
-                // If dissapeared, remove from the map
-            else if !pokemon.avaliable {
-                
-                self.pokemonAddAnnotations.append(annotation)
-            }
-        }
-        
-        // Update map with pokemons
-        self.mapView.addAnnotations(self.pokemonAddAnnotations)
-        self.mapView.removeAnnotations(self.pokemonAddAnnotations)
-        
-//        // Zoom to fit
-//        self.mapView.zoomToFitAnnotations(self.pokemonAnnotations, userLocation: userLocation)
-    }
-    
     func startMapFetcher() {
         
         let mapFetcher = RCGMapFetcher.sharedFetcher
@@ -128,8 +99,8 @@ class RCGMapViewController: UIViewController {
 extension RCGMapViewController: RCGMapFetcherDelegate {
     
     func fetchedPokemons(pokemons: [RCGPokemonMap]) {
-        
-        self.addMapAnnotations(pokemons)
+    
+        // Notify or something
     }
 }
 
@@ -184,7 +155,7 @@ extension RCGMapViewController: CLLocationManagerDelegate {
         
         self.userLocation = center
         
-        self.mapView.setRegion(region, animated: true)
+//        self.mapView.setRegion(region, animated: true)
     }
 }
 
