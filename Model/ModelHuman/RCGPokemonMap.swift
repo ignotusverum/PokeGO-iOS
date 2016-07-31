@@ -91,12 +91,7 @@ public class RCGPokemonMap: _RCGPokemonMap {
         
         return result
     }
-    
-    class func fetchObjectWithID(objectID: Int, context: NSManagedObjectContext) throws -> RCGPokemonMap? {
-        
-        return try RCGPokemonMap.modelFetchWithID(objectID, context:context) as? RCGPokemonMap
-    }
-    
+
     class func fetchOrInsertWithJSON(json: JSON, context: NSManagedObjectContext = NSManagedObjectContext.MR_defaultContext()) throws -> RCGPokemonMap? {
         
         var result: RCGPokemonMap?
@@ -133,6 +128,7 @@ public class RCGPokemonMap: _RCGPokemonMap {
             if let _disappearTime = json["disappear_time"].int {
                 
                 self.dissapearTime = _disappearTime
+                print(self.dissapearTime)
             }
             
             if let _encounterID = json["encounter_id"].string {
