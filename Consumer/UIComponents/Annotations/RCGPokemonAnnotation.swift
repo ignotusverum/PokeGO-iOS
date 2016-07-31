@@ -14,9 +14,14 @@ class RCGPokemonAnnotation: MKPointAnnotation {
     var pokemonMap: RCGPokemonMap?
     
     // Custom initialization
-    init(pokemonMap: RCGPokemonMap) {
+    init(pokemonMap: RCGPokemonMap?) {
         
         super.init()
+        
+        // Safety check
+        guard let pokemonMap = pokemonMap else {
+            return
+        }
         
         if let location = pokemonMap.location {
             

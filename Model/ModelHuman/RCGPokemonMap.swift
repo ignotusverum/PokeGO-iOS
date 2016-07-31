@@ -15,7 +15,7 @@ import CoreLocation
 public class RCGPokemonMap: _RCGPokemonMap {
     
     // Database ID key
-    static let databaseIDKey = "pokemon_id"
+    static let databaseIDKey = "spawnpoint_id"
     
     // Flag to show, if not dissapeared
     var avaliable = false
@@ -58,6 +58,8 @@ public class RCGPokemonMap: _RCGPokemonMap {
     var dissapearTime: Int? {
         didSet {
             
+            print(dissapearTime)
+            
             // Safety check
             guard let dissapearTime = dissapearTime else {
                 return
@@ -99,6 +101,7 @@ public class RCGPokemonMap: _RCGPokemonMap {
             }
             
             if let _disappearTime = json["disappear_time"].int {
+                
                 self.dissapearTime = _disappearTime
             }
             
@@ -114,7 +117,7 @@ public class RCGPokemonMap: _RCGPokemonMap {
                 self.longitude = _longitude
             }
             
-            if let _spawnpointID = json["spawnpointID"].string {
+            if let _spawnpointID = json["spawnpoint_id"].string {
                 self.spawnpointID = _spawnpointID
             }
         }

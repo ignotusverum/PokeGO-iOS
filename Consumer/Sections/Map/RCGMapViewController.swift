@@ -138,13 +138,26 @@ extension RCGMapViewController: NSFetchedResultsControllerDelegate {
     
     func controller(controller: NSFetchedResultsController, didChangeObject anObject: AnyObject, atIndexPath indexPath: NSIndexPath?, forChangeType type: NSFetchedResultsChangeType, newIndexPath: NSIndexPath?) {
         
+        let pokemon = anObject as? RCGPokemonMap
+        let annotation = RCGPokemonAnnotation(pokemonMap: pokemon)
+        
         switch type {
         case .Delete:
-            print("delete")
+            
+            if !self.pokemonRemoveAnnotations.contains(annotation) {
+                self.pokemonRemoveAnnotations.append(annotation)
+            }
+            
         case .Insert:
-            print("insert")
+            
+            if !self.pokemonAddAnnotations.contains(annotation) {
+                self.pokemonAddAnnotations.append(annotation)
+            }
+            
         case .Update:
-            print("update")
+            
+            print("handle update")
+            
         default:
             break
         }
@@ -152,7 +165,9 @@ extension RCGMapViewController: NSFetchedResultsControllerDelegate {
     
     func controllerDidChangeContent(controller: NSFetchedResultsController) {
 
-        
+        // Cleaning stuff
+        self.mapView.removeAnnotations(self.pokemonRemoveAnnotations)
+        self.mapView.addAnnotations(self.pokemonAddAnnotations)
     }
 }
 
