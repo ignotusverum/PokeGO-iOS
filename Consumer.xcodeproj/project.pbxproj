@@ -56,6 +56,7 @@
 		F5FEA9471D4D773F004AEFB6 /* RCGString.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5FEA9461D4D773F004AEFB6 /* RCGString.swift */; };
 		F5FEA9491D4D774A004AEFB6 /* RCGMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5FEA9481D4D774A004AEFB6 /* RCGMapView.swift */; };
 		F5FEA94B1D4D94DB004AEFB6 /* RCGImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5FEA94A1D4D94DB004AEFB6 /* RCGImage.swift */; };
+		F5FEA94F1D4E6CEE004AEFB6 /* RCGPokemonAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5FEA94E1D4E6CEE004AEFB6 /* RCGPokemonAnnotation.swift */; };
 		F97ED36B8F7C0CF9D9B60EDA /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30A7D946297E4B907005E84F /* Pods.framework */; };
 /* End PBXBuildFile section */
 
@@ -101,6 +102,7 @@
 		F5FEA9461D4D773F004AEFB6 /* RCGString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RCGString.swift; sourceTree = "<group>"; };
 		F5FEA9481D4D774A004AEFB6 /* RCGMapView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RCGMapView.swift; sourceTree = "<group>"; };
 		F5FEA94A1D4D94DB004AEFB6 /* RCGImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RCGImage.swift; sourceTree = "<group>"; };
+		F5FEA94E1D4E6CEE004AEFB6 /* RCGPokemonAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RCGPokemonAnnotation.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -253,6 +255,7 @@
 				F51DE7DF1D359514005E7CF3 /* RCGAppDelegate.swift */,
 				F534DDA31D42906A00FC383F /* Storyboards */,
 				B82726261D37015200BD959B /* Utilities */,
+				F5FEA94C1D4E6B8F004AEFB6 /* UIComponents */,
 			);
 			path = Consumer;
 			sourceTree = "<group>";
@@ -285,6 +288,22 @@
 				F5FEA94A1D4D94DB004AEFB6 /* RCGImage.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		F5FEA94C1D4E6B8F004AEFB6 /* UIComponents */ = {
+			isa = PBXGroup;
+			children = (
+				F5FEA94D1D4E6BA3004AEFB6 /* Annotations */,
+			);
+			path = UIComponents;
+			sourceTree = "<group>";
+		};
+		F5FEA94D1D4E6BA3004AEFB6 /* Annotations */ = {
+			isa = PBXGroup;
+			children = (
+				F5FEA94E1D4E6CEE004AEFB6 /* RCGPokemonAnnotation.swift */,
+			);
+			path = Annotations;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -443,6 +462,7 @@
 				F5005A651D3E954900C03CF2 /* RCGPokekonAbilities.swift in Sources */,
 				F5FEA9471D4D773F004AEFB6 /* RCGString.swift in Sources */,
 				F5005A661D3E954900C03CF2 /* RCGPokemonStats.swift in Sources */,
+				F5FEA94F1D4E6CEE004AEFB6 /* RCGPokemonAnnotation.swift in Sources */,
 				F5005A681D3E954900C03CF2 /* _RCGPokemonStats.swift in Sources */,
 				B82726321D37062A00BD959B /* RCGPokemonAdapter.swift in Sources */,
 				F5FEA94B1D4D94DB004AEFB6 /* RCGImage.swift in Sources */,

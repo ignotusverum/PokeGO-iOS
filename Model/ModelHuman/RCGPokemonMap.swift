@@ -9,6 +9,8 @@
 import CoreData
 import SwiftyJSON
 
+import CoreLocation
+
 public class RCGPokemonMap: NSObject {
 
     // PokemonID
@@ -19,6 +21,20 @@ public class RCGPokemonMap: NSObject {
     
     // Flag to show, if not dissapeared
     var appeared = false
+    
+    // Location
+    var location: CLLocationCoordinate2D? {
+        get {
+            
+            // Safety check
+            guard let latitude = self.latitude, let longitude = self.longitude else {
+                
+                return nil
+            }
+            
+            return CLLocationCoordinate2DMake(latitude, longitude)
+        }
+    }
     
     // Dissapear Time
     var dissapearDate: NSDate? {
