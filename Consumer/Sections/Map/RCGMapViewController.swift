@@ -24,7 +24,7 @@ class RCGMapViewController: UIViewController {
     @IBOutlet var mapView: MKMapView!
     
     // Annotations
-    var pokemonAnnotations = [MKPointAnnotation]()
+    var pokemonAnnotations = [RCGPokemonAnnotation]()
     
     // MARK: - Controller lifecycle
     override func viewWillAppear(animated: Bool) {
@@ -60,22 +60,33 @@ class RCGMapViewController: UIViewController {
     
     func addMapAnnotations(pokemons: [RCGPokemonMap]) {
         
+        var pokemonRemoveAnnotations = [RCGPokemonAnnotation]()
+        
+        self.pokemonAnnotations = [RCGPokemonAnnotation]()
+        
         for pokemon in pokemons {
          
             if let latitude = pokemon.latitude, let longitude = pokemon.longitude {
                 
-                let annotation = MKPointAnnotation()
+                let annotation = RCGPokemonAnnotation(pokemonMap: pokemon)
                 annotation.coordinate = CLLocationCoordinate2DMake(latitude, longitude)
                 
-                // Checking if pin already there
-                if !self.pokemonAnnotations.contains(annotation) {
+                // Checking if pin already there && not dissapeared
+                if !self.pokemonAnnotations.contains(annotation) && pokemon.avaliable {
                     
                     self.pokemonAnnotations.append(annotation)
-                    // Update map
-                    self.mapView.addAnnotation(annotation)
+                }
+                    // If dissapeared, remove from the map
+                else if !pokemon.avaliable {
+                    
+                    pokemonRemoveAnnotations.append(annotation)
                 }
             }
         }
+        
+        // Update map with pokemons
+        self.mapView.addAnnotations(self.pokemonAnnotations)
+        self.mapView.removeAnnotations(pokemonRemoveAnnotations)
         
 //        // Zoom to fit
 //        self.mapView.zoomToFitAnnotations(self.pokemonAnnotations, userLocation: userLocation)

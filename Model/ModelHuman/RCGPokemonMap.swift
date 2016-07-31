@@ -20,7 +20,7 @@ public class RCGPokemonMap: NSObject {
     var name: String?
     
     // Flag to show, if not dissapeared
-    var appeared = false
+    var avaliable = false
     
     // Location
     var location: CLLocationCoordinate2D? {
@@ -48,11 +48,11 @@ public class RCGPokemonMap: NSObject {
             
             if currentDate < dissapearDate {
                 // In the present
-                self.appeared = false
+                self.avaliable = false
             }
             else {
                 // In the future
-                self.appeared = true
+                self.avaliable = true
             }
         }
     }
