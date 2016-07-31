@@ -11,7 +11,6 @@
         <attribute name="height" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
         <attribute name="weight" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
         <relationship name="abilities" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="RCGPokekonAbilities" inverseName="pokemon" inverseEntity="RCGPokekonAbilities" syncable="YES"/>
-        <relationship name="map" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="RCGPokemonMap" inverseName="pokemon" inverseEntity="RCGPokemonMap" syncable="YES"/>
         <relationship name="moves" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="RCGPokemonMove" inverseName="pokemon" inverseEntity="RCGPokemonMove" syncable="YES"/>
         <relationship name="stats" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="RCGPokemonStats" inverseName="pokemon" inverseEntity="RCGPokemonStats" syncable="YES"/>
         <relationship name="types" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="RCGPokemonType" inverseName="pokemon" inverseEntity="RCGPokemonType" syncable="YES"/>
@@ -22,7 +21,6 @@
         <attribute name="latitude" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
         <attribute name="longitude" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
         <attribute name="spawnpointID" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="pokemon" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="RCGPokemon" inverseName="map" inverseEntity="RCGPokemon" syncable="YES"/>
     </entity>
     <entity name="RCGPokemonMove" representedClassName="RCGPokemonMove" parentEntity="RCGModel" syncable="YES">
         <relationship name="pokemon" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="RCGPokemon" inverseName="moves" inverseEntity="RCGPokemon" syncable="YES"/>
@@ -38,10 +36,10 @@
     <elements>
         <element name="RCGModel" positionX="-54" positionY="18" width="128" height="75"/>
         <element name="RCGPokekonAbilities" positionX="-54" positionY="9" width="128" height="60"/>
-        <element name="RCGPokemon" positionX="-63" positionY="-18" width="128" height="150"/>
+        <element name="RCGPokemon" positionX="-63" positionY="-18" width="128" height="135"/>
         <element name="RCGPokemonMove" positionX="-36" positionY="54" width="128" height="60"/>
         <element name="RCGPokemonStats" positionX="-45" positionY="27" width="128" height="90"/>
         <element name="RCGPokemonType" positionX="-54" positionY="36" width="128" height="60"/>
-        <element name="RCGPokemonMap" positionX="-45" positionY="54" width="128" height="135"/>
+        <element name="RCGPokemonMap" positionX="-54" positionY="45" width="128" height="120"/>
     </elements>
 </model>
