@@ -38,13 +38,21 @@ class RCGPokemonAdapter: RCGSynchronizerAdapter {
                     
                     // Getting pokemon list
                     if let pokemonJSONArray = jsonArray["pokemons"]?.array {
-                        
-                        // Getting pokemon JSON
-                        for pokemonJSON in pokemonJSONArray {
-                           
-                            let pokemonMap = RCGPokemonMap(json: pokemonJSON)
+                    
+                        do {
+                            // Getting pokemon JSON
+                            for pokemonJSON in pokemonJSONArray {
+                               
+                                let pokemonMap = try RCGPokemonMap.fetchOrInsertWithJSON(pokemonJSON)
+                                
+                                // Safety check
+                                if let pokemonMap = pokemonMap {
+                                    resultArray.append(pokemonMap)
+                                }
+                            }
                             
-                            resultArray.append(pokemonMap)
+                            // Save to database
+                            try NSManagedObjectContext.MR_defaultContext().save()
                         }
                         
                         fulfill(resultArray)

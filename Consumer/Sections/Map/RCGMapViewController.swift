@@ -69,7 +69,7 @@ class RCGMapViewController: UIViewController {
             if let latitude = pokemon.latitude, let longitude = pokemon.longitude {
                 
                 let annotation = RCGPokemonAnnotation(pokemonMap: pokemon)
-                annotation.coordinate = CLLocationCoordinate2DMake(latitude, longitude)
+                annotation.coordinate = CLLocationCoordinate2DMake(latitude.doubleValue, longitude.doubleValue)
                 
                 // Checking if pin already there && not dissapeared
                 if !self.pokemonAnnotations.contains(annotation) && pokemon.avaliable {
@@ -134,5 +134,28 @@ extension RCGMapViewController: MKMapViewDelegate {
     func mapView(mapView: MKMapView, didUpdateUserLocation userLocation: MKUserLocation) {
         let userLocation = MKCoordinateRegionMakeWithDistance(userLocation.coordinate, 800.0, 800.0)
         self.mapView.setRegion(userLocation, animated: true)
+    }
+    
+    func mapView(mapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView? {
+
+        var pinView: MKAnnotationView?
+        // Checking if annotation != current user
+        if !annotation.isKindOfClass(MKUserLocation) {
+            
+            let pinIdentifier = "RCGPokemonIdentifier"
+            pinView = mapView.dequeueReusableAnnotationViewWithIdentifier(pinIdentifier)
+            
+            if pinView == nil {
+             
+                pinView = MKAnnotationView(annotation: annotation, reuseIdentifier: pinIdentifier)
+                pinView?.canShowCallout = true
+                
+                let pokemonAnnotation = annotation as! RCGPokemonAnnotation
+                
+                pinView?.image = RCGPokemon.imageForID(pokemonAnnotation.pokemonMap!.modelObjectID!.integerValue)
+            }
+        }
+        
+        return pinView
     }
 }

@@ -11,13 +11,7 @@ import SwiftyJSON
 
 import CoreLocation
 
-public class RCGPokemonMap: NSObject {
-
-    // PokemonID
-    var pokemonID: Int?
-    
-    // Name
-    var name: String?
+public class RCGPokemonMap: _RCGPokemonMap {
     
     // Flag to show, if not dissapeared
     var avaliable = false
@@ -32,7 +26,7 @@ public class RCGPokemonMap: NSObject {
                 return nil
             }
             
-            return CLLocationCoordinate2DMake(latitude, longitude)
+            return CLLocationCoordinate2DMake(latitude.doubleValue, longitude.doubleValue)
         }
     }
     
@@ -75,24 +69,26 @@ public class RCGPokemonMap: NSObject {
         }
     }
     
-    // Encounter ID
-    var encounterID: String?
+    // MARK: - Fetching logic
+    class func fetchObjectWithID(objectID: Int, context: NSManagedObjectContext) throws -> RCGPokemonMap? {
+        
+        return try RCGPokemonMap.modelFetchWithID(objectID, context:context) as? RCGPokemonMap
+    }
     
-    // Latitude
-    var latitude: Double?
+    class func fetchOrInsertWithJSON(json: JSON, context: NSManagedObjectContext = NSManagedObjectContext.MR_defaultContext()) throws -> RCGPokemonMap? {
+        
+        return try RCGPokemonMap.modelFetchOrInsertWithJSON(json, context: context) as? RCGPokemonMap
+    }
     
-    // Longitude
-    var longitude: Double?
-    
-    // Spawnpoint ID
-    var spawnpointID: Int?
+    class func fetchOrInsertWithJSON(json: JSON) throws -> RCGPokemonMap? {
+        
+        return try RCGPokemonMap.modelFetchOrInsertDefaultWithJSON(json) as? RCGPokemonMap
+    }
     
     // MARK: - Parsing JSON
-    init(json: JSON) {
+    override func setValueWithJSON(json: JSON, context: NSManagedObjectContext) {
 
-        if let _modelObjetID = json["pokemon_id"].int {
-            
-            self.pokemonID = _modelObjetID
+        if self.modelObjectID != nil {
             
             if let _name = json["pokemon_name"].string {
                 
@@ -115,7 +111,7 @@ public class RCGPokemonMap: NSObject {
                 self.longitude = _longitude
             }
             
-            if let _spawnpointID = json["spawnpointID"].int {
+            if let _spawnpointID = json["spawnpointID"].string {
                 self.spawnpointID = _spawnpointID
             }
         }
