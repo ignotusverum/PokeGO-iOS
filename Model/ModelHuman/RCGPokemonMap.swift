@@ -13,9 +13,6 @@ import CoreLocation
 
 @objc(RCGPokemonMap)
 public class RCGPokemonMap: _RCGPokemonMap {
-
-    static let databaseShit = "fuckYou"
-    
     
     // Database ID key
     static let databaseIDKey = "pokemon_id"
