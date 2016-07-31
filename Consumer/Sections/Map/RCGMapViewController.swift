@@ -92,22 +92,18 @@ class RCGMapViewController: UIViewController {
         self.pokemonRemoveAnnotations = [RCGPokemonAnnotation]()
         
         for pokemon in pokemons {
-         
-            if let latitude = pokemon.latitude, let longitude = pokemon.longitude {
+            
+            let annotation = RCGPokemonAnnotation(pokemonMap: pokemon)
+            
+            // Checking if pin already there && not dissapeared
+            if !self.pokemonAddAnnotations.contains(annotation) && pokemon.avaliable {
                 
-                let annotation = RCGPokemonAnnotation(pokemonMap: pokemon)
-                annotation.coordinate = CLLocationCoordinate2DMake(latitude.doubleValue, longitude.doubleValue)
+                self.pokemonAddAnnotations.append(annotation)
+            }
+                // If dissapeared, remove from the map
+            else if !pokemon.avaliable {
                 
-                // Checking if pin already there && not dissapeared
-                if !self.pokemonAddAnnotations.contains(annotation) && pokemon.avaliable {
-                    
-                    self.pokemonAddAnnotations.append(annotation)
-                }
-                    // If dissapeared, remove from the map
-                else if !pokemon.avaliable {
-                    
-                    self.pokemonAddAnnotations.append(annotation)
-                }
+                self.pokemonAddAnnotations.append(annotation)
             }
         }
         
@@ -156,6 +152,7 @@ extension RCGMapViewController: NSFetchedResultsControllerDelegate {
     
     func controllerDidChangeContent(controller: NSFetchedResultsController) {
 
+        
     }
 }
 
