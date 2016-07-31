@@ -19,4 +19,10 @@ class RCGInitialViewController: UIViewController {
             print(result)
         }
     }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        RCGPokemonAdapter.fetchPokemonWithID(1)
+    }
 }

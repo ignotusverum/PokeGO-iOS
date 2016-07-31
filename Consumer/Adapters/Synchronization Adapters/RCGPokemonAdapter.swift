@@ -38,13 +38,24 @@ class RCGPokemonAdapter: RCGSynchronizerAdapter {
                     
                     // Getting pokemon list
                     if let pokemonJSONArray = jsonArray["pokemons"]?.array {
-                        
-                        // Getting pokemon JSON
-                        for pokemonJSON in pokemonJSONArray {
-                           
-                            let pokemonMap = RCGPokemonMap(json: pokemonJSON)
+                    
+                        do {
+                            // Getting pokemon JSON
+                            for pokemonJSON in pokemonJSONArray {
+                               
+                                let pokemonMap = try RCGPokemonMap.fetchOrInsertWithJSON(pokemonJSON)
+                                
+                                // Safety check
+                                if let pokemonMap = pokemonMap {
+                                    resultArray.append(pokemonMap)
+                                }
+                            }
                             
-                            resultArray.append(pokemonMap)
+                            // Clean database
+                            self.removeOldPokemons(resultArray)
+                            
+                            // Save to database
+                            try NSManagedObjectContext.MR_defaultContext().save()
                         }
                         
                         fulfill(resultArray)
@@ -52,6 +63,18 @@ class RCGPokemonAdapter: RCGSynchronizerAdapter {
                 }
             }
         }
+    }
+    
+    class func removeOldPokemons(pokemons: [RCGPokemonMap]) {
+        
+        // Can contain nils
+        let spawnPointIDs = pokemons.flatMap { $0.spawnpointID }
+        
+        // Fetching pokemons with spawnPointID that's norfrrfrt in server response
+        let preticateForSpawnPoint = NSPredicate(format: "NOT (%K IN %@)", RCGPokemonMapAttributes.spawnpointID.rawValue, spawnPointIDs)
+        
+        // Delete old pokemons
+        RCGPokemonMap.MR_deleteAllMatchingPredicate(preticateForSpawnPoint)
     }
     
     // Fetching pokemons

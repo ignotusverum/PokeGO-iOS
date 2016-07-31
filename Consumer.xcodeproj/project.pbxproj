@@ -28,8 +28,6 @@
 		B82726341D37063300BD959B /* RCGMovesAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B82726331D37063300BD959B /* RCGMovesAdapter.swift */; };
 		B82726361D37066500BD959B /* RCGEvolutionAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B82726351D37066500BD959B /* RCGEvolutionAdapter.swift */; };
 		B83EB38B1D4850600035F89A /* RCGInitialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B83EB38A1D4850600035F89A /* RCGInitialViewController.swift */; };
-		B8E1E9921D4AFEF1002B4C28 /* _RCGPokemonMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E1E9911D4AFEF1002B4C28 /* _RCGPokemonMap.swift */; };
-		B8E1E9941D4AFEF7002B4C28 /* RCGPokemonMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E1E9931D4AFEF7002B4C28 /* RCGPokemonMap.swift */; };
 		B8F74E191D4848290064A918 /* RCGMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8F74E181D4848290064A918 /* RCGMapViewController.swift */; };
 		B8F74E1B1D48489A0064A918 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8F74E1A1D48489A0064A918 /* MapKit.framework */; };
 		F5005A651D3E954900C03CF2 /* RCGPokekonAbilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5005A601D3E954900C03CF2 /* RCGPokekonAbilities.swift */; };
@@ -42,6 +40,8 @@
 		F5005A701D3E958600C03CF2 /* _RCGPokemon.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5005A6E1D3E958600C03CF2 /* _RCGPokemon.swift */; };
 		F5005A7E1D3ECD4200C03CF2 /* RCGPokemonMove.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5005A7D1D3ECD4200C03CF2 /* RCGPokemonMove.swift */; };
 		F5005A801D3ECD4900C03CF2 /* _RCGPokemonMove.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5005A7F1D3ECD4900C03CF2 /* _RCGPokemonMove.swift */; };
+		F51B73521D4E8B4800869FAC /* RCGPokemonMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = F51B73511D4E8B4800869FAC /* RCGPokemonMap.swift */; };
+		F51B73541D4E8B4D00869FAC /* _RCGPokemonMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = F51B73531D4E8B4D00869FAC /* _RCGPokemonMap.swift */; };
 		F51DE7E01D359514005E7CF3 /* RCGAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F51DE7DF1D359514005E7CF3 /* RCGAppDelegate.swift */; };
 		F51DE7E71D359514005E7CF3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F51DE7E61D359514005E7CF3 /* Assets.xcassets */; };
 		F534DD9E1D428E6D00FC383F /* RCGPokemonType.swift in Sources */ = {isa = PBXBuildFile; fileRef = F534DD9D1D428E6D00FC383F /* RCGPokemonType.swift */; };
@@ -55,6 +55,8 @@
 		F5D45DC41D4D6AB70073DBED /* RCGMapFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5D45DC31D4D6AB70073DBED /* RCGMapFetcher.swift */; };
 		F5FEA9471D4D773F004AEFB6 /* RCGString.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5FEA9461D4D773F004AEFB6 /* RCGString.swift */; };
 		F5FEA9491D4D774A004AEFB6 /* RCGMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5FEA9481D4D774A004AEFB6 /* RCGMapView.swift */; };
+		F5FEA94B1D4D94DB004AEFB6 /* RCGImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5FEA94A1D4D94DB004AEFB6 /* RCGImage.swift */; };
+		F5FEA94F1D4E6CEE004AEFB6 /* RCGPokemonAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5FEA94E1D4E6CEE004AEFB6 /* RCGPokemonAnnotation.swift */; };
 		F97ED36B8F7C0CF9D9B60EDA /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30A7D946297E4B907005E84F /* Pods.framework */; };
 /* End PBXBuildFile section */
 
@@ -70,8 +72,6 @@
 		B82726351D37066500BD959B /* RCGEvolutionAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RCGEvolutionAdapter.swift; sourceTree = "<group>"; };
 		B83EB3871D4850180035F89A /* Mogenerator-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "Mogenerator-Bridging-Header.h"; path = "Sections/Mogenerator-Bridging-Header.h"; sourceTree = "<group>"; };
 		B83EB38A1D4850600035F89A /* RCGInitialViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RCGInitialViewController.swift; sourceTree = "<group>"; };
-		B8E1E9911D4AFEF1002B4C28 /* _RCGPokemonMap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = _RCGPokemonMap.swift; sourceTree = "<group>"; };
-		B8E1E9931D4AFEF7002B4C28 /* RCGPokemonMap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RCGPokemonMap.swift; sourceTree = "<group>"; };
 		B8F74E181D4848290064A918 /* RCGMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RCGMapViewController.swift; sourceTree = "<group>"; };
 		B8F74E1A1D48489A0064A918 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		F5005A601D3E954900C03CF2 /* RCGPokekonAbilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RCGPokekonAbilities.swift; sourceTree = "<group>"; };
@@ -84,6 +84,8 @@
 		F5005A6E1D3E958600C03CF2 /* _RCGPokemon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = _RCGPokemon.swift; sourceTree = "<group>"; };
 		F5005A7D1D3ECD4200C03CF2 /* RCGPokemonMove.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RCGPokemonMove.swift; sourceTree = "<group>"; };
 		F5005A7F1D3ECD4900C03CF2 /* _RCGPokemonMove.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = _RCGPokemonMove.swift; sourceTree = "<group>"; };
+		F51B73511D4E8B4800869FAC /* RCGPokemonMap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RCGPokemonMap.swift; sourceTree = "<group>"; };
+		F51B73531D4E8B4D00869FAC /* _RCGPokemonMap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = _RCGPokemonMap.swift; sourceTree = "<group>"; };
 		F51DE7DC1D359514005E7CF3 /* Consumer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Consumer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F51DE7DF1D359514005E7CF3 /* RCGAppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RCGAppDelegate.swift; sourceTree = "<group>"; };
 		F51DE7E61D359514005E7CF3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -99,6 +101,8 @@
 		F5D45DC31D4D6AB70073DBED /* RCGMapFetcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RCGMapFetcher.swift; sourceTree = "<group>"; };
 		F5FEA9461D4D773F004AEFB6 /* RCGString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RCGString.swift; sourceTree = "<group>"; };
 		F5FEA9481D4D774A004AEFB6 /* RCGMapView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RCGMapView.swift; sourceTree = "<group>"; };
+		F5FEA94A1D4D94DB004AEFB6 /* RCGImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RCGImage.swift; sourceTree = "<group>"; };
+		F5FEA94E1D4E6CEE004AEFB6 /* RCGPokemonAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RCGPokemonAnnotation.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -197,7 +201,7 @@
 		F5005A5F1D3E954900C03CF2 /* ModelHuman */ = {
 			isa = PBXGroup;
 			children = (
-				B8E1E9931D4AFEF7002B4C28 /* RCGPokemonMap.swift */,
+				F51B73511D4E8B4800869FAC /* RCGPokemonMap.swift */,
 				F5005A691D3E958000C03CF2 /* RCGModel.swift */,
 				F5005A6A1D3E958000C03CF2 /* RCGPokemon.swift */,
 				F5005A601D3E954900C03CF2 /* RCGPokekonAbilities.swift */,
@@ -212,7 +216,7 @@
 		F5005A621D3E954900C03CF2 /* ModelMachine */ = {
 			isa = PBXGroup;
 			children = (
-				B8E1E9911D4AFEF1002B4C28 /* _RCGPokemonMap.swift */,
+				F51B73531D4E8B4D00869FAC /* _RCGPokemonMap.swift */,
 				F534DD9F1D428E7200FC383F /* _RCGPokemonType.swift */,
 				F5005A7F1D3ECD4900C03CF2 /* _RCGPokemonMove.swift */,
 				F5005A6D1D3E958600C03CF2 /* _RCGModel.swift */,
@@ -251,6 +255,7 @@
 				F51DE7DF1D359514005E7CF3 /* RCGAppDelegate.swift */,
 				F534DDA31D42906A00FC383F /* Storyboards */,
 				B82726261D37015200BD959B /* Utilities */,
+				F5FEA94C1D4E6B8F004AEFB6 /* UIComponents */,
 			);
 			path = Consumer;
 			sourceTree = "<group>";
@@ -280,8 +285,25 @@
 			children = (
 				F5FEA9461D4D773F004AEFB6 /* RCGString.swift */,
 				F5FEA9481D4D774A004AEFB6 /* RCGMapView.swift */,
+				F5FEA94A1D4D94DB004AEFB6 /* RCGImage.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		F5FEA94C1D4E6B8F004AEFB6 /* UIComponents */ = {
+			isa = PBXGroup;
+			children = (
+				F5FEA94D1D4E6BA3004AEFB6 /* Annotations */,
+			);
+			path = UIComponents;
+			sourceTree = "<group>";
+		};
+		F5FEA94D1D4E6BA3004AEFB6 /* Annotations */ = {
+			isa = PBXGroup;
+			children = (
+				F5FEA94E1D4E6CEE004AEFB6 /* RCGPokemonAnnotation.swift */,
+			);
+			path = Annotations;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -428,20 +450,22 @@
 				F534DD9E1D428E6D00FC383F /* RCGPokemonType.swift in Sources */,
 				F5FEA9491D4D774A004AEFB6 /* RCGMapView.swift in Sources */,
 				B827262F1D37045100BD959B /* RCGSynchronizerAdapter.swift in Sources */,
-				B8E1E9921D4AFEF1002B4C28 /* _RCGPokemonMap.swift in Sources */,
 				F5D45DC41D4D6AB70073DBED /* RCGMapFetcher.swift in Sources */,
-				B8E1E9941D4AFEF7002B4C28 /* RCGPokemonMap.swift in Sources */,
+				F51B73541D4E8B4D00869FAC /* _RCGPokemonMap.swift in Sources */,
 				B82726341D37063300BD959B /* RCGMovesAdapter.swift in Sources */,
 				F5005A6B1D3E958000C03CF2 /* RCGModel.swift in Sources */,
 				F5005A671D3E954900C03CF2 /* _RCGPokekonAbilities.swift in Sources */,
 				F5005A7E1D3ECD4200C03CF2 /* RCGPokemonMove.swift in Sources */,
 				F534DDA01D428E7200FC383F /* _RCGPokemonType.swift in Sources */,
 				F5005A6F1D3E958600C03CF2 /* _RCGModel.swift in Sources */,
+				F51B73521D4E8B4800869FAC /* RCGPokemonMap.swift in Sources */,
 				F5005A651D3E954900C03CF2 /* RCGPokekonAbilities.swift in Sources */,
 				F5FEA9471D4D773F004AEFB6 /* RCGString.swift in Sources */,
 				F5005A661D3E954900C03CF2 /* RCGPokemonStats.swift in Sources */,
+				F5FEA94F1D4E6CEE004AEFB6 /* RCGPokemonAnnotation.swift in Sources */,
 				F5005A681D3E954900C03CF2 /* _RCGPokemonStats.swift in Sources */,
 				B82726321D37062A00BD959B /* RCGPokemonAdapter.swift in Sources */,
+				F5FEA94B1D4D94DB004AEFB6 /* RCGImage.swift in Sources */,
 				B82726281D37017800BD959B /* RCGNetworkingManager.swift in Sources */,
 				F534DDAC1D4294EC00FC383F /* RCGLoginManager.swift in Sources */,
 				F5005A701D3E958600C03CF2 /* _RCGPokemon.swift in Sources */,

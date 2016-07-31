@@ -11,6 +11,8 @@ import UIKit
 import MapKit
 import CoreLocation
 
+import CoreData
+
 class RCGMapViewController: UIViewController {
 
     // Location Manager - current location
@@ -24,7 +26,11 @@ class RCGMapViewController: UIViewController {
     @IBOutlet var mapView: MKMapView!
     
     // Annotations
-    var pokemonAnnotations = [MKPointAnnotation]()
+    var pokemonAddAnnotations = [RCGPokemonAnnotation]()
+    var pokemonRemoveAnnotations = [RCGPokemonAnnotation]()
+    
+    // Fetch Controller
+    var pokemonFetchController = NSFetchedResultsController()
     
     // MARK: - Controller lifecycle
     override func viewWillAppear(animated: Bool) {
@@ -32,6 +38,29 @@ class RCGMapViewController: UIViewController {
         
         // Start location manager
         self.startLocationManager()
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        self.mapView.delegate = self
+        self.createPokemonFetcher()
+    }
+    
+    // MARK: - Fetch
+    func createPokemonFetcher() {
+        
+        self.pokemonFetchController = RCGPokemonMap.MR_fetchAllSortedBy(RCGModelAttributes.modelObjectID.rawValue, ascending: true, withPredicate: nil, groupBy: nil, delegate: self)
+        self.pokemonFetchController.delegate = self
+        
+        do {
+            
+            try self.pokemonFetchController.performFetch()
+        }
+        catch {
+            
+            print("fetchingt error")
+        }
     }
     
     // MARK: - Utilities
@@ -58,29 +87,6 @@ class RCGMapViewController: UIViewController {
         }
     }
     
-    func addMapAnnotations(pokemons: [RCGPokemonMap]) {
-        
-        for pokemon in pokemons {
-         
-            if let latitude = pokemon.latitude, let longitude = pokemon.longitude {
-                
-                let annotation = MKPointAnnotation()
-                annotation.coordinate = CLLocationCoordinate2DMake(latitude, longitude)
-                
-                // Checking if pin already there
-                if !self.pokemonAnnotations.contains(annotation) {
-                    
-                    self.pokemonAnnotations.append(annotation)
-                    // Update map
-                    self.mapView.addAnnotation(annotation)
-                }
-            }
-        }
-        
-        // Zoom to fit
-        self.mapView.zoomToFitAnnotations(self.pokemonAnnotations, userLocation: userLocation)
-    }
-    
     func startMapFetcher() {
         
         let mapFetcher = RCGMapFetcher.sharedFetcher
@@ -94,8 +100,48 @@ class RCGMapViewController: UIViewController {
 extension RCGMapViewController: RCGMapFetcherDelegate {
     
     func fetchedPokemons(pokemons: [RCGPokemonMap]) {
+    
+        // Notify or something
+    }
+}
+
+// MARK: - Fetch result controller
+extension RCGMapViewController: NSFetchedResultsControllerDelegate {
+    
+    func controller(controller: NSFetchedResultsController, didChangeObject anObject: AnyObject, atIndexPath indexPath: NSIndexPath?, forChangeType type: NSFetchedResultsChangeType, newIndexPath: NSIndexPath?) {
         
-        self.addMapAnnotations(pokemons)
+        let pokemon = anObject as? RCGPokemonMap
+        let annotation = RCGPokemonAnnotation(pokemonMap: pokemon)
+        
+        switch type {
+        case .Delete:
+            
+            if !self.pokemonRemoveAnnotations.contains(annotation) {
+                self.pokemonRemoveAnnotations.append(annotation)
+            }
+            
+        case .Insert:
+            
+            if !self.pokemonAddAnnotations.contains(annotation) {
+                self.pokemonAddAnnotations.append(annotation)
+            }
+            
+        case .Update:
+            
+            print("handle update")
+            
+        default:
+            break
+        }
+    }
+    
+    func controllerDidChangeContent(controller: NSFetchedResultsController) {
+
+        dispatch_async(dispatch_get_main_queue()) {
+            // Cleaning stuff
+            self.mapView.removeAnnotations(self.pokemonRemoveAnnotations)
+            self.mapView.addAnnotations(self.pokemonAddAnnotations)
+        }
     }
 }
 
@@ -107,13 +153,12 @@ extension RCGMapViewController: CLLocationManagerDelegate {
         let location = locations.last! as CLLocation
         
         // Set user location
-        
         let center = CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
         let region = MKCoordinateRegion(center: center, span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
         
         self.userLocation = center
         
-        self.mapView.setRegion(region, animated: true)
+//        self.mapView.setRegion(region, animated: true)
     }
 }
 
@@ -123,5 +168,28 @@ extension RCGMapViewController: MKMapViewDelegate {
     func mapView(mapView: MKMapView, didUpdateUserLocation userLocation: MKUserLocation) {
         let userLocation = MKCoordinateRegionMakeWithDistance(userLocation.coordinate, 800.0, 800.0)
         self.mapView.setRegion(userLocation, animated: true)
+    }
+    
+    func mapView(mapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView? {
+
+        var pinView: MKAnnotationView?
+        // Checking if annotation != current user
+        if !annotation.isKindOfClass(MKUserLocation) {
+            
+            let pinIdentifier = "RCGPokemonIdentifier"
+            pinView = mapView.dequeueReusableAnnotationViewWithIdentifier(pinIdentifier)
+            
+            if pinView == nil {
+             
+                pinView = MKAnnotationView(annotation: annotation, reuseIdentifier: pinIdentifier)
+                pinView?.canShowCallout = true
+                
+                let pokemonAnnotation = annotation as! RCGPokemonAnnotation
+                
+                pinView?.image = RCGPokemon.imageForID(pokemonAnnotation.pokemonMap!.pokemonID!.integerValue)
+            }
+        }
+        
+        return pinView
     }
 }

@@ -9,16 +9,30 @@
 import CoreData
 import SwiftyJSON
 
-public class RCGPokemonMap: NSObject {
+import CoreLocation
 
-    // PokemonID
-    var pokemonID: Int?
+@objc(RCGPokemonMap)
+public class RCGPokemonMap: _RCGPokemonMap {
     
-    // Name
-    var name: String?
+    // Database ID key
+    static let databaseIDKey = "spawnpoint_id"
     
     // Flag to show, if not dissapeared
-    var appeared = false
+    var avaliable = false
+    
+    // Location
+    var location: CLLocationCoordinate2D? {
+        get {
+            
+            // Safety check
+            guard let latitude = self.latitude, let longitude = self.longitude else {
+                
+                return nil
+            }
+            
+            return CLLocationCoordinate2DMake(latitude.doubleValue, longitude.doubleValue)
+        }
+    }
     
     // Dissapear Time
     var dissapearDate: NSDate? {
@@ -27,16 +41,16 @@ public class RCGPokemonMap: NSObject {
             guard let dissapearDate = dissapearDate else {
                 return
             }
-    
+            
             let currentDate = NSDate()
             
             if currentDate < dissapearDate {
                 // In the present
-                self.appeared = false
+                self.avaliable = false
             }
             else {
                 // In the future
-                self.appeared = true
+                self.avaliable = true
             }
         }
     }
@@ -59,28 +73,57 @@ public class RCGPokemonMap: NSObject {
         }
     }
     
-    // Encounter ID
-    var encounterID: String?
+	// MARK: - Fetching logic
     
-    // Latitude
-    var latitude: Double?
-    
-    // Longitude
-    var longitude: Double?
-    
-    // Spawnpoint ID
-    var spawnpointID: Int?
+    class func modelFetchPokemonMapWithID(objectID: String, context: NSManagedObjectContext) throws -> AnyObject? {
+        
+        var result: AnyObject?
+        
+        let fetchRequest = NSFetchRequest(entityName: self.entityName())
+        let predicate = NSPredicate(format:"%K == %@", RCGPokemonMapAttributes.spawnpointID.rawValue, objectID)
+        
+        fetchRequest.predicate = predicate
+        
+        let results = try context.executeFetchRequest(fetchRequest)
+        result = results.first
+        
+        return result
+    }
+
+    class func fetchOrInsertWithJSON(json: JSON, context: NSManagedObjectContext = NSManagedObjectContext.MR_defaultContext()) throws -> RCGPokemonMap? {
+        
+        var result: RCGPokemonMap?
+        
+        if let modelObjectID = json[databaseIDKey].string {
+            
+            result = try self.modelFetchPokemonMapWithID(modelObjectID, context: context) as? RCGPokemonMap
+            
+            if result == nil {
+                
+                result = self.MR_createInContext(context) as? RCGPokemonMap
+            }
+            
+            result?.setValueWithJSON(json, objectIDKey: databaseIDKey, context: context)
+        }
+        
+        return result
+    }
     
     // MARK: - Parsing JSON
-    init(json: JSON) {
-
-        if let _modelObjetID = json["pokemon_id"].int {
+    override func setValueWithJSON(json: JSON, objectIDKey: String, context: NSManagedObjectContext) {
+        
+        super.setValueWithJSON(json, objectIDKey: objectIDKey, context: context)
+        
+        if let modelID = json["pokemon_id"].int {
             
-            self.pokemonID = _modelObjetID
+            self.modelObjectID = modelID
             
             if let _name = json["pokemon_name"].string {
-                
                 self.name = _name
+            }
+            
+            if let _pokemonID = json["pokemon_id"].int {
+                self.pokemonID = _pokemonID
             }
             
             if let _disappearTime = json["disappear_time"].int {
@@ -99,7 +142,7 @@ public class RCGPokemonMap: NSObject {
                 self.longitude = _longitude
             }
             
-            if let _spawnpointID = json["spawnpointID"].int {
+            if let _spawnpointID = json["spawnpoint_id"].string {
                 self.spawnpointID = _spawnpointID
             }
         }
