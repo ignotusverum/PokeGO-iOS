@@ -56,7 +56,7 @@
 		F5FEA94B1D4D94DB004AEFB6 /* RCGImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5FEA94A1D4D94DB004AEFB6 /* RCGImage.swift */; };
 		F5FEA94F1D4E6CEE004AEFB6 /* RCGPokemonAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5FEA94E1D4E6CEE004AEFB6 /* RCGPokemonAnnotation.swift */; };
 		F5FEA9551D4E852A004AEFB6 /* RCGPokemonMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5FEA9541D4E852A004AEFB6 /* RCGPokemonMap.swift */; };
-		F5FEA9571D4E852F004AEFB6 /* _RCGPokemonMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5FEA9561D4E852F004AEFB6 /* _RCGPokemonMap.swift */; };
+		F5FEA9591D4E885E004AEFB6 /* _RCGPokemonMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5FEA9581D4E885E004AEFB6 /* _RCGPokemonMap.swift */; };
 		F97ED36B8F7C0CF9D9B60EDA /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30A7D946297E4B907005E84F /* Pods.framework */; };
 /* End PBXBuildFile section */
 
@@ -102,7 +102,7 @@
 		F5FEA94A1D4D94DB004AEFB6 /* RCGImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RCGImage.swift; sourceTree = "<group>"; };
 		F5FEA94E1D4E6CEE004AEFB6 /* RCGPokemonAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RCGPokemonAnnotation.swift; sourceTree = "<group>"; };
 		F5FEA9541D4E852A004AEFB6 /* RCGPokemonMap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RCGPokemonMap.swift; sourceTree = "<group>"; };
-		F5FEA9561D4E852F004AEFB6 /* _RCGPokemonMap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = _RCGPokemonMap.swift; sourceTree = "<group>"; };
+		F5FEA9581D4E885E004AEFB6 /* _RCGPokemonMap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = _RCGPokemonMap.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -216,7 +216,7 @@
 		F5005A621D3E954900C03CF2 /* ModelMachine */ = {
 			isa = PBXGroup;
 			children = (
-				F5FEA9561D4E852F004AEFB6 /* _RCGPokemonMap.swift */,
+				F5FEA9581D4E885E004AEFB6 /* _RCGPokemonMap.swift */,
 				F534DD9F1D428E7200FC383F /* _RCGPokemonType.swift */,
 				F5005A7F1D3ECD4900C03CF2 /* _RCGPokemonMove.swift */,
 				F5005A6D1D3E958600C03CF2 /* _RCGModel.swift */,
@@ -451,7 +451,7 @@
 				F5FEA9491D4D774A004AEFB6 /* RCGMapView.swift in Sources */,
 				B827262F1D37045100BD959B /* RCGSynchronizerAdapter.swift in Sources */,
 				F5D45DC41D4D6AB70073DBED /* RCGMapFetcher.swift in Sources */,
-				F5FEA9571D4E852F004AEFB6 /* _RCGPokemonMap.swift in Sources */,
+				F5FEA9591D4E885E004AEFB6 /* _RCGPokemonMap.swift in Sources */,
 				B82726341D37063300BD959B /* RCGMovesAdapter.swift in Sources */,
 				F5005A6B1D3E958000C03CF2 /* RCGModel.swift in Sources */,
 				F5005A671D3E954900C03CF2 /* _RCGPokekonAbilities.swift in Sources */,

@@ -42,6 +42,6 @@
         <element name="RCGPokemonMove" positionX="-36" positionY="54" width="128" height="60"/>
         <element name="RCGPokemonStats" positionX="-45" positionY="27" width="128" height="90"/>
         <element name="RCGPokemonType" positionX="-54" positionY="36" width="128" height="60"/>
-        <element name="RCGPokemonMap" positionX="-54" positionY="36" width="128" height="135"/>
+        <element name="RCGPokemonMap" positionX="-45" positionY="54" width="128" height="135"/>
     </elements>
 </model>
