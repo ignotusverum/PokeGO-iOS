@@ -51,6 +51,9 @@ class RCGPokemonAdapter: RCGSynchronizerAdapter {
                                 }
                             }
                             
+                            // Clean database
+                            self.removeOldPokemons(resultArray)
+                            
                             // Save to database
                             try NSManagedObjectContext.MR_defaultContext().save()
                         }
@@ -60,6 +63,17 @@ class RCGPokemonAdapter: RCGSynchronizerAdapter {
                 }
             }
         }
+    }
+    
+    class func removeOldPokemons(pokemons: [RCGPokemonMap]) {
+        
+        let spawnPointIDs = pokemons.map { $0.spawnpointID! }
+        
+        // Fetching pokemons with spawnPointID that's not in server response
+        let preticateForSpawnPoint = NSPredicate(format: "NOT (\(RCGPokemonMapAttributes.spawnpointID) IN \(spawnPointIDs))")
+        
+        // Delete old pokemons
+        RCGPokemonMap.MR_deleteAllMatchingPredicate(preticateForSpawnPoint)
     }
     
     // Fetching pokemons
