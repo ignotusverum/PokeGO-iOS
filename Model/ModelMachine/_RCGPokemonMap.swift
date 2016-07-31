@@ -11,6 +11,10 @@ public enum RCGPokemonMapAttributes: String {
     case spawnpointID = "spawnpointID"
 }
 
+public enum RCGPokemonMapRelationships: String {
+    case pokemon = "pokemon"
+}
+
 @objc public
 class _RCGPokemonMap: RCGModel {
 
@@ -63,6 +67,11 @@ class _RCGPokemonMap: RCGModel {
     // func validateSpawnpointID(value: AutoreleasingUnsafeMutablePointer<AnyObject>, error: NSErrorPointer) -> Bool {}
 
     // MARK: - Relationships
+
+    @NSManaged public
+    var pokemon: RCGPokemon?
+
+    // func validatePokemon(value: AutoreleasingUnsafeMutablePointer<AnyObject>, error: NSErrorPointer) -> Bool {}
 
 }
 

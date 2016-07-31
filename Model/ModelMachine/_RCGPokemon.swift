@@ -10,6 +10,7 @@ public enum RCGPokemonAttributes: String {
 
 public enum RCGPokemonRelationships: String {
     case abilities = "abilities"
+    case map = "map"
     case moves = "moves"
     case stats = "stats"
     case types = "types"
@@ -57,6 +58,9 @@ class _RCGPokemon: RCGModel {
     var abilities: NSSet
 
     @NSManaged public
+    var map: NSSet
+
+    @NSManaged public
     var moves: NSSet
 
     @NSManaged public
@@ -91,6 +95,34 @@ extension _RCGPokemon {
         let mutable = self.abilities.mutableCopy() as! NSMutableSet
         mutable.removeObject(value)
         self.abilities = mutable.copy() as! NSSet
+    }
+
+}
+
+extension _RCGPokemon {
+
+    func addMap(objects: NSSet) {
+        let mutable = self.map.mutableCopy() as! NSMutableSet
+        mutable.unionSet(objects as Set<NSObject>)
+        self.map = mutable.copy() as! NSSet
+    }
+
+    func removeMap(objects: NSSet) {
+        let mutable = self.map.mutableCopy() as! NSMutableSet
+        mutable.minusSet(objects as Set<NSObject>)
+        self.map = mutable.copy() as! NSSet
+    }
+
+    func addMapObject(value: RCGPokemonMap!) {
+        let mutable = self.map.mutableCopy() as! NSMutableSet
+        mutable.addObject(value)
+        self.map = mutable.copy() as! NSSet
+    }
+
+    func removeMapObject(value: RCGPokemonMap!) {
+        let mutable = self.map.mutableCopy() as! NSMutableSet
+        mutable.removeObject(value)
+        self.map = mutable.copy() as! NSSet
     }
 
 }

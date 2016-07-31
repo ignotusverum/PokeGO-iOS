@@ -11,6 +11,8 @@ import UIKit
 import MapKit
 import CoreLocation
 
+import CoreData
+
 class RCGMapViewController: UIViewController {
 
     // Location Manager - current location
@@ -25,6 +27,9 @@ class RCGMapViewController: UIViewController {
     
     // Annotations
     var pokemonAnnotations = [RCGPokemonAnnotation]()
+    
+    // Fetch Controller
+    var pokemonFetchController = NSFetchedResultsController()
     
     // MARK: - Controller lifecycle
     override func viewWillAppear(animated: Bool) {
@@ -107,6 +112,18 @@ extension RCGMapViewController: RCGMapFetcherDelegate {
     func fetchedPokemons(pokemons: [RCGPokemonMap]) {
         
         self.addMapAnnotations(pokemons)
+    }
+}
+
+// MARK: - Fetch result controller
+extension RCGMapViewController: NSFetchedResultsControllerDelegate {
+    
+    func controller(controller: NSFetchedResultsController, didChangeObject anObject: AnyObject, atIndexPath indexPath: NSIndexPath?, forChangeType type: NSFetchedResultsChangeType, newIndexPath: NSIndexPath?) {
+        
+    }
+    
+    func controllerDidChangeContent(controller: NSFetchedResultsController) {
+        
     }
 }
 
