@@ -123,7 +123,7 @@ extension RCGMapViewController: NSFetchedResultsControllerDelegate {
     }
     
     func controllerDidChangeContent(controller: NSFetchedResultsController) {
-        
+
     }
 }
 
