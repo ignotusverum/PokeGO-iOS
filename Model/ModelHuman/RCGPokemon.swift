@@ -15,6 +15,9 @@ import MagicalRecord
 @objc(RCGPokemon)
 public class RCGPokemon: _RCGPokemon {
     
+    // Database ID
+    static let databaseIDKey = "id"
+    
     static let pokemonImages: [UIImage] = UIImage.imagesWithSpriteSheet()
 
     // Images
@@ -38,18 +41,18 @@ public class RCGPokemon: _RCGPokemon {
 
     class func fetchOrInsertWithJSON(json: JSON, context: NSManagedObjectContext = NSManagedObjectContext.MR_defaultContext()) throws -> RCGPokemon? {
 
-        return try RCGPokemon.modelFetchOrInsertWithJSON(json, context: context) as? RCGPokemon
+        return try RCGPokemon.modelFetchOrInsertWithJSON(json, objectIDKey: databaseIDKey, context: context) as? RCGPokemon
     }
     
     class func fetchOrInsertWithJSON(json: JSON) throws -> RCGPokemon? {
         
-        return try RCGPokemon.modelFetchOrInsertDefaultWithJSON(json) as? RCGPokemon
+        return try RCGPokemon.modelFetchOrInsertDefaultWithJSON(json, objectIDKey: databaseIDKey) as? RCGPokemon
     }
 
     // MARK: - Parsing JSON
-    override func setValueWithJSON(json: JSON, context: NSManagedObjectContext) {
+    override func setValueWithJSON(json: JSON, objectIDKey: String, context: NSManagedObjectContext) {
 
-	    super.setValueWithJSON(json, context: context)
+	    super.setValueWithJSON(json, objectIDKey: objectIDKey, context: context)
 
         if let _height = json["height"].float {
             self.height = _height

@@ -46,11 +46,11 @@ public class RCGModel: _RCGModel {
         return result
     }
     
-    class func modelFetchOrInsertWithJSON(json: JSON, context: NSManagedObjectContext) throws -> AnyObject? {
+    class func modelFetchOrInsertWithJSON(json: JSON, objectIDKey: String, context: NSManagedObjectContext) throws -> AnyObject? {
         
         var result: AnyObject?
         
-        if let modelObjectID = json["id"].int {
+        if let modelObjectID = json[objectIDKey].int {
         
             result = try self.modelFetchWithID(modelObjectID, context: context)
             
@@ -59,32 +59,22 @@ public class RCGModel: _RCGModel {
                 result = self.MR_createInContext(context)
             }
             
-            (result as? RCGModel)?.setValueWithJSON(json, context: context)
+            (result as? RCGModel)?.setValueWithJSON(json, objectIDKey: objectIDKey, context: context)
         }
-        else if let modelName = json["name"].string {
-            result = try self.modelFetchWithName(modelName, context: context)
-            
-            if result == nil {
-                
-                result = self.MR_createInContext(context)
-            }
-            
-            (result as? RCGModel)?.setValueWithJSON(json, context: context)
-        }
-    
+        
         return result
     }
     
-    class func modelFetchOrInsertDefaultWithJSON(json: JSON) throws-> AnyObject? {
+    class func modelFetchOrInsertDefaultWithJSON(json: JSON, objectIDKey: String) throws-> AnyObject? {
 
-        return try self.modelFetchOrInsertWithJSON(json, context: NSManagedObjectContext.MR_defaultContext())
+        return try self.modelFetchOrInsertWithJSON(json, objectIDKey: objectIDKey, context: NSManagedObjectContext.MR_defaultContext())
     }
     
-    func setValueWithJSON(json: JSON, context: NSManagedObjectContext) {
+    func setValueWithJSON(json: JSON, objectIDKey: String, context: NSManagedObjectContext) {
         
         self.json = json
         
-        if let modelObjectID = json["id"].int {
+        if let modelObjectID = json[objectIDKey].int {
             
             self.modelObjectID = modelObjectID
         }

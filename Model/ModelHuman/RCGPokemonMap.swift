@@ -13,6 +13,9 @@ import CoreLocation
 
 public class RCGPokemonMap: _RCGPokemonMap {
     
+    // Database ID key
+    static let databaseIDKey = "pokemon_id"
+    
     // Flag to show, if not dissapeared
     var avaliable = false
     
@@ -77,31 +80,19 @@ public class RCGPokemonMap: _RCGPokemonMap {
     
     class func fetchOrInsertWithJSON(json: JSON, context: NSManagedObjectContext = NSManagedObjectContext.MR_defaultContext()) throws -> RCGPokemonMap? {
         
-        var result: AnyObject?
-        
-        if let modelObjectID = json["pokemon_id"].int {
-            
-            result = try self.modelFetchWithID(modelObjectID, context: context)
-            
-            if result == nil {
-                
-                result = self.MR_createInContext(context)
-            }
-            
-            (result as? RCGModel)?.setValueWithJSON(json, context: context)
-        }
-        
-        return result as? RCGPokemonMap
+        return try RCGPokemonMap.modelFetchOrInsertWithJSON(json, objectIDKey: databaseIDKey, context: context) as? RCGPokemonMap
     }
     
     class func fetchOrInsertWithJSON(json: JSON) throws -> RCGPokemonMap? {
         
-        return try RCGPokemonMap.modelFetchOrInsertDefaultWithJSON(json) as? RCGPokemonMap
+        return try RCGPokemonMap.modelFetchOrInsertDefaultWithJSON(json, objectIDKey: databaseIDKey) as? RCGPokemonMap
     }
     
     // MARK: - Parsing JSON
-    override func setValueWithJSON(json: JSON, context: NSManagedObjectContext) {
+    override func setValueWithJSON(json: JSON, objectIDKey: String, context: NSManagedObjectContext) {
 
+        super.setValueWithJSON(json, objectIDKey: objectIDKey, context: context)
+        
         if let modelID = json["pokemon_id"].int {
             
             self.modelObjectID = modelID

@@ -12,6 +12,9 @@ import SwiftyJSON
 @objc(RCGPokemonMove)
 public class RCGPokemonMove: _RCGPokemonMove {
 
+    // Database ID key
+    static let databaseIDKey = "id"
+    
 	// MARK: - Fetching logic
 	class func fetchObjectWithID(objectID: Int, context: NSManagedObjectContext) throws -> RCGPokemonMove? {
 
@@ -20,13 +23,13 @@ public class RCGPokemonMove: _RCGPokemonMove {
 
     class func fetchOrInsertWithJSON(json: JSON, context: NSManagedObjectContext) throws -> RCGPokemonMove? {
 
-        return try RCGPokemonMove.modelFetchOrInsertWithJSON(json, context: context) as? RCGPokemonMove
+        return try RCGPokemonMove.modelFetchOrInsertWithJSON(json, objectIDKey: databaseIDKey, context: context) as? RCGPokemonMove
     }
 
     // MARK: - Parsing JSON
-    override func setValueWithJSON(json: JSON, context: NSManagedObjectContext) {
+    override func setValueWithJSON(json: JSON, objectIDKey:  String, context: NSManagedObjectContext) {
 
-	    super.setValueWithJSON(json, context: context)
+	    super.setValueWithJSON(json, objectIDKey: objectIDKey, context: context)
 
         if let name = json["name"].string {
             self.name = name
