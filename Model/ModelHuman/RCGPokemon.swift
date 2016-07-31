@@ -14,7 +14,22 @@ import MagicalRecord
 
 @objc(RCGPokemon)
 public class RCGPokemon: _RCGPokemon {
+    
+    static let pokemonImages: [UIImage] = UIImage.imagesWithSpriteSheet()
 
+    // Images
+    class func imageForID(pokemonID: Int)-> UIImage? {
+        
+        let pokemons = RCGPokemon.pokemonImages
+        
+        if pokemons.count < pokemonID {
+         
+            return RCGPokemon.pokemonImages[pokemonID - 1]
+        }
+        
+        return nil
+    }
+    
 	// MARK: - Fetching logic
 	class func fetchObjectWithID(objectID: Int, context: NSManagedObjectContext) throws -> RCGPokemon? {
 
