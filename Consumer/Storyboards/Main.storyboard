@@ -42,9 +42,6 @@
                                     <action selector="loginButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="gjp-Gp-fQS"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KC0-hj-Cid">
-                                <rect key="frame" x="40" y="262" width="240" height="128"/>
-                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -63,7 +60,6 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="imageTest" destination="KC0-hj-Cid" id="8sB-37-y4r"/>
                         <outlet property="passwordTextField" destination="Q9j-ay-HVQ" id="02K-NT-nhV"/>
                         <outlet property="userNameTextField" destination="L1v-4I-tJ1" id="1oJ-DX-XDb"/>
                     </connections>
