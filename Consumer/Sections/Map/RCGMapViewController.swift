@@ -110,7 +110,10 @@ extension RCGMapViewController: NSFetchedResultsControllerDelegate {
     
     func controller(controller: NSFetchedResultsController, didChangeObject anObject: AnyObject, atIndexPath indexPath: NSIndexPath?, forChangeType type: NSFetchedResultsChangeType, newIndexPath: NSIndexPath?) {
         
+        // Get object
         let pokemon = anObject as? RCGPokemonMap
+        
+        // Create pokemon annotation
         let annotation = RCGPokemonAnnotation(pokemonMap: pokemon)
         
         switch type {
@@ -137,6 +140,7 @@ extension RCGMapViewController: NSFetchedResultsControllerDelegate {
     
     func controllerDidChangeContent(controller: NSFetchedResultsController) {
 
+        // Main thread to update map
         dispatch_async(dispatch_get_main_queue()) {
             // Cleaning stuff
             self.mapView.removeAnnotations(self.pokemonRemoveAnnotations)
