@@ -26,7 +26,8 @@ class RCGMapViewController: UIViewController {
     @IBOutlet var mapView: MKMapView!
     
     // Annotations
-    var pokemonAnnotations = [RCGPokemonAnnotation]()
+    var pokemonAddAnnotations = [RCGPokemonAnnotation]()
+    var pokemonRemoveAnnotations = [RCGPokemonAnnotation]()
     
     // Fetch Controller
     var pokemonFetchController = NSFetchedResultsController()
@@ -37,6 +38,28 @@ class RCGMapViewController: UIViewController {
         
         // Start location manager
         self.startLocationManager()
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        self.createPokemonFetcher()
+    }
+    
+    // MARK: - Fetch
+    func createPokemonFetcher() {
+        
+        self.pokemonFetchController = RCGPokemonMap.MR_fetchAllSortedBy(RCGModelAttributes.modelObjectID.rawValue, ascending: true, withPredicate: nil, groupBy: nil, delegate: self)
+        self.pokemonFetchController.delegate = self
+        
+        do {
+            
+            try self.pokemonFetchController.performFetch()
+        }
+        catch {
+            
+            print("fetchingt error")
+        }
     }
     
     // MARK: - Utilities
@@ -65,9 +88,8 @@ class RCGMapViewController: UIViewController {
     
     func addMapAnnotations(pokemons: [RCGPokemonMap]) {
         
-        var pokemonRemoveAnnotations = [RCGPokemonAnnotation]()
-        
-        self.pokemonAnnotations = [RCGPokemonAnnotation]()
+        self.pokemonAddAnnotations = [RCGPokemonAnnotation]()
+        self.pokemonRemoveAnnotations = [RCGPokemonAnnotation]()
         
         for pokemon in pokemons {
          
@@ -77,21 +99,21 @@ class RCGMapViewController: UIViewController {
                 annotation.coordinate = CLLocationCoordinate2DMake(latitude.doubleValue, longitude.doubleValue)
                 
                 // Checking if pin already there && not dissapeared
-                if !self.pokemonAnnotations.contains(annotation) && pokemon.avaliable {
+                if !self.pokemonAddAnnotations.contains(annotation) && pokemon.avaliable {
                     
-                    self.pokemonAnnotations.append(annotation)
+                    self.pokemonAddAnnotations.append(annotation)
                 }
                     // If dissapeared, remove from the map
                 else if !pokemon.avaliable {
                     
-                    pokemonRemoveAnnotations.append(annotation)
+                    self.pokemonAddAnnotations.append(annotation)
                 }
             }
         }
         
         // Update map with pokemons
-        self.mapView.addAnnotations(self.pokemonAnnotations)
-        self.mapView.removeAnnotations(pokemonRemoveAnnotations)
+        self.mapView.addAnnotations(self.pokemonAddAnnotations)
+        self.mapView.removeAnnotations(self.pokemonAddAnnotations)
         
 //        // Zoom to fit
 //        self.mapView.zoomToFitAnnotations(self.pokemonAnnotations, userLocation: userLocation)
