@@ -77,7 +77,21 @@ public class RCGPokemonMap: _RCGPokemonMap {
     
     class func fetchOrInsertWithJSON(json: JSON, context: NSManagedObjectContext = NSManagedObjectContext.MR_defaultContext()) throws -> RCGPokemonMap? {
         
-        return try RCGPokemonMap.modelFetchOrInsertWithJSON(json, context: context) as? RCGPokemonMap
+        var result: AnyObject?
+        
+        if let modelObjectID = json["pokemon_id"].int {
+            
+            result = try self.modelFetchWithID(modelObjectID, context: context)
+            
+            if result == nil {
+                
+                result = self.MR_createInContext(context)
+            }
+            
+            (result as? RCGModel)?.setValueWithJSON(json, context: context)
+        }
+        
+        return result as? RCGPokemonMap
     }
     
     class func fetchOrInsertWithJSON(json: JSON) throws -> RCGPokemonMap? {
@@ -88,7 +102,9 @@ public class RCGPokemonMap: _RCGPokemonMap {
     // MARK: - Parsing JSON
     override func setValueWithJSON(json: JSON, context: NSManagedObjectContext) {
 
-        if self.modelObjectID != nil {
+        if let modelID = json["pokemon_id"].int {
+            
+            self.modelObjectID = modelID
             
             if let _name = json["pokemon_name"].string {
                 
