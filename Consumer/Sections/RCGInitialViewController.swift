@@ -14,17 +14,9 @@ class RCGInitialViewController: UIViewController {
     
     @IBOutlet var passwordTextField: UITextField!
     
-    @IBOutlet var imageTest: UIImageView!
-    
     @IBAction func loginButtonPressed(sender: UIButton) {
         RCGLoginManager.promiseLoginWithUserName(self.userNameTextField.text, password: self.passwordTextField.text).then { result-> Void in
             print(result)
         }
-    }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        self.imageTest.image = RCGPokemon.imageForID(1)
     }
 }

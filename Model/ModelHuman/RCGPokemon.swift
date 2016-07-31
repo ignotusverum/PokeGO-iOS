@@ -22,7 +22,7 @@ public class RCGPokemon: _RCGPokemon {
         
         let pokemons = RCGPokemon.pokemonImages
         
-        if pokemons.count < pokemonID {
+        if pokemonID > 0 && pokemonID <= pokemons.count  {
          
             return RCGPokemon.pokemonImages[pokemonID - 1]
         }
