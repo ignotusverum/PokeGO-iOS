@@ -18,12 +18,12 @@ extension MKMapView {
         }
         
         let mapEdgePadding = UIEdgeInsets(top: 20, left: 20, bottom: 20, right: 20)
-        var zoomRect:MKMapRect = MKMapRectNull
+        var zoomRect = MKMapRectNull
         
         for index in 0..<annotations.count {
             let annotation = annotations[index]
-            let aPoint:MKMapPoint = MKMapPointForCoordinate(annotation.coordinate)
-            let rect:MKMapRect = MKMapRectMake(aPoint.x, aPoint.y, 0.1, 0.1)
+            let aPoint = MKMapPointForCoordinate(annotation.coordinate)
+            let rect = MKMapRectMake(aPoint.x, aPoint.y, 0.1, 0.1)
             
             if MKMapRectIsNull(zoomRect) {
                 zoomRect = rect
@@ -33,9 +33,10 @@ extension MKMapView {
             }
         }
         
+        // user location check
         if let userLocation = userLocation {
-            let aPoint:MKMapPoint = MKMapPointForCoordinate(userLocation)
-            let rect:MKMapRect = MKMapRectMake(aPoint.x, aPoint.y, 0.1, 0.1)
+            let aPoint = MKMapPointForCoordinate(userLocation)
+            let rect = MKMapRectMake(aPoint.x, aPoint.y, 0.1, 0.1)
             
             if MKMapRectIsNull(zoomRect) {
                 zoomRect = rect

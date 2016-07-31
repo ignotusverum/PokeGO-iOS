@@ -77,12 +77,8 @@ class RCGMapViewController: UIViewController {
             }
         }
         
-        if let userLocation = self.userLocation {
-            self.mapView.zoomToFitAnnotations(self.pokemonAnnotations, userLocation: userLocation)
-        }
-        else {
-            
-        }
+        // Zoom to fit
+        self.mapView.zoomToFitAnnotations(self.pokemonAnnotations, userLocation: userLocation)
     }
     
     func startMapFetcher() {
