@@ -46,12 +46,15 @@
 		F51DE7E71D359514005E7CF3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F51DE7E61D359514005E7CF3 /* Assets.xcassets */; };
 		F534DD9E1D428E6D00FC383F /* RCGPokemonType.swift in Sources */ = {isa = PBXBuildFile; fileRef = F534DD9D1D428E6D00FC383F /* RCGPokemonType.swift */; };
 		F534DDA01D428E7200FC383F /* _RCGPokemonType.swift in Sources */ = {isa = PBXBuildFile; fileRef = F534DD9F1D428E7200FC383F /* _RCGPokemonType.swift */; };
-		F534DDA21D428FC400FC383F /* RCGString.swift in Sources */ = {isa = PBXBuildFile; fileRef = F534DDA11D428FC400FC383F /* RCGString.swift */; };
 		F534DDA91D42912F00FC383F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F534DDA71D42912F00FC383F /* LaunchScreen.storyboard */; };
 		F534DDAA1D42912F00FC383F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F534DDA81D42912F00FC383F /* Main.storyboard */; };
 		F534DDAC1D4294EC00FC383F /* RCGLoginManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F534DDAB1D4294EC00FC383F /* RCGLoginManager.swift */; };
 		F5A57E331D3838A6005A3543 /* RCGModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F5A57E311D3838A6005A3543 /* RCGModel.xcdatamodeld */; };
 		F5A57E3A1D383933005A3543 /* RCGMManagedObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5A57E391D383933005A3543 /* RCGMManagedObject.swift */; };
+		F5D45DC21D4D3FE90073DBED /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5D45DC11D4D3FE90073DBED /* CoreLocation.framework */; };
+		F5D45DC41D4D6AB70073DBED /* RCGMapFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5D45DC31D4D6AB70073DBED /* RCGMapFetcher.swift */; };
+		F5FEA9471D4D773F004AEFB6 /* RCGString.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5FEA9461D4D773F004AEFB6 /* RCGString.swift */; };
+		F5FEA9491D4D774A004AEFB6 /* RCGMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5FEA9481D4D774A004AEFB6 /* RCGMapView.swift */; };
 		F97ED36B8F7C0CF9D9B60EDA /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30A7D946297E4B907005E84F /* Pods.framework */; };
 /* End PBXBuildFile section */
 
@@ -87,12 +90,15 @@
 		F51DE7EB1D359514005E7CF3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F534DD9D1D428E6D00FC383F /* RCGPokemonType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RCGPokemonType.swift; sourceTree = "<group>"; };
 		F534DD9F1D428E7200FC383F /* _RCGPokemonType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = _RCGPokemonType.swift; sourceTree = "<group>"; };
-		F534DDA11D428FC400FC383F /* RCGString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RCGString.swift; sourceTree = "<group>"; };
 		F534DDA71D42912F00FC383F /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F534DDA81D42912F00FC383F /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		F534DDAB1D4294EC00FC383F /* RCGLoginManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RCGLoginManager.swift; sourceTree = "<group>"; };
 		F5A57E321D3838A6005A3543 /* RCGModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = RCGModel.xcdatamodel; sourceTree = "<group>"; };
 		F5A57E391D383933005A3543 /* RCGMManagedObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RCGMManagedObject.swift; sourceTree = "<group>"; };
+		F5D45DC11D4D3FE90073DBED /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		F5D45DC31D4D6AB70073DBED /* RCGMapFetcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RCGMapFetcher.swift; sourceTree = "<group>"; };
+		F5FEA9461D4D773F004AEFB6 /* RCGString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RCGString.swift; sourceTree = "<group>"; };
+		F5FEA9481D4D774A004AEFB6 /* RCGMapView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RCGMapView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +106,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F5D45DC21D4D3FE90073DBED /* CoreLocation.framework in Frameworks */,
 				B8F74E1B1D48489A0064A918 /* MapKit.framework in Frameworks */,
 				F97ED36B8F7C0CF9D9B60EDA /* Pods.framework in Frameworks */,
 			);
@@ -111,6 +118,7 @@
 		4390F03CAE6816F97B51B3AA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F5D45DC11D4D3FE90073DBED /* CoreLocation.framework */,
 				B8F74E1A1D48489A0064A918 /* MapKit.framework */,
 				30A7D946297E4B907005E84F /* Pods.framework */,
 			);
@@ -120,9 +128,10 @@
 		B82726261D37015200BD959B /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				F5FEA9451D4D7710004AEFB6 /* Extensions */,
 				B82726271D37017800BD959B /* RCGNetworkingManager.swift */,
-				F534DDA11D428FC400FC383F /* RCGString.swift */,
 				F534DDAB1D4294EC00FC383F /* RCGLoginManager.swift */,
+				F5D45DC31D4D6AB70073DBED /* RCGMapFetcher.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -264,6 +273,15 @@
 				F5A57E311D3838A6005A3543 /* RCGModel.xcdatamodeld */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		F5FEA9451D4D7710004AEFB6 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				F5FEA9461D4D773F004AEFB6 /* RCGString.swift */,
+				F5FEA9481D4D774A004AEFB6 /* RCGMapView.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -408,9 +426,10 @@
 			files = (
 				F5005A6C1D3E958000C03CF2 /* RCGPokemon.swift in Sources */,
 				F534DD9E1D428E6D00FC383F /* RCGPokemonType.swift in Sources */,
+				F5FEA9491D4D774A004AEFB6 /* RCGMapView.swift in Sources */,
 				B827262F1D37045100BD959B /* RCGSynchronizerAdapter.swift in Sources */,
 				B8E1E9921D4AFEF1002B4C28 /* _RCGPokemonMap.swift in Sources */,
-				F534DDA21D428FC400FC383F /* RCGString.swift in Sources */,
+				F5D45DC41D4D6AB70073DBED /* RCGMapFetcher.swift in Sources */,
 				B8E1E9941D4AFEF7002B4C28 /* RCGPokemonMap.swift in Sources */,
 				B82726341D37063300BD959B /* RCGMovesAdapter.swift in Sources */,
 				F5005A6B1D3E958000C03CF2 /* RCGModel.swift in Sources */,
@@ -419,6 +438,7 @@
 				F534DDA01D428E7200FC383F /* _RCGPokemonType.swift in Sources */,
 				F5005A6F1D3E958600C03CF2 /* _RCGModel.swift in Sources */,
 				F5005A651D3E954900C03CF2 /* RCGPokekonAbilities.swift in Sources */,
+				F5FEA9471D4D773F004AEFB6 /* RCGString.swift in Sources */,
 				F5005A661D3E954900C03CF2 /* RCGPokemonStats.swift in Sources */,
 				F5005A681D3E954900C03CF2 /* _RCGPokemonStats.swift in Sources */,
 				B82726321D37062A00BD959B /* RCGPokemonAdapter.swift in Sources */,
