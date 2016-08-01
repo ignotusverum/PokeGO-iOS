@@ -176,21 +176,21 @@ extension RCGMapViewController: MKMapViewDelegate {
     
     func mapView(mapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView? {
 
-        var pinView: MKAnnotationView?
+        var pinView: RCGAnnotationView?
         // Checking if annotation != current user
         if !annotation.isKindOfClass(MKUserLocation) {
             
             let pinIdentifier = "RCGPokemonIdentifier"
-            pinView = mapView.dequeueReusableAnnotationViewWithIdentifier(pinIdentifier)
+            pinView = mapView.dequeueReusableAnnotationViewWithIdentifier(pinIdentifier) as? RCGAnnotationView
             
             if pinView == nil {
-             
-                pinView = MKAnnotationView(annotation: annotation, reuseIdentifier: pinIdentifier)
-                pinView?.canShowCallout = true
-                
-                let pokemonAnnotation = annotation as! RCGPokemonAnnotation
-                
-                pinView?.image = RCGPokemon.imageForID(pokemonAnnotation.pokemonMap!.pokemonID!.integerValue)
+             // Using pokemon annotation
+                if let annotation = annotation as? RCGPokemonAnnotation {
+                    pinView = RCGAnnotationView(pokemonAnnotation: annotation, reuseIdentifier: pinIdentifier)
+                    
+                    // Danger zone
+                    pinView?.image = RCGPokemon.imageForID(annotation.pokemonMap!.pokemonID!.integerValue)
+                }
             }
         }
         

@@ -13,6 +13,12 @@ class RCGAnnotationView: MKAnnotationView {
     // Custom annotation
     var pokemonAnnotation: RCGPokemonAnnotation?
     
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        
+        self.customInit()
+    }
+    
     init(pokemonAnnotation: RCGPokemonAnnotation, reuseIdentifier: String) {
         super.init(annotation: pokemonAnnotation, reuseIdentifier: reuseIdentifier)
 
