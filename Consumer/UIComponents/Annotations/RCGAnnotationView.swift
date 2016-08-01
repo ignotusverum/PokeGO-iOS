@@ -10,6 +10,7 @@ import MapKit
 
 class RCGAnnotationView: MKAnnotationView {
 
+    // Custom annotation
     var pokemonAnnotation: RCGPokemonAnnotation?
     
     init(pokemonAnnotation: RCGPokemonAnnotation, reuseIdentifier: String) {
@@ -20,13 +21,14 @@ class RCGAnnotationView: MKAnnotationView {
         self.customInit()
     }
     
+    // Required
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         
         self.customInit()
     }
     
-    // MARK: - Initializtion
+    // MARK: - Initialization
     func customInit() {
 
         let button = UIButton(type: .InfoDark)
