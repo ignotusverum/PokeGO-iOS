@@ -145,6 +145,8 @@ extension RCGMapViewController: NSFetchedResultsControllerDelegate {
             // Cleaning stuff
             self.mapView.removeAnnotations(self.pokemonRemoveAnnotations)
             self.mapView.addAnnotations(self.pokemonAddAnnotations)
+            
+            self.mapView.zoomToFitAnnotations(self.pokemonAddAnnotations, userLocation: nil)
         }
     }
 }
@@ -195,5 +197,14 @@ extension RCGMapViewController: MKMapViewDelegate {
         }
         
         return pinView
+    }
+    
+    func mapView(mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
+        
+        if let pokemonAnnotation = view as? RCGPokemonAnnotation {
+         
+            print(pokemonAnnotation.pokemonMap?.pokemonID)
+            // TODO: Show pokemon details controller
+        }
     }
 }
