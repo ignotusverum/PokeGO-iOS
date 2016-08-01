@@ -101,7 +101,7 @@ extension RCGMapViewController: RCGMapFetcherDelegate {
     
     func fetchedPokemons(pokemons: [RCGPokemonMap]) {
     
-        // Notify or something
+        // Notify or do something
     }
 }
 
@@ -160,11 +160,8 @@ extension RCGMapViewController: CLLocationManagerDelegate {
         
         // Set user location
         let center = CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
-        let region = MKCoordinateRegion(center: center, span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
         
         self.userLocation = center
-        
-//        self.mapView.setRegion(region, animated: true)
     }
 }
 
@@ -201,10 +198,10 @@ extension RCGMapViewController: MKMapViewDelegate {
     
     func mapView(mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
         
-        if let pokemonAnnotation = view as? RCGPokemonAnnotation {
+        if let pokemonAnnotationView = view as? RCGAnnotationView {
          
-            print(pokemonAnnotation.pokemonMap?.pokemonID)
             // TODO: Show pokemon details controller
+            print(pokemonAnnotationView.pokemonAnnotation?.pokemonMap?.pokemonID)
         }
     }
 }

@@ -32,6 +32,6 @@ class RCGPokemonAnnotation: MKPointAnnotation {
         
         self.title = pokemonMap.name
         
-        self.subtitle = String(pokemonMap.dissapearDate)
+        self.subtitle = String("Dissapears at \(pokemonMap.dissapearDate!)")
     }
 }

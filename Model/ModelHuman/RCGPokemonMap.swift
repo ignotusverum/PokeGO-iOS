@@ -35,16 +35,16 @@ public class RCGPokemonMap: _RCGPokemonMap {
     }
     
     // Dissapear Time
-    var dissapearDate: NSDate? {
+    var disappearsDate: NSDate? {
         didSet {
             // Safety check
-            guard let dissapearDate = dissapearDate else {
+            guard let disappearsDate = disappearsDate else {
                 return
             }
             
             let currentDate = NSDate()
             
-            if currentDate < dissapearDate {
+            if currentDate < disappearsDate {
                 // In the present
                 self.avaliable = false
             }
@@ -55,21 +55,21 @@ public class RCGPokemonMap: _RCGPokemonMap {
         }
     }
     
-    var dissapearTime: Int? {
+    override public var disappearsTime: NSNumber? {
         didSet {
             
             // Safety check
-            guard let dissapearTime = dissapearTime else {
+            guard let disappearsTime = disappearsTime else {
                 return
             }
             
             // Milli / 1000 = sec
-            let timeInSec: NSTimeInterval = Double(dissapearTime / 1000)
+            let timeInSec: NSTimeInterval = Double(disappearsTime.integerValue / 1000)
             
             // Date
             let dateFromTime = NSDate(timeIntervalSince1970: timeInSec)
             
-            self.dissapearDate = dateFromTime
+            self.disappearsDate = dateFromTime
         }
     }
     
@@ -127,7 +127,7 @@ public class RCGPokemonMap: _RCGPokemonMap {
             }
             
             if let _disappearTime = json["disappear_time"].int {
-                self.dissapearTime = _disappearTime
+                self.disappearsTime = _disappearTime
             }
             
             if let _encounterID = json["encounter_id"].string {

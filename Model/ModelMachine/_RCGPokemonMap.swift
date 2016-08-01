@@ -4,7 +4,7 @@
 import CoreData
 
 public enum RCGPokemonMapAttributes: String {
-    case disappearTime = "disappearTime"
+    case disappearsTime = "disappearsTime"
     case encounterID = "encounterID"
     case latitude = "latitude"
     case longitude = "longitude"
@@ -43,9 +43,9 @@ class _RCGPokemonMap: RCGModel {
     // MARK: - Properties
 
     @NSManaged public
-    var disappearTime: NSNumber?
+    var disappearsTime: NSNumber?
 
-    // func validateDisappearTime(value: AutoreleasingUnsafeMutablePointer<AnyObject>, error: NSErrorPointer) -> Bool {}
+    // func validateDisappearsTime(value: AutoreleasingUnsafeMutablePointer<AnyObject>, error: NSErrorPointer) -> Bool {}
 
     @NSManaged public
     var encounterID: String?
