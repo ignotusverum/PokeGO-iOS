@@ -17,7 +17,7 @@ public class RCGPokemonMap: _RCGPokemonMap {
     // Database ID key
     static let databaseIDKey = "spawnpoint_id"
     
-    // Flag to show, if not dissapeared
+    // Flag to show, if not Disappeared
     var avaliable = false
     
     // Location
@@ -34,7 +34,7 @@ public class RCGPokemonMap: _RCGPokemonMap {
         }
     }
     
-    // Dissapear Time
+    // Disappear Time
     override public var disappearsDate: NSDate? {
         didSet {
             // Safety check
@@ -70,6 +70,8 @@ public class RCGPokemonMap: _RCGPokemonMap {
             let dateFromTime = NSDate(timeIntervalSince1970: timeInSec)
             
             self.disappearsDate = dateFromTime
+            
+            print(self.disappearsDate)
         }
     }
     
@@ -127,6 +129,7 @@ public class RCGPokemonMap: _RCGPokemonMap {
             }
             
             if let _disappearTime = json["disappear_time"].int {
+                
                 self.disappearsTime = _disappearTime
             }
             
