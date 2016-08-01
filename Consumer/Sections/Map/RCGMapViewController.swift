@@ -110,7 +110,10 @@ extension RCGMapViewController: NSFetchedResultsControllerDelegate {
     
     func controller(controller: NSFetchedResultsController, didChangeObject anObject: AnyObject, atIndexPath indexPath: NSIndexPath?, forChangeType type: NSFetchedResultsChangeType, newIndexPath: NSIndexPath?) {
         
+        // Get object
         let pokemon = anObject as? RCGPokemonMap
+        
+        // Create pokemon annotation
         let annotation = RCGPokemonAnnotation(pokemonMap: pokemon)
         
         switch type {
@@ -137,10 +140,13 @@ extension RCGMapViewController: NSFetchedResultsControllerDelegate {
     
     func controllerDidChangeContent(controller: NSFetchedResultsController) {
 
+        // Main thread to update map
         dispatch_async(dispatch_get_main_queue()) {
             // Cleaning stuff
             self.mapView.removeAnnotations(self.pokemonRemoveAnnotations)
             self.mapView.addAnnotations(self.pokemonAddAnnotations)
+            
+            self.mapView.zoomToFitAnnotations(self.pokemonAddAnnotations, userLocation: nil)
         }
     }
 }
@@ -172,24 +178,33 @@ extension RCGMapViewController: MKMapViewDelegate {
     
     func mapView(mapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView? {
 
-        var pinView: MKAnnotationView?
+        var pinView: RCGAnnotationView?
         // Checking if annotation != current user
         if !annotation.isKindOfClass(MKUserLocation) {
             
             let pinIdentifier = "RCGPokemonIdentifier"
-            pinView = mapView.dequeueReusableAnnotationViewWithIdentifier(pinIdentifier)
+            pinView = mapView.dequeueReusableAnnotationViewWithIdentifier(pinIdentifier) as? RCGAnnotationView
             
             if pinView == nil {
-             
-                pinView = MKAnnotationView(annotation: annotation, reuseIdentifier: pinIdentifier)
-                pinView?.canShowCallout = true
-                
-                let pokemonAnnotation = annotation as! RCGPokemonAnnotation
-                
-                pinView?.image = RCGPokemon.imageForID(pokemonAnnotation.pokemonMap!.pokemonID!.integerValue)
+             // Using pokemon annotation
+                if let annotation = annotation as? RCGPokemonAnnotation {
+                    pinView = RCGAnnotationView(pokemonAnnotation: annotation, reuseIdentifier: pinIdentifier)
+                    
+                    // Danger zone
+                    pinView?.image = RCGPokemon.imageForID(annotation.pokemonMap!.pokemonID!.integerValue)
+                }
             }
         }
         
         return pinView
+    }
+    
+    func mapView(mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
+        
+        if let pokemonAnnotation = view as? RCGPokemonAnnotation {
+         
+            print(pokemonAnnotation.pokemonMap?.pokemonID)
+            // TODO: Show pokemon details controller
+        }
     }
 }
