@@ -35,7 +35,7 @@ public class RCGPokemonMap: _RCGPokemonMap {
     }
     
     // Dissapear Time
-    var disappearsDate: NSDate? {
+    override public var disappearsDate: NSDate? {
         didSet {
             // Safety check
             guard let disappearsDate = disappearsDate else {

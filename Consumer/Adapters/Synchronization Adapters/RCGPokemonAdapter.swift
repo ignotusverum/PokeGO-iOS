@@ -73,6 +73,8 @@ class RCGPokemonAdapter: RCGSynchronizerAdapter {
         // Fetching pokemons with spawnPointID that's norfrrfrt in server response
         let preticateForSpawnPoint = NSPredicate(format: "NOT (%K IN %@)", RCGPokemonMapAttributes.spawnpointID.rawValue, spawnPointIDs)
         
+        let preticateForPast = NSPredicate(format: "(%K IN %@)", RCGPokemonMapAttributes.spawnpointID.rawValue, spawnPointIDs)
+        
         // Delete old pokemons
         RCGPokemonMap.MR_deleteAllMatchingPredicate(preticateForSpawnPoint)
     }
