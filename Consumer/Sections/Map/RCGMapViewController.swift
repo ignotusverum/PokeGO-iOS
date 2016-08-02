@@ -91,17 +91,7 @@ class RCGMapViewController: UIViewController {
         
         let mapFetcher = RCGMapFetcher.sharedFetcher
         
-        mapFetcher.delegate = self
         mapFetcher.startFetching()
-    }
-}
-
-// MARK: - Map Fetcher Delegate
-extension RCGMapViewController: RCGMapFetcherDelegate {
-    
-    func fetchedPokemons(pokemons: [RCGPokemonMap]) {
-    
-        // Notify or do something
     }
 }
 

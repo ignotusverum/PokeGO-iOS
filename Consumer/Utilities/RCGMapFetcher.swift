@@ -9,6 +9,8 @@
 import UIKit
 
 protocol RCGMapFetcherDelegate {
+    func fetchedGyms(pokemons: [RCGGymMap])
+    func fetchedStops(pokemons: [RCGStopMap])
     func fetchedPokemons(pokemons: [RCGPokemonMap])
 }
 
@@ -37,6 +39,20 @@ class RCGMapFetcher: NSObject {
             
             if let resultPokemons = resultArray {
                 self.delegate?.fetchedPokemons(resultPokemons)
+            }
+        }
+        
+        RCGGymAdapter.fetchGymLocations().then { resultArray-> Void in
+            
+            if let resultGyms = resultArray {
+                self.delegate?.fetchedGyms(resultGyms)
+            }
+        }
+        
+        RCGStopAdapter.fetchStopLocations().then { resultArray-> Void in
+            
+            if let resultStops = resultArray {
+                self.delegate?.fetchedStops(resultStops)
             }
         }
     }
