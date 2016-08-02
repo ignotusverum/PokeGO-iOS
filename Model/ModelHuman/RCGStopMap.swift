@@ -9,6 +9,8 @@
 import CoreData
 import SwiftyJSON
 
+import MagicalRecord
+
 @objc(RCGStopMap)
 public class RCGStopMap: _RCGStopMap {
     
@@ -16,7 +18,7 @@ public class RCGStopMap: _RCGStopMap {
     static let databaseIDKey = "spawnpoint_id"
 
 	// MARK: - Fetching logic
-	class func fetchObjectWithID(objectID: String, context: NSManagedObjectContext) throws -> RCGStopMap? {
+	class func fetchObjectWithID(objectID: String, context: NSManagedObjectContext = NSManagedObjectContext.MR_defaultContext()) throws -> RCGStopMap? {
 
         return try RCGStopMap.modelFetchWithID(objectID, context:context) as? RCGStopMap
     }

@@ -9,6 +9,8 @@
 import CoreData
 import SwiftyJSON
 
+import MagicalRecord
+
 @objc(RCGGymMap)
 public class RCGGymMap: _RCGGymMap {
 
@@ -16,12 +18,12 @@ public class RCGGymMap: _RCGGymMap {
     static let databaseIDKey = "identifier"
     
 	// MARK: - Fetching logic
-	class func fetchObjectWithID(objectID: Int, context: NSManagedObjectContext) throws -> RCGGymMap? {
+	class func fetchObjectWithID(objectID: Int, context: NSManagedObjectContext = NSManagedObjectContext.MR_defaultContext()) throws -> RCGGymMap? {
 
         return try RCGGymMap.modelFetchWithID(objectID, context:context) as? RCGGymMap
     }
 
-    class func fetchOrInsertWithJSON(json: JSON, context: NSManagedObjectContext) throws -> RCGGymMap? {
+    class func fetchOrInsertWithJSON(json: JSON, context: NSManagedObjectContext = NSManagedObjectContext.MR_defaultContext()) throws -> RCGGymMap? {
 
         return try RCGGymMap.modelFetchOrInsertWithJSON(json, objectIDKey: databaseIDKey, context: context) as? RCGGymMap
     }
