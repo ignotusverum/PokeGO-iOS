@@ -30,6 +30,10 @@
 		B83EB38B1D4850600035F89A /* RCGInitialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B83EB38A1D4850600035F89A /* RCGInitialViewController.swift */; };
 		B8E1E9971D502122002B4C28 /* RCGAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E1E9961D502122002B4C28 /* RCGAnnotationView.swift */; };
 		B8E1E9991D50213D002B4C28 /* RCGGymAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E1E9981D50213D002B4C28 /* RCGGymAnnotation.swift */; };
+		B8E1E99C1D5030D0002B4C28 /* RCGGymMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E1E99A1D5030D0002B4C28 /* RCGGymMap.swift */; };
+		B8E1E99D1D5030D0002B4C28 /* RCGStopMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E1E99B1D5030D0002B4C28 /* RCGStopMap.swift */; };
+		B8E1E9A01D5030DA002B4C28 /* _RCGGymMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E1E99E1D5030DA002B4C28 /* _RCGGymMap.swift */; };
+		B8E1E9A11D5030DA002B4C28 /* _RCGStopMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E1E99F1D5030DA002B4C28 /* _RCGStopMap.swift */; };
 		B8F74E191D4848290064A918 /* RCGMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8F74E181D4848290064A918 /* RCGMapViewController.swift */; };
 		B8F74E1B1D48489A0064A918 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8F74E1A1D48489A0064A918 /* MapKit.framework */; };
 		F5005A651D3E954900C03CF2 /* RCGPokekonAbilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5005A601D3E954900C03CF2 /* RCGPokekonAbilities.swift */; };
@@ -76,6 +80,10 @@
 		B83EB38A1D4850600035F89A /* RCGInitialViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RCGInitialViewController.swift; sourceTree = "<group>"; };
 		B8E1E9961D502122002B4C28 /* RCGAnnotationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RCGAnnotationView.swift; sourceTree = "<group>"; };
 		B8E1E9981D50213D002B4C28 /* RCGGymAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RCGGymAnnotation.swift; sourceTree = "<group>"; };
+		B8E1E99A1D5030D0002B4C28 /* RCGGymMap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RCGGymMap.swift; sourceTree = "<group>"; };
+		B8E1E99B1D5030D0002B4C28 /* RCGStopMap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RCGStopMap.swift; sourceTree = "<group>"; };
+		B8E1E99E1D5030DA002B4C28 /* _RCGGymMap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = _RCGGymMap.swift; sourceTree = "<group>"; };
+		B8E1E99F1D5030DA002B4C28 /* _RCGStopMap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = _RCGStopMap.swift; sourceTree = "<group>"; };
 		B8F74E181D4848290064A918 /* RCGMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RCGMapViewController.swift; sourceTree = "<group>"; };
 		B8F74E1A1D48489A0064A918 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		F5005A601D3E954900C03CF2 /* RCGPokekonAbilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RCGPokekonAbilities.swift; sourceTree = "<group>"; };
@@ -220,6 +228,8 @@
 				F5005A611D3E954900C03CF2 /* RCGPokemonStats.swift */,
 				F5005A7D1D3ECD4200C03CF2 /* RCGPokemonMove.swift */,
 				F534DD9D1D428E6D00FC383F /* RCGPokemonType.swift */,
+				B8E1E99A1D5030D0002B4C28 /* RCGGymMap.swift */,
+				B8E1E99B1D5030D0002B4C28 /* RCGStopMap.swift */,
 			);
 			name = ModelHuman;
 			path = Model/ModelHuman;
@@ -228,6 +238,8 @@
 		F5005A621D3E954900C03CF2 /* ModelMachine */ = {
 			isa = PBXGroup;
 			children = (
+				B8E1E99E1D5030DA002B4C28 /* _RCGGymMap.swift */,
+				B8E1E99F1D5030DA002B4C28 /* _RCGStopMap.swift */,
 				F51B73531D4E8B4D00869FAC /* _RCGPokemonMap.swift */,
 				F534DD9F1D428E7200FC383F /* _RCGPokemonType.swift */,
 				F5005A7F1D3ECD4900C03CF2 /* _RCGPokemonMove.swift */,
@@ -465,7 +477,9 @@
 				B8E1E9991D50213D002B4C28 /* RCGGymAnnotation.swift in Sources */,
 				F5FEA9491D4D774A004AEFB6 /* RCGMapView.swift in Sources */,
 				B827262F1D37045100BD959B /* RCGSynchronizerAdapter.swift in Sources */,
+				B8E1E99C1D5030D0002B4C28 /* RCGGymMap.swift in Sources */,
 				B8E1E9971D502122002B4C28 /* RCGAnnotationView.swift in Sources */,
+				B8E1E9A11D5030DA002B4C28 /* _RCGStopMap.swift in Sources */,
 				F5D45DC41D4D6AB70073DBED /* RCGMapFetcher.swift in Sources */,
 				F51B73541D4E8B4D00869FAC /* _RCGPokemonMap.swift in Sources */,
 				B82726341D37063300BD959B /* RCGMovesAdapter.swift in Sources */,
@@ -480,12 +494,14 @@
 				F5005A661D3E954900C03CF2 /* RCGPokemonStats.swift in Sources */,
 				F5FEA94F1D4E6CEE004AEFB6 /* RCGPokemonAnnotation.swift in Sources */,
 				F5005A681D3E954900C03CF2 /* _RCGPokemonStats.swift in Sources */,
+				B8E1E9A01D5030DA002B4C28 /* _RCGGymMap.swift in Sources */,
 				B82726321D37062A00BD959B /* RCGPokemonAdapter.swift in Sources */,
 				F5FEA94B1D4D94DB004AEFB6 /* RCGImage.swift in Sources */,
 				B82726281D37017800BD959B /* RCGNetworkingManager.swift in Sources */,
 				F534DDAC1D4294EC00FC383F /* RCGLoginManager.swift in Sources */,
 				F5005A701D3E958600C03CF2 /* _RCGPokemon.swift in Sources */,
 				F51DE7E01D359514005E7CF3 /* RCGAppDelegate.swift in Sources */,
+				B8E1E99D1D5030D0002B4C28 /* RCGStopMap.swift in Sources */,
 				F5A57E331D3838A6005A3543 /* RCGModel.xcdatamodeld in Sources */,
 				B82726361D37066500BD959B /* RCGEvolutionAdapter.swift in Sources */,
 				B83EB38B1D4850600035F89A /* RCGInitialViewController.swift in Sources */,

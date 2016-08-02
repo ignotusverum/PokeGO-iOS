@@ -31,6 +31,11 @@ public class RCGModel: _RCGModel {
         return result
     }
     
+    class func modelFetchWithID(objectID: String, context: NSManagedObjectContext) throws -> AnyObject? {
+        
+        return nil
+    }
+    
     class func modelFetchWithName(objectName: String, context: NSManagedObjectContext) throws -> AnyObject? {
         
         var result: AnyObject?
@@ -42,6 +47,25 @@ public class RCGModel: _RCGModel {
         
         let results = try context.executeFetchRequest(fetchRequest)
         result = results.first
+        
+        return result
+    }
+    
+    class func fetchOrInsertWithJSONString(json: JSON, objectIDKey: String, context: NSManagedObjectContext = NSManagedObjectContext.MR_defaultContext()) throws -> RCGModel? {
+        
+        var result: RCGModel?
+        
+        if let modelObjectID = json[objectIDKey].string {
+            
+            result = try self.modelFetchWithID(modelObjectID, context: context) as? RCGModel
+            
+            if result == nil {
+                
+                result = self.MR_createInContext(context) as? RCGPokemonMap
+            }
+            
+            result?.setValueWithJSON(json, objectIDKey: objectIDKey, context: context)
+        }
         
         return result
     }

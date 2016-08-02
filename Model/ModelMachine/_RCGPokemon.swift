@@ -10,9 +10,11 @@ public enum RCGPokemonAttributes: String {
 
 public enum RCGPokemonRelationships: String {
     case abilities = "abilities"
+    case gyms = "gyms"
     case map = "map"
     case moves = "moves"
     case stats = "stats"
+    case stops = "stops"
     case types = "types"
 }
 
@@ -58,6 +60,9 @@ class _RCGPokemon: RCGModel {
     var abilities: NSSet
 
     @NSManaged public
+    var gyms: NSSet
+
+    @NSManaged public
     var map: NSSet
 
     @NSManaged public
@@ -65,6 +70,9 @@ class _RCGPokemon: RCGModel {
 
     @NSManaged public
     var stats: NSSet
+
+    @NSManaged public
+    var stops: NSSet
 
     @NSManaged public
     var types: NSSet
@@ -95,6 +103,34 @@ extension _RCGPokemon {
         let mutable = self.abilities.mutableCopy() as! NSMutableSet
         mutable.removeObject(value)
         self.abilities = mutable.copy() as! NSSet
+    }
+
+}
+
+extension _RCGPokemon {
+
+    func addGyms(objects: NSSet) {
+        let mutable = self.gyms.mutableCopy() as! NSMutableSet
+        mutable.unionSet(objects as Set<NSObject>)
+        self.gyms = mutable.copy() as! NSSet
+    }
+
+    func removeGyms(objects: NSSet) {
+        let mutable = self.gyms.mutableCopy() as! NSMutableSet
+        mutable.minusSet(objects as Set<NSObject>)
+        self.gyms = mutable.copy() as! NSSet
+    }
+
+    func addGymsObject(value: RCGGymMap!) {
+        let mutable = self.gyms.mutableCopy() as! NSMutableSet
+        mutable.addObject(value)
+        self.gyms = mutable.copy() as! NSSet
+    }
+
+    func removeGymsObject(value: RCGGymMap!) {
+        let mutable = self.gyms.mutableCopy() as! NSMutableSet
+        mutable.removeObject(value)
+        self.gyms = mutable.copy() as! NSSet
     }
 
 }
@@ -179,6 +215,34 @@ extension _RCGPokemon {
         let mutable = self.stats.mutableCopy() as! NSMutableSet
         mutable.removeObject(value)
         self.stats = mutable.copy() as! NSSet
+    }
+
+}
+
+extension _RCGPokemon {
+
+    func addStops(objects: NSSet) {
+        let mutable = self.stops.mutableCopy() as! NSMutableSet
+        mutable.unionSet(objects as Set<NSObject>)
+        self.stops = mutable.copy() as! NSSet
+    }
+
+    func removeStops(objects: NSSet) {
+        let mutable = self.stops.mutableCopy() as! NSMutableSet
+        mutable.minusSet(objects as Set<NSObject>)
+        self.stops = mutable.copy() as! NSSet
+    }
+
+    func addStopsObject(value: RCGStopMap!) {
+        let mutable = self.stops.mutableCopy() as! NSMutableSet
+        mutable.addObject(value)
+        self.stops = mutable.copy() as! NSSet
+    }
+
+    func removeStopsObject(value: RCGStopMap!) {
+        let mutable = self.stops.mutableCopy() as! NSMutableSet
+        mutable.removeObject(value)
+        self.stops = mutable.copy() as! NSSet
     }
 
 }

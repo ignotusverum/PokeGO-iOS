@@ -48,7 +48,7 @@
     <entity name="RCGPokemonType" representedClassName="RCGPokemonType" parentEntity="RCGModel" syncable="YES">
         <relationship name="pokemon" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="RCGPokemon" inverseName="types" inverseEntity="RCGPokemon" syncable="YES"/>
     </entity>
-    <entity name="RCGStopMap" representedClassName="RCGStopMap" syncable="YES">
+    <entity name="RCGStopMap" representedClassName="RCGStopMap" parentEntity="RCGModel" syncable="YES">
         <attribute name="latitude" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
         <attribute name="longitude" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
         <attribute name="luredPokemonID" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
