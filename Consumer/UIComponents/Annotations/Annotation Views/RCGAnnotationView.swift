@@ -42,5 +42,10 @@ class RCGAnnotationView: MKAnnotationView {
         
         self.canShowCallout = true
         self.rightCalloutAccessoryView = button
+        
+        // Danger zone
+        if let pokemonMap = self.pokemonAnnotation?.pokemonMap {
+            self.image = RCGPokemon.imageForID(pokemonMap.pokemonID!.integerValue)
+        }
     }
 }

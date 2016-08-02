@@ -17,7 +17,7 @@ public class RCGPokemonMap: _RCGPokemonMap {
     // Database ID key
     static let databaseIDKey = "spawnpoint_id"
     
-    // Flag to show, if not dissapeared
+    // Flag to show, if not Disappeared
     var avaliable = false
     
     // Location
@@ -34,17 +34,17 @@ public class RCGPokemonMap: _RCGPokemonMap {
         }
     }
     
-    // Dissapear Time
-    var dissapearDate: NSDate? {
+    // Disappear Time
+    override public var disappearsDate: NSDate? {
         didSet {
             // Safety check
-            guard let dissapearDate = dissapearDate else {
+            guard let disappearsDate = disappearsDate else {
                 return
             }
             
             let currentDate = NSDate()
             
-            if currentDate < dissapearDate {
+            if currentDate < disappearsDate {
                 // In the present
                 self.avaliable = false
             }
@@ -55,21 +55,23 @@ public class RCGPokemonMap: _RCGPokemonMap {
         }
     }
     
-    var dissapearTime: Int? {
+    override public var disappearsTime: NSNumber? {
         didSet {
             
             // Safety check
-            guard let dissapearTime = dissapearTime else {
+            guard let disappearsTime = disappearsTime else {
                 return
             }
             
             // Milli / 1000 = sec
-            let timeInSec: NSTimeInterval = Double(dissapearTime / 1000)
+            let timeInSec: NSTimeInterval = Double(disappearsTime.integerValue / 1000)
             
             // Date
             let dateFromTime = NSDate(timeIntervalSince1970: timeInSec)
             
-            self.dissapearDate = dateFromTime
+            self.disappearsDate = dateFromTime
+            
+            print(self.disappearsDate)
         }
     }
     
@@ -92,21 +94,7 @@ public class RCGPokemonMap: _RCGPokemonMap {
 
     class func fetchOrInsertWithJSON(json: JSON, context: NSManagedObjectContext = NSManagedObjectContext.MR_defaultContext()) throws -> RCGPokemonMap? {
         
-        var result: RCGPokemonMap?
-        
-        if let modelObjectID = json[databaseIDKey].string {
-            
-            result = try self.modelFetchPokemonMapWithID(modelObjectID, context: context) as? RCGPokemonMap
-            
-            if result == nil {
-                
-                result = self.MR_createInContext(context) as? RCGPokemonMap
-            }
-            
-            result?.setValueWithJSON(json, objectIDKey: databaseIDKey, context: context)
-        }
-        
-        return result
+        return try self.fetchOrInsertWithJSONString(json, objectIDKey: databaseIDKey) as? RCGPokemonMap
     }
     
     // MARK: - Parsing JSON
@@ -127,7 +115,8 @@ public class RCGPokemonMap: _RCGPokemonMap {
             }
             
             if let _disappearTime = json["disappear_time"].int {
-                self.dissapearTime = _disappearTime
+                
+                self.disappearsTime = _disappearTime
             }
             
             if let _encounterID = json["encounter_id"].string {

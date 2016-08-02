@@ -1,29 +1,28 @@
 // DO NOT EDIT. This file is machine-generated and constantly overwritten.
-// Make changes to RCGPokemonMap.swift instead.
+// Make changes to RCGGymMap.swift instead.
 
 import CoreData
 
-public enum RCGPokemonMapAttributes: String {
-    case disappearsDate = "disappearsDate"
-    case disappearsTime = "disappearsTime"
-    case encounterID = "encounterID"
+public enum RCGGymMapAttributes: String {
+    case guardingID = "guardingID"
+    case identifier = "identifier"
     case latitude = "latitude"
     case longitude = "longitude"
-    case pokemonID = "pokemonID"
-    case spawnpointID = "spawnpointID"
+    case points = "points"
+    case team = "team"
 }
 
-public enum RCGPokemonMapRelationships: String {
-    case pokemon = "pokemon"
+public enum RCGGymMapRelationships: String {
+    case pokemonGuard = "pokemonGuard"
 }
 
 @objc public
-class _RCGPokemonMap: RCGModel {
+class _RCGGymMap: RCGModel {
 
     // MARK: - Class methods
 
     override public class func entityName () -> String {
-        return "RCGPokemonMap"
+        return "RCGGymMap"
     }
 
     override public class func entity(managedObjectContext: NSManagedObjectContext!) -> NSEntityDescription! {
@@ -37,26 +36,21 @@ class _RCGPokemonMap: RCGModel {
     }
 
     public convenience init(managedObjectContext: NSManagedObjectContext!) {
-        let entity = _RCGPokemonMap.entity(managedObjectContext)
+        let entity = _RCGGymMap.entity(managedObjectContext)
         self.init(entity: entity, insertIntoManagedObjectContext: managedObjectContext)
     }
 
     // MARK: - Properties
 
     @NSManaged public
-    var disappearsDate: NSDate?
+    var guardingID: NSNumber?
 
-    // func validateDisappearsDate(value: AutoreleasingUnsafeMutablePointer<AnyObject>, error: NSErrorPointer) -> Bool {}
-
-    @NSManaged public
-    var disappearsTime: NSNumber?
-
-    // func validateDisappearsTime(value: AutoreleasingUnsafeMutablePointer<AnyObject>, error: NSErrorPointer) -> Bool {}
+    // func validateGuardingID(value: AutoreleasingUnsafeMutablePointer<AnyObject>, error: NSErrorPointer) -> Bool {}
 
     @NSManaged public
-    var encounterID: String?
+    var identifier: String?
 
-    // func validateEncounterID(value: AutoreleasingUnsafeMutablePointer<AnyObject>, error: NSErrorPointer) -> Bool {}
+    // func validateIdentifier(value: AutoreleasingUnsafeMutablePointer<AnyObject>, error: NSErrorPointer) -> Bool {}
 
     @NSManaged public
     var latitude: NSNumber?
@@ -69,21 +63,21 @@ class _RCGPokemonMap: RCGModel {
     // func validateLongitude(value: AutoreleasingUnsafeMutablePointer<AnyObject>, error: NSErrorPointer) -> Bool {}
 
     @NSManaged public
-    var pokemonID: NSNumber?
+    var points: NSNumber?
 
-    // func validatePokemonID(value: AutoreleasingUnsafeMutablePointer<AnyObject>, error: NSErrorPointer) -> Bool {}
+    // func validatePoints(value: AutoreleasingUnsafeMutablePointer<AnyObject>, error: NSErrorPointer) -> Bool {}
 
     @NSManaged public
-    var spawnpointID: String?
+    var team: NSNumber?
 
-    // func validateSpawnpointID(value: AutoreleasingUnsafeMutablePointer<AnyObject>, error: NSErrorPointer) -> Bool {}
+    // func validateTeam(value: AutoreleasingUnsafeMutablePointer<AnyObject>, error: NSErrorPointer) -> Bool {}
 
     // MARK: - Relationships
 
     @NSManaged public
-    var pokemon: RCGPokemon?
+    var pokemonGuard: RCGPokemon?
 
-    // func validatePokemon(value: AutoreleasingUnsafeMutablePointer<AnyObject>, error: NSErrorPointer) -> Bool {}
+    // func validatePokemonGuard(value: AutoreleasingUnsafeMutablePointer<AnyObject>, error: NSErrorPointer) -> Bool {}
 
 }
 

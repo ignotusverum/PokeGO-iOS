@@ -91,17 +91,7 @@ class RCGMapViewController: UIViewController {
         
         let mapFetcher = RCGMapFetcher.sharedFetcher
         
-        mapFetcher.delegate = self
         mapFetcher.startFetching()
-    }
-}
-
-// MARK: - Map Fetcher Delegate
-extension RCGMapViewController: RCGMapFetcherDelegate {
-    
-    func fetchedPokemons(pokemons: [RCGPokemonMap]) {
-    
-        // Notify or something
     }
 }
 
@@ -160,11 +150,8 @@ extension RCGMapViewController: CLLocationManagerDelegate {
         
         // Set user location
         let center = CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
-        let region = MKCoordinateRegion(center: center, span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
         
         self.userLocation = center
-        
-//        self.mapView.setRegion(region, animated: true)
     }
 }
 
@@ -186,12 +173,9 @@ extension RCGMapViewController: MKMapViewDelegate {
             pinView = mapView.dequeueReusableAnnotationViewWithIdentifier(pinIdentifier) as? RCGAnnotationView
             
             if pinView == nil {
-             // Using pokemon annotation
+                // Using pokemon annotation
                 if let annotation = annotation as? RCGPokemonAnnotation {
                     pinView = RCGAnnotationView(pokemonAnnotation: annotation, reuseIdentifier: pinIdentifier)
-                    
-                    // Danger zone
-                    pinView?.image = RCGPokemon.imageForID(annotation.pokemonMap!.pokemonID!.integerValue)
                 }
             }
         }
@@ -201,10 +185,10 @@ extension RCGMapViewController: MKMapViewDelegate {
     
     func mapView(mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
         
-        if let pokemonAnnotation = view as? RCGPokemonAnnotation {
+        if let pokemonAnnotationView = view as? RCGAnnotationView {
          
-            print(pokemonAnnotation.pokemonMap?.pokemonID)
             // TODO: Show pokemon details controller
+            print(pokemonAnnotationView.pokemonAnnotation?.pokemonMap?.pokemonID)
         }
     }
 }

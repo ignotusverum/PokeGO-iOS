@@ -14,68 +14,6 @@ import CoreData
 import MagicalRecord
 
 class RCGPokemonAdapter: RCGSynchronizerAdapter {
-
-    // Fetch pokemon for map
-    class func fetchPokemonLocations(pokemonEnabled: Bool = true, gymEnabled: Bool = false, stopEnabled: Bool = false)-> Promise<[RCGPokemonMap]?> {
-        return Promise { fulfill, reject in
-            
-            let netman = RCGNetworkingManager.sharedManager
-            
-            var parameters = [String: AnyObject]()
-            
-            parameters["gyms"] = gymEnabled
-            parameters["pokestops"] = stopEnabled
-            parameters["pokemon"] = pokemonEnabled
-            
-            let path = "http://localhost:5000/raw_data"
-            
-            netman.GET(path, parameters: parameters).then { result-> Void in
-                
-                var resultArray = [RCGPokemonMap]()
-                
-                // Checking for json in array / keys (pokemon/stops/gyms)
-                if let jsonArray = result.dictionary {
-                    
-                    // Getting pokemon list
-                    if let pokemonJSONArray = jsonArray["pokemons"]?.array {
-                    
-                        do {
-                            // Getting pokemon JSON
-                            for pokemonJSON in pokemonJSONArray {
-                               
-                                let pokemonMap = try RCGPokemonMap.fetchOrInsertWithJSON(pokemonJSON)
-                                
-                                // Safety check
-                                if let pokemonMap = pokemonMap {
-                                    resultArray.append(pokemonMap)
-                                }
-                            }
-                            
-                            // Clean database
-                            self.removeOldPokemons(resultArray)
-                            
-                            // Save to database
-                            try NSManagedObjectContext.MR_defaultContext().save()
-                        }
-                        
-                        fulfill(resultArray)
-                    }
-                }
-            }
-        }
-    }
-    
-    class func removeOldPokemons(pokemons: [RCGPokemonMap]) {
-        
-        // Can contain nils
-        let spawnPointIDs = pokemons.flatMap { $0.spawnpointID }
-        
-        // Fetching pokemons with spawnPointID that's norfrrfrt in server response
-        let preticateForSpawnPoint = NSPredicate(format: "NOT (%K IN %@)", RCGPokemonMapAttributes.spawnpointID.rawValue, spawnPointIDs)
-        
-        // Delete old pokemons
-        RCGPokemonMap.MR_deleteAllMatchingPredicate(preticateForSpawnPoint)
-    }
     
     // Fetching pokemons
     class func fetchPokemonWithID(pokemonID: Int)-> Promise<RCGPokemon?> {
