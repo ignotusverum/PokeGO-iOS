@@ -186,9 +186,6 @@ extension RCGMapViewController: MKMapViewDelegate {
              // Using pokemon annotation
                 if let annotation = annotation as? RCGPokemonAnnotation {
                     pinView = RCGAnnotationView(pokemonAnnotation: annotation, reuseIdentifier: pinIdentifier)
-                    
-                    // Danger zone
-                    pinView?.image = RCGPokemon.imageForID(annotation.pokemonMap!.pokemonID!.integerValue)
                 }
             }
         }
