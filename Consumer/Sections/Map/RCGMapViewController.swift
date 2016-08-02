@@ -183,7 +183,7 @@ extension RCGMapViewController: MKMapViewDelegate {
             pinView = mapView.dequeueReusableAnnotationViewWithIdentifier(pinIdentifier) as? RCGAnnotationView
             
             if pinView == nil {
-             // Using pokemon annotation
+                // Using pokemon annotation
                 if let annotation = annotation as? RCGPokemonAnnotation {
                     pinView = RCGAnnotationView(pokemonAnnotation: annotation, reuseIdentifier: pinIdentifier)
                 }

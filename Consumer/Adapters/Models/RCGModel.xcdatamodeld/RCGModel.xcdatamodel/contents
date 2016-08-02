@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="10174" systemVersion="15G31" minimumToolsVersion="Xcode 7.0">
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="10174" systemVersion="15D21" minimumToolsVersion="Xcode 7.0">
+    <entity name="RCGGymMap" syncable="YES"/>
     <entity name="RCGModel" representedClassName="RCGModel" syncable="YES">
         <attribute name="modelObjectID" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
@@ -37,6 +38,7 @@
     <entity name="RCGPokemonType" representedClassName="RCGPokemonType" parentEntity="RCGModel" syncable="YES">
         <relationship name="pokemon" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="RCGPokemon" inverseName="types" inverseEntity="RCGPokemon" syncable="YES"/>
     </entity>
+    <entity name="RCGStopMap" syncable="YES"/>
     <elements>
         <element name="RCGModel" positionX="-54" positionY="18" width="128" height="75"/>
         <element name="RCGPokekonAbilities" positionX="-54" positionY="9" width="128" height="60"/>
@@ -45,5 +47,7 @@
         <element name="RCGPokemonMove" positionX="-36" positionY="54" width="128" height="60"/>
         <element name="RCGPokemonStats" positionX="-45" positionY="27" width="128" height="90"/>
         <element name="RCGPokemonType" positionX="-54" positionY="36" width="128" height="60"/>
+        <element name="RCGGymMap" positionX="-45" positionY="90" width="128" height="45"/>
+        <element name="RCGStopMap" positionX="-36" positionY="99" width="128" height="45"/>
     </elements>
 </model>
