@@ -16,7 +16,7 @@ class RCGStopAdapter: RCGMapAdapter {
     class func fetchStopLocations()-> Promise<[RCGStopMap]?> {
         return Promise { fulfill, reject in
             
-            self.fetchMapData(true).then { resultDict-> Void in
+            self.fetchMapData(stopEnabled: true).then { resultDict-> Void in
                 
                 var resultArray = [RCGStopMap]()
                 

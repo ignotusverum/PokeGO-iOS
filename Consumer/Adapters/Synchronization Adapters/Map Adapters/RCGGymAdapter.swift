@@ -17,7 +17,7 @@ class RCGGymAdapter: RCGMapAdapter {
     class func fetchGymLocations()-> Promise<[RCGGymMap]?> {
         return Promise { fulfill, reject in
             
-            self.fetchMapData(true).then { resultDict-> Void in
+            self.fetchMapData(gymEnabled: true).then { resultDict-> Void in
                 
                 var resultArray = [RCGGymMap]()
                 
