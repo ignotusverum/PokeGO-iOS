@@ -34,6 +34,23 @@ public class RCGPokemonMap: _RCGPokemonMap {
         }
     }
     
+    var dateDissapearFormatted: String? {
+        get {
+            
+            guard let dissapearDate = self.disappearsDate else {
+                return nil
+            }
+            
+            let formatter = NSDateFormatter()
+            formatter.dateStyle = NSDateFormatterStyle.LongStyle
+            formatter.timeStyle = .ShortStyle
+            
+            formatter.timeZone = NSTimeZone.defaultTimeZone()
+            
+            return formatter.stringFromDate(dissapearDate)
+        }
+    }
+    
     
 	// MARK: - Fetching logic
     

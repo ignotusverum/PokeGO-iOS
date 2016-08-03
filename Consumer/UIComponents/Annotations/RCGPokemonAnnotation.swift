@@ -32,7 +32,7 @@ class RCGPokemonAnnotation: MKPointAnnotation {
         
         self.title = pokemonMap.name
         
-        if let date = pokemonMap.disappearsDate {
+        if let date = pokemonMap.dateDissapearFormatted {
             self.subtitle = String("Disappears at \(date)")
         }
     }
