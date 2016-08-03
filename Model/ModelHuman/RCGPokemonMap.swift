@@ -34,46 +34,6 @@ public class RCGPokemonMap: _RCGPokemonMap {
         }
     }
     
-    // Disappear Time
-    override public var disappearsDate: NSDate? {
-        didSet {
-            // Safety check
-            guard let disappearsDate = disappearsDate else {
-                return
-            }
-            
-            let currentDate = NSDate()
-            
-            if currentDate < disappearsDate {
-                // In the present
-                self.avaliable = false
-            }
-            else {
-                // In the future
-                self.avaliable = true
-            }
-        }
-    }
-    
-    override public var disappearsTime: NSNumber? {
-        didSet {
-            
-            // Safety check
-            guard let disappearsTime = disappearsTime else {
-                return
-            }
-            
-            // Milli / 1000 = sec
-            let timeInSec: NSTimeInterval = Double(disappearsTime.integerValue / 1000)
-            
-            // Date
-            let dateFromTime = NSDate(timeIntervalSince1970: timeInSec)
-            
-            self.disappearsDate = dateFromTime
-            
-            print(self.disappearsDate)
-        }
-    }
     
 	// MARK: - Fetching logic
     
@@ -117,6 +77,8 @@ public class RCGPokemonMap: _RCGPokemonMap {
             if let _disappearTime = json["disappear_time"].int {
                 
                 self.disappearsTime = _disappearTime
+                
+                self.setDissapearTime(_disappearTime)
             }
             
             if let _encounterID = json["encounter_id"].string {
@@ -135,5 +97,33 @@ public class RCGPokemonMap: _RCGPokemonMap {
                 self.spawnpointID = _spawnpointID
             }
         }
+    }
+    
+    // MARK: - Utility
+    func setDissapearTime(dissapearTime: Int) {
+
+        // Milli / 1000 = sec
+        let timeInSec: NSTimeInterval = Double(dissapearTime / 1000)
+
+        // Date
+        let dateFromTime = NSDate(timeIntervalSince1970: timeInSec)
+        
+        self.setDissapearDate(dateFromTime)
+    }
+    
+    func setDissapearDate(dissapearDate: NSDate) {
+        
+        let currentDate = NSDate()
+
+        if currentDate < disappearsDate {
+            // In the present
+            self.avaliable = false
+        }
+        else {
+            // In the future
+            self.avaliable = true
+        }
+        
+        self.disappearsDate = dissapearDate
     }
 }
