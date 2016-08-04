@@ -1,5 +1,7 @@
 # PokeGO (Pokemon GO)
 
+This is a swift client for the Pokemap server (https://github.com/AHAAAAAAA/PokemonGo-Map)
+
 Pokemon Reference Application + Map location
 
 Fetching Pokemons in the local area (can override location);
