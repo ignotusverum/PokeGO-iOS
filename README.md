@@ -10,4 +10,8 @@ Fetching Pokemon details.
 
 [1]: https://tree.taiga.io/project/ignotusverum-pokemon-go-consumer/kanban
 
+Please follow [this tutorial][2] to setup server.
+
+[2]: https://github.com/AHAAAAAAA/PokemonGo-Map/wiki
+
 ---
