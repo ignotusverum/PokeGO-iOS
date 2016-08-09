@@ -14,6 +14,6 @@ Fetching Pokemon details.
 
 Please follow [this tutorial][2] to setup server.
 
-[2]: httpshttps://pgm.readthedocs.io/en/develop
+[2]: https://pgm.readthedocs.io/en/develop
 
 ---
