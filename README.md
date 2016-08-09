@@ -1,6 +1,6 @@
 # PokeGO (Pokemon GO)
 
-This is a swift client for the Pokemap server (https://github.com/AHAAAAAAA/PokemonGo-Map)
+This is a swift client for the Pokemap server (https://github.com/PokemonGoMap/PokemonGo-Map)
 
 Pokemon Reference Application + Map location
 
@@ -14,6 +14,6 @@ Fetching Pokemon details.
 
 Please follow [this tutorial][2] to setup server.
 
-[2]: https://github.com/AHAAAAAAA/PokemonGo-Map/wiki
+[2]: httpshttps://pgm.readthedocs.io/en/develop
 
 ---
